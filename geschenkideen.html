@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geschenkideengenerator. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Geschenkideen-Website mit KI-Suche. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Geschenkideengenerator. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Geschenkideen-Website mit KI-Suche. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#geschenkideen .projekt__kopf > .einstieg__tut { margin-top: 44px; }
+@media (min-width: 700px) and (max-width: 1023.98px) {
+  #geschenkideen .projekt__kopf > .einstieg__tut { grid-column: 1 / 7; margin-top: 56px; }
+}
+@media (min-width: 1024px) {
+  #geschenkideen .projekt__kopf > .einstieg__tut { grid-column: 2 / 9; grid-row: auto; margin-top: 64px; }
+}
+@media (min-width: 1280px) {
+  #geschenkideen .projekt__kopf > .einstieg__tut { grid-column: 2 / 6; order: 1; margin-top: 30px; }
+  #geschenkideen .projekt__kopf > .abzug--buehne { grid-column: 6 / -2; order: 2; }
+}
+#geschenkideen .zahlen--tabelle { table-layout: fixed; }
+#geschenkideen .zahlen--tabelle thead tr { border-top: 0; }
+#geschenkideen .zahlen--tabelle thead td { width: 34%; padding: 0; }
+#geschenkideen .zahlen--tabelle thead th {
+  width: 22%; padding: 2px 0 8px 8px;
+  font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.25;
+  text-align: right; vertical-align: bottom; white-space: normal;
+}
+#geschenkideen .zahlen--tabelle tbody tr:first-child { border-top: 2px solid var(--tinte); }
+#geschenkideen .zahlen--tabelle tbody th {
+  width: auto; padding: 11px 8px 8px 0;
+  font-family: var(--f-text); font-weight: 600; font-size: 1rem; line-height: 1.25;
+  white-space: normal; vertical-align: baseline;
+}
+#geschenkideen .zahlen--tabelle tbody td {
+  padding: 11px 0 8px 8px;
+  font-family: var(--f-plakat); font-weight: 900; font-size: 2.1rem; line-height: .9;
+  text-align: right; font-variant-numeric: tabular-nums; vertical-align: baseline;
+}
+@container (max-width: 459.98px) {
+  #geschenkideen .zahlen--tabelle :is(thead, tbody) tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 10px; }
+  #geschenkideen .zahlen--tabelle thead td { display: none; }
+  #geschenkideen .zahlen--tabelle thead th { display: block; align-self: end; width: auto; padding: 2px 0 8px; }
+  #geschenkideen .zahlen--tabelle tbody th { display: block; grid-column: 1 / -1; padding: 10px 0 0; }
+  #geschenkideen .zahlen--tabelle tbody td { display: block; padding: 4px 0 8px; }
+}
+@media (min-width: 1024px) {
+  #geschenkideen .punkte--kurz > .punkt, #geschenkideen .punkte--kurz > .punkt:last-child:nth-child(odd) { grid-column: span 6; }
+  #geschenkideen .punkte--kurz > .punkt:first-child { grid-column: 2 / span 6; }
+}
+@media (min-width: 1280px) {
+  #geschenkideen .punkte--kurz > .punkt:first-child { grid-column: 2 / span 5; }
+  #geschenkideen .punkte--kurz > .punkt:last-child { grid-column: span 7; }
+  #geschenkideen .punkte--kurz .zettel { max-width: none; }
+  #geschenkideen .beleg > .beleg__text { grid-column: 2 / 7; }
+  #geschenkideen .beleg > .abzug { grid-column: 8 / -2; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#geschenkideen"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>1</b> <span>Geschenkideengenerator</span></p>
+    <a class="leiste__weiter" href="proteinvergleich.html" aria-label="Weiter: Proteinvergleich">Weiter<span class="leiste__lang">: Proteinvergleich</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="geschenkideen" aria-labelledby="geschenkideen-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 1&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">1</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="geschenkideen-titel">Geschenkideen&shy;generator</h1>
+    </div>
+    <p class="projekt__kurz">Geschenkideen-Website mit KI-Suche</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--live">live</span>
+      <a class="knopf knopf--klein" href="https://geschenkideengenerator.com/" rel="noopener">geschenkideengenerator.com öffnen</a>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--live">Seit dem 04.11.2026 ist die KI-Suche freigeschaltet.</li>
+            <li class="stand--live">Am selben Tag wurde der Katalog zuletzt ergänzt.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>seit 06/2025</dd></div>
+      <div><dt>Online</dt><dd><a href="https://geschenkideengenerator.com/" rel="noopener">geschenkideen<wbr>generator.com</a></dd></div>
+      <div><dt>Mein Anteil</dt><dd>Allein entwickelt, mit Coding-Agenten als Werkzeug: Website, Produktkatalog mit Datenpflege, Geschenkfinder ohne KI und die KI-Suche.</dd></div>
+    </dl>
+
+    <figure class="abzug abzug--buehne">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span></p>
+          <div class="clip" style="--ar: 1280 / 800">
+            <img class="clip__poster" src="assets/geschenkideen/ki-suche-poster.webp" width="1280" height="800" loading="eager" fetchpriority="high" decoding="async" alt="">
+            <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video der KI-Suche. In das Suchfeld wird ein Geschenkwunsch für einen achtjährigen Neffen getippt. Nach wenigen Sekunden erscheinen drei Spiele als Vorschläge.">
+              <source src="assets/geschenkideen/ki-suche-720.mp4" type="video/mp4" media="(max-width: 700px)">
+              <source src="assets/geschenkideen/ki-suche-1280.mp4" type="video/mp4">
+            </video>
+            <noscript><a class="clip__knopf" href="assets/geschenkideen/ki-suche-1280.mp4">Video öffnen</a></noscript>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>1.1</b> Bildschirmaufnahme der Live-Seite vom 12.11.2026: eine KI-Suche in Echtzeit, mit einem erfundenen Beispielwunsch.</figcaption>
+    </figure>
+
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Man beschreibt die Person in ein bis zwei Sätzen, zum Beispiel Alter, Hobbys, Anlass und Budget. Eine KI macht daraus ein festes Suchprofil, und ein Programm wählt bis zu drei Vorschläge aus dem Katalog der Seite. Wer keine KI nutzen möchte, nimmt den Geschenkfinder ohne KI und klickt sich in vier Schritten zum Ergebnis.</p>
+    </div>
+  </header>
+
+  <section class="punkte" aria-labelledby="geschenkideen-punkte">
+    <h2 class="punkte__titel blatt" id="geschenkideen-punkte"><span>Was ich gelöst habe</span></h2>
+
+    <div class="beleg blatt" id="geschenkideen-punkt-1">
+      <div class="beleg__text">
+        <h3><span class="beleg__nr" aria-hidden="true">1</span>Die KI füllt nur ein festes Suchprofil aus</h3>
+        <p>Aus dem Wunsch liest das Sprachmodell nur feste Angaben heraus, etwa Alter, Budget, Anlass, Empfänger, Interessen und Ausschlüsse. Ist der Wunsch unklar, stellt es eine kurze Rückfrage. Die Produkte wählt danach ein Programm aus dem Katalog. So kann die KI keine Produkte erfinden.</p>
+        <p class="wort"><b>Sprachmodell</b> Die Art von KI, die Texte liest und schreibt.</p>
+      </div>
+      <figure class="abzug" data-kreis="40.63,73.68,25.69,7.57" data-notiz-lage="unten-rechts">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span></p>
+            <a class="abzug__bild" href="assets/geschenkideen/wunsch-profil.webp" data-lupe>
+              <img src="assets/geschenkideen/wunsch-profil-900.webp" srcset="assets/geschenkideen/wunsch-profil-900.webp 900w, assets/geschenkideen/wunsch-profil.webp 1800w" sizes="(min-width: 1024px) 52vw, (min-width: 700px) 78vw, 92vw" width="1800" height="950" loading="lazy" decoding="async" alt="Suchfeld mit dem Text „Mein Neffe wird 8 und liebt Brettspiele. Zum Geburtstag, bis 25 Euro.“ Darunter die Zeile mit dem erkannten Profil und der Anfang von drei Produktkarten.">
+            </a>
+          </div>
+          <span class="abzug__ausschnitt"><img src="assets/geschenkideen/wunsch-profil-ausschnitt.webp" width="667" height="52" loading="lazy" decoding="async" alt="Vergrößerte Stelle aus der Zeile mit dem erkannten Profil: 8 Jahre, bis 25 Euro, Gesellschaftsspiele."></span>
+          <p class="abzug__notiz">Nur diese Zeile kommt von der KI.</p>
+        </div>
+        <figcaption><b>1.2</b> Der Wunsch im Suchfeld und darunter das Suchprofil, das die KI daraus gemacht hat.</figcaption>
+      </figure>
+    </div>
+
+    <div class="punkte--kurz blatt">
+      <div class="punkt" id="geschenkideen-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Vier feste Grenzen für die KI-Kosten</h3>
+        <div class="punkt__text">
+          <p>Jeder Besucher und die ganze Seite haben feste Grenzen für die KI-Aufrufe. Ist eine Grenze erreicht, bleibt die Suche ohne KI nutzbar.</p>
+          <div class="zettel">
+            <table class="zahlen">
+              <caption>Grenzen der Kostenbremse</caption>
+              <tbody>
+                <tr><th scope="row">5</th><td>KI-Suchen je Besucher in 10&nbsp;Minuten</td></tr>
+                <tr><th scope="row">20</th><td>KI-Suchen je Besucher am Tag</td></tr>
+                <tr><th scope="row">1</th><td>US-Dollar am Tag für die KI-Aufrufe der ganzen Seite</td></tr>
+                <tr><th scope="row">10</th><td>US-Dollar im Monat für die KI-Aufrufe der ganzen Seite</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="punkt" id="geschenkideen-punkt-3">
+        <h3><span class="punkt__nr" aria-hidden="true">3</span>Testlauf mit 100&nbsp;erfundenen Wünschen</h3>
+        <div class="punkt__text">
+          <p>Am 04.11.2026 habe ich die Suche mit 100&nbsp;erfundenen Geschenkwünschen am echten Sprachmodell testen lassen. Das Modell hat 95&nbsp;von 95&nbsp;eindeutigen Altersangaben richtig erkannt. Gemessen an den gespeicherten Preisen und Altersangaben im Katalog lag kein Vorschlag über dem Budget oder außerhalb der Altersgrenze. Die häufigsten groben Fehlgriffe entstanden nicht beim Modell, sondern in der Auswahl danach: „Probier mal“ wurde als Malbedarf gelesen, „Buchenholz“ als Buch, und derselbe Tee wurde 20-mal vorgeschlagen. Danach habe ich die Auswahl strenger einstellen und für die Lücken 23&nbsp;Produkte in den Katalog aufnehmen lassen. Ob die neuen Treffer gut passen, ist noch nicht geprüft. Die 100&nbsp;Modellaufrufe kosteten zusammen geschätzt 0,0122&nbsp;US-Dollar.</p>
+          <div class="zettel">
+            <table class="zahlen zahlen--tabelle">
+              <caption>100&nbsp;Wünsche, drei Läufe</caption>
+              <thead>
+                <tr><td></td><th scope="col">mit Vorschlägen</th><th scope="col">mit Rückfrage</th><th scope="col">ohne passendes Produkt</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Erster Lauf</th><td>76</td><td>13</td><td>11</td></tr>
+                <tr><th scope="row">Strengere Auswahl</th><td>54</td><td>13</td><td>33</td></tr>
+                <tr><th scope="row">Mit 23&nbsp;neuen Produkten</th><td>83</td><td>13</td><td>4</td></tr>
+              </tbody>
+            </table>
+            <p class="zettel__fuss">Das Modell lief einmal. Zeile 2&nbsp;und 3&nbsp;rechnen die Auswahl mit denselben 100&nbsp;Modellantworten neu, ohne neue Modellaufrufe. Die 23&nbsp;neuen Produkte füllen Lücken genau dieser 100&nbsp;Wünsche. Zeile 3&nbsp;sagt deshalb nichts darüber, wie die Suche bei neuen Wünschen trifft. Die 23&nbsp;haben noch keinen gespeicherten Preis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="blatt">
+      <div class="abzugreihe abzugreihe--drei" data-falten="1">
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span></p>
+              <a class="abzug__bild" href="assets/geschenkideen/vorschlaege.webp" data-lupe>
+                <img src="assets/geschenkideen/vorschlaege-ausschnitt-900.webp" srcset="assets/geschenkideen/vorschlaege-ausschnitt-900.webp 900w, assets/geschenkideen/vorschlaege-ausschnitt.webp 1800w" sizes="(min-width: 1024px) 420px, (min-width: 700px) 31vw, 92vw" width="1800" height="900" loading="lazy" decoding="async" alt="Drei Produktkarten mit den Spielen Qwixx, memory und Carcassonne. Jede Karte zeigt Bild, Begründung, Preis, Altersangabe und den Hinweis Werbung.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>1.3</b> Die drei Vorschläge aus dem Katalog mit Begründung, gespeichertem Preisstand und Altersangabe. Dieselbe Suche wie im Video, am 12.11.2026 als Standbild aufgenommen.</figcaption>
+        </figure>
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span></p>
+              <a class="abzug__bild" href="assets/geschenkideen/finder.webp" data-lupe>
+                <img src="assets/geschenkideen/finder-ausschnitt-900.webp" srcset="assets/geschenkideen/finder-ausschnitt-900.webp 900w, assets/geschenkideen/finder-ausschnitt.webp 1800w" sizes="(min-width: 1024px) 420px, (min-width: 700px) 31vw, 92vw" width="1800" height="900" loading="lazy" decoding="async" alt="Auswahlseite mit acht Kacheln für Vorlieben. Die Kachel „Essen &amp; Genießen“ ist ausgewählt, oben steht die Leiste mit den vier Schritten.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>1.4</b> Der Geschenkfinder ohne KI, Schritt 2&nbsp;von 4.</figcaption>
+        </figure>
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span></p>
+              <a class="abzug__bild" href="assets/geschenkideen/startseite.webp" data-lupe>
+                <img src="assets/geschenkideen/startseite-ausschnitt-900.webp" srcset="assets/geschenkideen/startseite-ausschnitt-900.webp 900w, assets/geschenkideen/startseite-ausschnitt.webp 1800w" sizes="(min-width: 1024px) 420px, (min-width: 700px) 31vw, 92vw" width="1800" height="900" loading="lazy" decoding="async" alt="Startseite des Geschenkideengenerators mit der Überschrift „Kleine Geste. Große Freude. Von Herzen.“, dem Knopf „Geschenk finden“ und einem Bild einer Geschenkübergabe.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>1.5</b> Startseite am 12.11.2026. Das Foto ist ein KI-generiertes Symbolbild und auf der Seite so beschriftet.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>HTML, CSS und JavaScript ohne Framework, Node.js, Python, OpenAI API, Netlify, GitHub Actions</p>
+      <details class="aufbau">
+        <summary>Für Entwickler: Aufbau</summary>
+        <ol class="ablauf">
+          <li>Browser, Eingabe höchstens 800&nbsp;Zeichen</li>
+          <li>Server-Funktion bei Netlify mit Vorfilter: 10&nbsp;Anfragen pro Minute</li>
+          <li>Kostenbremse mit Zählern in Netlify Blobs: je Aufruf 0,003&nbsp;US-Dollar reserviert, genug für den teuersten möglichen Aufruf, ohne Rückbuchung (im Test kostete ein Aufruf rund 0,0001), also höchstens 333&nbsp;KI-Suchen am Tag</li>
+          <li>OpenAI Responses API mit fester Ausgabe nach JSON-Schema (zum Beispiel Alter, Budget, Anlass, Empfänger, Interessen, Ausschlüsse und eine Rückfrage), Option store:&nbsp;false</li>
+          <li>Modell gpt-6-luna</li>
+          <li>Auswahl im Katalog per Programmcode</li>
+          <li>bis zu drei Vorschläge</li>
+        </ol>
+      </details>
+    </div>
+    <div class="belege">
+      <h2 class="rubrik">Zum Nachprüfen</h2>
+      <ul>
+        <li>Katalog mit 1.322&nbsp;Einträgen zu 1.136&nbsp;verschiedenen Amazon-Artikeln (Stand 12.11.2026), durchsuchbar auf <a href="https://geschenkideengenerator.com/" rel="noopener">geschenkideengenerator.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter: Projekt 2&nbsp;von 7</p>
+    <a class="fall-ende__naechstes" href="proteinvergleich.html">
+      <span class="fall-ende__ziffer" aria-hidden="true">2</span>
+      <span class="fall-ende__name">Proteinvergleich</span>
+      <span class="fall-ende__kurz">Preisvergleich für Proteinpulver</span>
+      <img class="fall-ende__bild" src="assets/projekte/proteinvergleich-900.webp" alt="" width="900" height="563" loading="lazy">
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#geschenkideen">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afuku. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Actionspiel für den PC in Unreal Engine 5. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Afuku. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Actionspiel für den PC in Unreal Engine 5. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#afuku { --abschnitt: 48px; }
+@media (min-width: 700px) { #afuku { --abschnitt: 80px; } }
+#afuku .projekt__kopf > .einstieg__tut { margin-top: 28px; }
+#afuku .projekt__ende > .abzugreihe { margin-top: 0; }
+@media (min-width: 700px) and (max-width: 1023.98px) {
+  #afuku .projekt__kopf > .einstieg__tut { grid-column: 1 / 7; margin-top: 40px; }
+  #afuku .projekt__ende > .abzugreihe { grid-column: 1 / -1; grid-row: 1; }
+  #afuku .projekt__ende > .technik { grid-row: 2; }
+}
+@media (min-width: 1024px) {
+  #afuku .projekt__kopf > .abzug--buehne { grid-column: 2 / 8; grid-row: 6; align-self: start; margin-top: 32px; }
+  #afuku .projekt__kopf > .einstieg__tut { grid-column: 8 / -2; grid-row: 6; align-self: start; margin-top: 32px; }
+  #afuku .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
+  #afuku .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #afuku .projekt__ende > .abzugreihe { grid-column: 2 / -2; grid-row: 1; }
+  #afuku .projekt__ende > .technik { grid-row: 2; }
+}
+@media (min-width: 1280px) {
+  #afuku .projekt__ende > .abzugreihe { grid-column: 2 / 8; grid-row: 1; gap: 24px; }
+  #afuku .projekt__ende > .technik { grid-column: 8 / -2; grid-row: 1; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#afuku"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>7</b> <span>Afuku</span></p>
+    <a class="leiste__weiter" href="index.html#ueber-mich" aria-label="Weiter: Über mich und Kontakt">Weiter<span class="leiste__lang">: Über mich und Kontakt</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="afuku" aria-labelledby="afuku-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 7&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">7</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="afuku-titel">Afuku</h1>
+    </div>
+    <p class="projekt__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--bau">in Entwicklung</span>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--bau">Kein öffentlicher Download.</li>
+            <li class="stand--bau">Die Entwicklungsfassung läuft bisher nur intern.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>seit 09/2026</dd></div>
+      <div><dt>Online</dt><dd>nicht öffentlich</dd></div>
+      <div><dt>Mein Anteil</dt><dd>Zu zweit entwickelt, beide mit Coding-Agenten. Mein Teil: Projektleitung und Entscheidungen, der Dungeon mit Gegnern und Bossen, das heutige Aussehen der Hauptfigur samt Kombos und Fähigkeiten, dazu der Neubau der Stadt Eos. Die Kampfbewegungen stammen aus einem Animationspaket von Epic. An der Außenwelt haben beide gebaut, zuletzt vor allem der zweite Entwickler.</dd></div>
+    </dl>
+
+    <figure class="abzug abzug--buehne">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span></p>
+          <a class="abzug__bild" href="assets/afuku/hauptmenue.webp" data-lupe>
+            <img src="assets/afuku/hauptmenue-900.webp" srcset="assets/afuku/hauptmenue-900.webp 900w, assets/afuku/hauptmenue.webp 1600w" sizes="(min-width: 1024px) 46vw, 94vw" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" alt="Titelbild mit dem Schriftzug Afuku und den Menüpunkten Fortsetzen, Neues Spiel, Spielstand laden, Optionen und Beenden. Rechts ein gepflasterter Platz mit Lagerfeuer, gesehen von schräg oben.">
+          </a>
+        </div>
+      </div>
+      <figcaption><b>7.1</b> Hauptmenü des Spiels. Dahinter der Platz der Stadt Eos mit der Hauptfigur Kael.</figcaption>
+    </figure>
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Afuku richtet sich an Leute, die Spiele wie Hades mögen: Man spielt den Schwertkämpfer Kael und sieht ihn von schräg oben. Kael schlägt mit dem Schwert, weicht aus und setzt Fähigkeiten ein, zum Beispiel einen Wirbel oder einen weiten Sprung mit Einschlag. Aus der Stadt Eos steigt man durch ein Portal in einen Dungeon hinab und kämpft sich Raum für Raum bis zum Boss der Ebene. Nach dem Boss wählt man einen von drei Segen als Verstärkung, und wer stirbt oder heimkehrt, landet wieder in der Stadt und startet neu.</p>
+      <div class="woerter">
+        <p class="wort"><b>Dungeon</b> Ein Gewölbe aus vielen Räumen voller Gegner.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="punkte" aria-labelledby="afuku-punkte">
+    <h2 class="punkte__titel blatt" id="afuku-punkte"><span>Was es schon gibt</span></h2>
+    <div class="punkte--kurz blatt">
+      <div class="punkt" id="afuku-punkt-1">
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Agenten arbeiten über MCP-Server direkt in Unreal und Blender</h3>
+        <div class="punkt__text">
+          <p>Die Coding-Agenten greifen über MCP-Server auf den Unreal-Editor und auf Blender zu und schreiben Python-Skripte für Blender. MCP ist eine Schnittstelle, über die KI-Agenten Programme bedienen. So entstehen Levels, Gegner und 3D-Modelle per Skript. Am 27.09.2026 habe ich die Stadt Eos neu bauen lassen: 61&nbsp;Modellteile und 15&nbsp;Textursätze, alle per Skript in Blender. Neben eigenen 3D-Modellen nutzt das Spiel auch fertige Grafikpakete.</p>
+        </div>
+      </div>
+      <div class="punkt" id="afuku-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Eine Stadt und vier Dungeon-Ebenen</h3>
+        <div class="punkt__text">
+          <p>Es gibt die Stadt Eos als Ausgangspunkt und vier Dungeon-Ebenen, jede mit einem Thema und einem Boss am Ende. Dazu kommen 322&nbsp;automatisierte Tests für die Spielregeln im gemeinsamen Projekt. Laut Projekt-Audit vom 10.11.2026 läuft das alles technisch, durchgespielt hat den aktuellen Stand aber noch kein Mensch. Am selben Tag habe ich den Kern für die nächsten acht Wochen festgelegt: die Stadt Eos, Ebene&nbsp;1&nbsp;und ein Boss, für einen Spieler.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="abzugreihe" data-falten="1">
+      <figure class="abzug">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Testlauf</span></p>
+            <a class="abzug__bild" href="assets/afuku/segen-auswahl.webp" data-lupe>
+              <img src="assets/afuku/segen-auswahl-900.webp" srcset="assets/afuku/segen-auswahl-900.webp 900w, assets/afuku/segen-auswahl.webp 1600w" sizes="(min-width: 1280px) 23vw, (min-width: 700px) 46vw, 92vw" width="1600" height="900" loading="lazy" decoding="async" alt="Drei Karten nebeneinander mit den Segen Vergeltung, Scharfe Präzision und Brennende Schneide, jede mit Symbol und kurzer Beschreibung.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>7.2</b> Aus einem automatisierten Testlauf: Nach dem Boss von Ebene&nbsp;4&nbsp;stehen drei Segen zur Wahl für den nächsten Versuch.</figcaption>
+      </figure>
+      <figure class="abzug">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Afuku</span></p>
+            <a class="abzug__bild" href="assets/afuku/kael-in-eos.webp" data-lupe>
+              <img src="assets/afuku/kael-in-eos-900.webp" srcset="assets/afuku/kael-in-eos-900.webp 900w, assets/afuku/kael-in-eos.webp 1280w" sizes="(min-width: 1280px) 23vw, (min-width: 700px) 46vw, 92vw" width="1280" height="720" loading="lazy" decoding="async" alt="Ein Kämpfer mit rotem Schal, großem Schrottschwert und rundem Schild steht auf einem gepflasterten Platz.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>7.3</b> Die Hauptfigur Kael in der Stadt Eos, Stand 27.09.2026, mit frei aufgestellter Kamera statt der Spielkamera. Die Figur entstand mit einem Bildgenerator und einem 3D-Generator.</figcaption>
+      </figure>
+    </div>
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>Unreal Engine&nbsp;5, C++, Blender mit Python-Skripten, MCP-Server, Git</p>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter</p>
+    <a class="fall-ende__naechstes" href="index.html#ueber-mich">
+      <span class="fall-ende__name">Über mich und Kontakt</span>
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#afuku">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>

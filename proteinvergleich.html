@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proteinvergleich. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Preisvergleich für Proteinpulver. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Proteinvergleich. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Preisvergleich für Proteinpulver. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#proteinvergleich .projekt__kopf .zahlen th { font-size: 2.1rem; padding-right: 16px; }
+#proteinvergleich .projekt__kopf .zahlen td { padding-top: 10px; }
+#proteinvergleich .projekt__kopf > .einstieg__tut { margin-top: 44px; }
+#proteinvergleich .balken dl > div { grid-template-columns: 7.6rem minmax(0, 1fr); }
+#proteinvergleich .balken dt { white-space: nowrap; }
+#proteinvergleich .punkt__text > .balken { margin-top: 22px; }
+@media (min-width: 700px) {
+  #proteinvergleich .projekt__kopf .zahlen th { font-size: 2.5rem; }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #proteinvergleich .projekt__kopf .zahlen th { font-size: 2.1rem; }
+}
+@media (min-width: 700px) and (max-width: 1023.98px) {
+  #proteinvergleich .projekt__kopf > .einstieg__tut { grid-column: 1 / 7; margin-top: 56px; }
+}
+@media (min-width: 1024px) {
+  #proteinvergleich .projekt__kopf > .zettel { grid-column: 2 / 7; max-width: none; }
+  #proteinvergleich .projekt__kopf > .abzug--buehne { grid-column: 7 / -2; grid-row: span 2; }
+  #proteinvergleich .projekt__kopf > .einstieg__tut { grid-column: 2 / 7; grid-row: auto; margin-top: 52px; }
+  #proteinvergleich .punkte--kurz > .punkt:nth-child(1) { grid-column: 2 / 8; }
+  #proteinvergleich .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
+}
+@media (min-width: 1280px) {
+  #proteinvergleich .punkte--kurz > .punkt:nth-child(1) { grid-column: 2 / 9; }
+  #proteinvergleich .punkte--kurz > .punkt:nth-child(2) { grid-column: 10 / -2; }
+  #proteinvergleich .punkte--kurz > .punkt:nth-child(1) > .punkt__text {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; align-items: start;
+  }
+  #proteinvergleich .punkt__text > .balken { margin-top: 5px; max-width: none; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#proteinvergleich"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>2</b> <span>Proteinvergleich</span></p>
+    <a class="leiste__weiter" href="zodiacally.html" aria-label="Weiter: Zodiacally">Weiter<span class="leiste__lang">: Zodiacally</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="proteinvergleich" aria-labelledby="proteinvergleich-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 2&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">2</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="proteinvergleich-titel">Protein&shy;vergleich</h1>
+    </div>
+    <p class="projekt__kurz">Preisvergleich für Proteinpulver</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--live">live</span>
+      <a class="knopf knopf--klein" href="https://www.proteinvergleich.com/" rel="noopener">proteinvergleich.com öffnen</a>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--live">Preise, Prüfdaten und Bilder auf dieser Seite: Stand 12.11.2026.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>seit 11/2026</dd></div>
+      <div><dt>Online</dt><dd><a href="https://www.proteinvergleich.com/" rel="noopener">protein<wbr>vergleich.com</a></dd></div>
+      <div><dt>Mein Anteil</dt><dd>Allein entwickelt, mit Coding-Agenten als Werkzeug: Vergleichstabelle, tägliche Preisprüfung und Betrieb der Seite.</dd></div>
+    </dl>
+
+    <div class="zettel">
+      <table class="zahlen">
+        <caption>Start und Ausbau</caption>
+        <tbody>
+          <tr><th scope="row">11:26&nbsp;Uhr</th><td>01.11.2026: leeres Projekt angelegt</td></tr>
+          <tr><th scope="row">13:50&nbsp;Uhr</th><td>online, mit 123&nbsp;Pulvern von 20&nbsp;Marken</td></tr>
+          <tr><th scope="row">1.000</th><td>Besucher am ersten Tag</td></tr>
+          <tr><th scope="row">269</th><td>Pulver von 48&nbsp;Marken am Ende des ersten Tages</td></tr>
+          <tr><th scope="row">439</th><td>Pulver von 79&nbsp;Marken am 04.11.2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <figure class="abzug abzug--buehne">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>proteinvergleich.com</span></p>
+          <div class="clip" style="--ar: 1280 / 800">
+            <img class="clip__poster" src="assets/proteinvergleich/produktseite-poster.webp" width="1280" height="800" loading="eager" fetchpriority="high" decoding="async" alt="">
+            <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video einer Produktseite von Proteinvergleich. Die Seite läuft nach unten zum Preisverlauf und zu einer Punktreihe der Kilopreise. Am Ende klappt die Liste der Kilopreise auf.">
+              <source src="assets/proteinvergleich/produktseite-720.mp4" type="video/mp4" media="(max-width: 700px)">
+              <source src="assets/proteinvergleich/produktseite-1280.mp4" type="video/mp4">
+            </video>
+            <noscript><a class="clip__knopf" href="assets/proteinvergleich/produktseite-1280.mp4">Video öffnen</a></noscript>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>2.1</b> Bildschirmaufnahme der Live-Seite vom 12.11.2026: Produktseite mit Preisverlauf und Einordnung.</figcaption>
+    </figure>
+
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Wer Proteinpulver kaufen will, sieht sofort, welches Pulver pro Kilo am wenigsten kostet. Die Tabelle lässt sich durchsuchen, filtern und sortieren, zum Beispiel nur vegane Pulver ohne künstliche Süßstoffe. Jedes Pulver hat eine Produktseite mit Packungsgrößen, Nährwerten und Preisverlauf, und zwei bis vier Pulver lassen sich direkt nebeneinanderstellen.</p>
+    </div>
+  </header>
+
+  <section class="punkte" aria-labelledby="proteinvergleich-punkte">
+    <h2 class="punkte__titel blatt" id="proteinvergleich-punkte"><span>Was ich gelöst habe</span></h2>
+    <div class="punkte--kurz blatt">
+      <div class="punkt" id="proteinvergleich-punkt-1">
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Jeden Morgen ein Preislauf, mit Prüfdatum an jedem Pulver</h3>
+        <div class="punkt__text">
+          <p>Am 12.11.2026 hat der Lauf die Preise von 220&nbsp;der 439&nbsp;Pulver bestätigt. Bei 89&nbsp;Pulvern (Stand 04.11.2026) prüft der Lauf nicht automatisch, weil der Shop den Abruf sperrt oder seine Preise nicht maschinenlesbar zeigt. Bei den übrigen hat die letzte Prüfung nicht geklappt. Dort steht ein älteres Prüfdatum, bei 189&nbsp;Pulvern der 01.11.2026. Auf der Produktseite steht, wie und wann der Preis geprüft wurde.</p>
+          <figure class="balken">
+            <figcaption class="balken__titel">Datum der letzten Preisprüfung</figcaption>
+            <dl>
+              <div style="--wert: 50.1"><dt>12.11.2026</dt><dd><span><span class="balken__zahl">220</span> Pulver</span></dd></div>
+              <div style="--wert: 6.8"><dt>02. bis 11.11.2026</dt><dd><span><span class="balken__zahl">30</span> Pulver</span></dd></div>
+              <div style="--wert: 43.1"><dt>01.11.2026</dt><dd><span><span class="balken__zahl">189</span> Pulver</span></dd></div>
+              <div class="balken__mass" style="--wert: 100"><dt>Alle</dt><dd><span><span class="balken__zahl">439</span> Pulver</span></dd></div>
+            </dl>
+          </figure>
+        </div>
+      </div>
+      <div class="punkt" id="proteinvergleich-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Preis nur gegen ähnliche Packungsgrößen eingeordnet</h3>
+        <div class="punkt__text">
+          <p>Jede Produktseite zeigt in einem Satz, wo das Pulver preislich unter den anderen seiner Kategorie mit ähnlicher Packungsgröße liegt, zum Beispiel „günstiger als bei 44&nbsp;von 75&nbsp;anderen Produkten“.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blatt">
+      <div class="abzugreihe" data-falten="1">
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>proteinvergleich.com</span></p>
+              <a class="abzug__bild" href="assets/proteinvergleich/regal.webp" data-lupe>
+                <img src="assets/proteinvergleich/regal-900.webp" srcset="assets/proteinvergleich/regal-900.webp 900w, assets/proteinvergleich/regal.webp 1800w" sizes="(min-width: 1024px) 46vw, (min-width: 700px) 46vw, 92vw" width="1800" height="1125" loading="lazy" decoding="async" alt="Abschnitt „Wo steht das Produkt im Regal?“ mit einer Punktreihe von 76 Whey-Produkten nach Kilopreis. Das gewählte Produkt ist gelb markiert, darüber steht der Satz, dass es günstiger ist als 44 von 75 anderen.">
+              </a>
+            </div>
+            <span class="abzug__ausschnitt"><img src="assets/proteinvergleich/regal-ausschnitt.webp" width="1000" height="111" loading="lazy" decoding="async" alt="Vergrößerte Zeilen aus dem Bild. Dort steht: Das ist günstiger als bei 44 von 75 anderen Produkten."></span>
+          </div>
+          <figcaption><b>2.2</b> Produktseite am 12.11.2026, Abschnitt „Wo steht das Produkt im Regal?“.</figcaption>
+        </figure>
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>proteinvergleich.com</span></p>
+              <a class="abzug__bild" href="assets/proteinvergleich/tabelle-vegan.webp" data-lupe>
+                <img src="assets/proteinvergleich/tabelle-vegan-900.webp" srcset="assets/proteinvergleich/tabelle-vegan-900.webp 900w, assets/proteinvergleich/tabelle-vegan.webp 1800w" sizes="(min-width: 1024px) 46vw, (min-width: 700px) 46vw, 92vw" width="1800" height="1125" loading="lazy" decoding="async" alt="Tabelle mit 51 Proteinpulvern, gefiltert auf vegan, ohne künstliche Süßstoffe und eine Packungsgröße. Jede Zeile zeigt Marke, Produkt, ein gelbes Preisschild, den Proteingehalt und die Nährwerte.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>2.3</b> Die Vergleichstabelle am 12.11.2026, gefiltert auf vegane Pulver ohne künstliche Süßstoffe und sortiert nach Preis pro Gramm Protein. Die Zahlen an den Kategorien gelten für den gesetzten Filter.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>Next.js, React, TypeScript, Tailwind CSS, Vercel, GitHub Actions</p>
+      <details class="aufbau">
+        <summary>Für Entwickler: Aufbau</summary>
+        <ol class="ablauf">
+          <li>Preislauf in GitHub Actions, jeden Morgen um 04:17&nbsp;UTC</li>
+          <li>Produktdaten als JSON-Dateien im Repository, keine Datenbank</li>
+          <li>Prüfskript vor jedem Bau</li>
+          <li>Next.js, gebaut und gehostet bei Vercel</li>
+          <li>Vergleichstabelle und Produktseiten</li>
+        </ol>
+      </details>
+    </div>
+    <div class="belege">
+      <h2 class="rubrik">Zum Nachprüfen</h2>
+      <ul>
+        <li>Beispiel einer Produktseite mit Prüfdatum: <a href="https://www.proteinvergleich.com/produkte/big-zone-battle-isolate" rel="noopener">proteinvergleich.com/<wbr>produkte/<wbr>big-zone-battle-isolate</a></li>
+        <li><a href="https://www.proteinvergleich.com/vergleich?ids=myprotein-impact-whey-protein,esn-designer-whey-protein,bodylab24-whey-protein" rel="noopener">Beispielvergleich von drei Whey-Pulvern</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter: Projekt 3&nbsp;von 7</p>
+    <a class="fall-ende__naechstes" href="zodiacally.html">
+      <span class="fall-ende__ziffer" aria-hidden="true">3</span>
+      <span class="fall-ende__name">Zodiacally</span>
+      <span class="fall-ende__kurz">Astrologie-Plattform als Website und Android-App, mit eigener Rechenengine und KI-Texten</span>
+      <img class="fall-ende__bild" src="assets/projekte/zodiacally-900.webp" alt="" width="842" height="900" loading="lazy">
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#proteinvergleich">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>

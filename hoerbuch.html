@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hörbuch-Shop. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Hörbuch-Shop. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#hoerbuch { --abschnitt: 48px; }
+@media (min-width: 700px) { #hoerbuch { --abschnitt: 80px; } }
+#hoerbuch .einstieg__tut > p, #hoerbuch .hoerbuch__waldtext > p { max-width: 34em; }
+#hoerbuch .hoerbuch__waldtext > .woerter { margin-top: 14px; }
+#hoerbuch .hoerbuch__buehne figcaption { text-wrap: balance; }
+#hoerbuch .hoerbuch__buehne .abzug__bild img { aspect-ratio: 16 / 10; object-fit: cover; }
+@media (min-width: 700px) and (max-width: 1023.98px) {
+  #hoerbuch .einstieg__tut { grid-column: 1 / -1; grid-row: 1; }
+  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 1 / 5; grid-row: 2; }
+  #hoerbuch .hoerbuch__waldtext { grid-column: 5 / -1; grid-row: 2; align-self: center; }
+}
+@media (min-width: 1024px) {
+  #hoerbuch .einstieg { margin-top: 40px; grid-template-rows: auto 1fr; row-gap: 20px; }
+  #hoerbuch .projekt__kopf > .hoerbuch__buehne { grid-column: 3 / -2; }
+  #hoerbuch .einstieg__tut { grid-column: 2 / 9; grid-row: 1; }
+  #hoerbuch .hoerbuch__waldtext { grid-column: 2 / 9; grid-row: 2; align-self: start; }
+  #hoerbuch .hoerbuch__waldtext > .woerter { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 9 / -2; grid-row: 1 / span 2; align-self: start; }
+  #hoerbuch .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
+  #hoerbuch .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #hoerbuch .einstieg__tut { grid-column: 2 / 8; }
+  #hoerbuch .hoerbuch__waldtext { grid-column: 2 / 8; }
+  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 8 / -2; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#hoerbuch"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>6</b> <span>Hörbuch-Shop</span></p>
+    <a class="leiste__weiter" href="afuku.html" aria-label="Weiter: Afuku">Weiter<span class="leiste__lang">: Afuku</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="hoerbuch" aria-labelledby="hoerbuch-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 6&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">6</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="hoerbuch-titel">Hörbuch-Shop</h1>
+    </div>
+    <p class="projekt__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--live">live</span>
+      <a class="knopf knopf--klein" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Shop öffnen</a>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--live">Der Shop ist seit dem 23.10.2026 geöffnet.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>Autoren-Website seit 05/2026, Shop seit 10/2026</dd></div>
+      <div><dt>Online</dt><dd><a href="https://alekskavalenko.de/hoerbuch" rel="noopener">alekskavalenko.de/<wbr>hoerbuch</a></dd></div>
+      <div><dt>Mein Anteil</dt><dd>Allein entwickelt, mit Coding-Agenten als Werkzeug: Autoren-Website und Hörbuch-Shop mit Bezahlung und Download.</dd></div>
+    </dl>
+
+    <div class="abzugreihe hoerbuch__buehne" data-falten="1">
+      <figure class="abzug abzug--buehne">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>alekskavalenko.de/<wbr>hoerbuch</span></p>
+            <a class="abzug__bild" href="assets/hoerbuch/kaufen.webp" data-lupe>
+              <img src="assets/hoerbuch/kaufen-900.webp" srcset="assets/hoerbuch/kaufen-900.webp 900w, assets/hoerbuch/kaufen.webp 1800w" sizes="(min-width: 1024px) 640px, (min-width: 700px) 46vw, 94vw" width="1800" height="1125" loading="eager" fetchpriority="high" decoding="async" alt="Links eine Liste mit den Vorteilen des Direktkaufs, rechts ein Bestellformular mit leerem E-Mail-Feld, Produktbeschreibung und Gesamtpreis.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>6.1</b> Kaufbereich mit der Bestellbox am 12.11.2026. Der Preis im Bild ist ein befristetes Angebot.</figcaption>
+      </figure>
+      <figure class="abzug abzug--buehne">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Download-Seite</span><span>Testkauf</span></p>
+            <a class="abzug__bild" href="assets/hoerbuch/download-seite.webp" data-lupe>
+              <img src="assets/hoerbuch/download-seite-900.webp" srcset="assets/hoerbuch/download-seite-900.webp 900w, assets/hoerbuch/download-seite.webp 1348w" sizes="(min-width: 1024px) 640px, (min-width: 700px) 46vw, 94vw" width="1348" height="830" loading="lazy" decoding="async" alt="Seite „Dein Hörbuch“ mit zwei Kästen zum Herunterladen: alles in einer Datei als M4B und einzelne Kapitel als MP3.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>6.2</b> Die Download-Seite nach dem Testkauf mit echter Zahlung vom 23.10.2026.</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <div class="einstieg hoerbuch__einstieg blatt">
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Über diesen Shop verkaufe ich das Hörbuch „Die Lichtung“ direkt, ohne Verkaufsplattform, unter meinem Autorennamen Aleks Kavalenko. Besucher können zuerst kostenlos reinhören: in eine Hörprobe von knapp vier Minuten und in ein ganzes Kapitel. Wer kauft, bestellt direkt im Shop und zahlt über den Zahlungsdienst Stripe. Danach erscheint der Download-Link, und er kommt zusätzlich per E-Mail.</p>
+      <p>Das Hörbuch dauert 8&nbsp;Stunden 18&nbsp;Minuten und hat 32&nbsp;Abschnitte: 29&nbsp;Kapitel, dazu Eröffnung, Vorwort und Abspann. Laut Shop sprechen 13&nbsp;KI-Stimmen 16&nbsp;Rollen. Der Romantext ist ebenfalls mit KI entstanden.</p>
+    </div>
+    <figure class="abzug hoerbuch__wald">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>alekskavalenko.de/<wbr>hoerbuch</span></p>
+          <div class="clip" style="--ar: 1280 / 800">
+            <img class="clip__poster" src="assets/hoerbuch/hoerprobe-wald-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="">
+            <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video der Shop-Seite. Die Hörprobe startet, die Bäume der Wellenform färben sich rot.">
+              <source src="assets/hoerbuch/hoerprobe-wald-720.mp4" type="video/mp4" media="(max-width: 700px)">
+              <source src="assets/hoerbuch/hoerprobe-wald-1280.mp4" type="video/mp4">
+            </video>
+            <noscript><a class="clip__knopf" href="assets/hoerbuch/hoerprobe-wald-1280.mp4">Video öffnen</a></noscript>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>6.3</b> Bildschirmaufnahme der Live-Seite vom 12.11.2026: Hörprobe starten und im Wald vorspringen.</figcaption>
+    </figure>
+    <div class="hoerbuch__waldtext">
+      <p>Die Hörprobe erscheint als Wald, gebaut aus der Wellenform der Aufnahme. Was schon gehört ist, färbt sich rot. Ein Klick in den Wald springt an die Stelle.</p>
+      <div class="woerter">
+        <p class="wort"><b>Wellenform</b> Das Bild einer Aufnahme: Laute Stellen sind hoch, leise sind flach.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="punkte" aria-labelledby="hoerbuch-punkte">
+    <h2 class="punkte__titel blatt" id="hoerbuch-punkte"><span>Was ich gelöst habe</span></h2>
+    <div class="punkte--kurz blatt">
+      <div class="punkt" id="hoerbuch-punkt-1">
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Kauf und Auslieferung ohne Verkaufsplattform</h3>
+        <div class="punkt__text">
+          <p>Nach der Zahlung meldet Stripe den Kauf an den Shop (Webhook). Der Shop prüft bei jeder Zahlungsmeldung, ob sie wirklich von Stripe kommt (Signatur). Kommt dieselbe Meldung zweimal an, wird die Bestellung trotzdem nur einmal ausgeliefert. Die Hörbuch-Dateien liegen in einem privaten Speicher und werden nur über befristete Links ausgeliefert: Ein Link gilt 30&nbsp;Tage und höchstens 10-mal je Format, ein neuer lässt sich bis 24&nbsp;Monate nach dem Kauf anfordern.</p>
+        </div>
+      </div>
+      <div class="punkt" id="hoerbuch-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Testkauf mit echter Kartenzahlung</h3>
+        <div class="punkt__text">
+          <p>Am 23.10.2026 habe ich den ganzen Ablauf mit einem Testkauf geprüft, bezahlt mit echter Karte: Zahlung, Bestellmail, Rechnung und beide Downloads. Beide Downloads wurden dabei per Prüfsumme, einer Art Fingerabdruck der Datei, mit den Originalen verglichen. Dazu kommen 475&nbsp;automatisierte Tests für den Shop, alle bestanden (Prüfprotokoll vom 23.10.2026).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>Next.js, React, TypeScript, Stripe, Cloudflare R2, Upstash Redis, Resend, Vercel, ElevenLabs</p>
+      <details class="aufbau">
+        <summary>Für Entwickler: Aufbau</summary>
+        <ol class="ablauf">
+          <li>Bestellformular</li>
+          <li>Stripe Hosted Checkout</li>
+          <li>Webhook an den Shop</li>
+          <li>Bestellmail über Resend mit befristetem Link</li>
+          <li>Download aus privatem Speicher bei Cloudflare R2</li>
+        </ol>
+        <p>Zähler, Sperren und Ratenlimits liegen in Upstash Redis.</p>
+      </details>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter: Projekt 7&nbsp;von 7</p>
+    <a class="fall-ende__naechstes" href="afuku.html">
+      <span class="fall-ende__ziffer" aria-hidden="true">7</span>
+      <span class="fall-ende__name">Afuku</span>
+      <span class="fall-ende__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</span>
+      <img class="fall-ende__bild" src="assets/projekte/afuku-900.webp" alt="" width="900" height="563" loading="lazy">
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#hoerbuch">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>

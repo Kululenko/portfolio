@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Portfolio von Aleks Paramonov, AI Developer in Hamburg. Web-Anwendungen, Apps und KI-Funktionen, gebaut mit Coding-Agenten. Sieben Projekte, vier live.">
+<meta property="og:title" content="Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Portfolio von Aleks Paramonov, AI Developer in Hamburg. Web-Anwendungen, Apps und KI-Funktionen, gebaut mit Coding-Agenten. Sieben Projekte, vier live.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#oben .kopf__portrait {
+  border: 2px solid var(--tinte);
+  padding: var(--passepartout);
+  background: var(--zettel);
+  box-shadow: none;
+}
+#oben .kopf__portrait img { width: 100%; height: auto; aspect-ratio: 435 / 580; object-fit: cover; }
+#oben.kopf.blatt { padding-bottom: 0; }
+#oben .kopf__link {
+  display: inline-flex; align-items: center; gap: .35em; min-height: 44px;
+  font-family: var(--f-etikett); font-weight: 700; font-size: .875rem; line-height: 1.15;
+  text-decoration-line: underline; text-decoration-color: var(--gruen); text-decoration-thickness: 3px; text-underline-offset: .3em;
+}
+@media (hover: hover) and (pointer: fine) {
+  #oben .kopf__link:hover { text-decoration-color: var(--tinte); }
+}
+#oben .kopf__link[href^="http"] { position: relative; padding-right: 1.35em; }
+#oben .kopf__link[href^="http"]::after {
+  content: "\2197" / ""; font-size: 1.1em; line-height: 1;
+  position: absolute; right: 0; top: 50%; translate: 0 -50%;
+}
+#oben .kopf__knoepfe { align-items: center; }
+#oben .kopf__fakten { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#oben .kopf__fakten > div:last-child { grid-column: 1 / -1; }
+#oben .kopf__fakten dd { text-wrap: balance; }
+#oben .kopf__werdegang {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 16px;
+  margin-top: 18px; border-top: 1px solid var(--tinte);
+}
+#oben .kopf__etikett { grid-column: 1; grid-row: 1; font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.3; }
+#oben .kopf__werdegang .kopf__link { grid-column: 2; grid-row: 1; }
+#oben .kopf__werdegang ol { grid-column: 1 / -1; grid-row: 2; }
+#oben .kopf__werdegang li { font-size: 1rem; line-height: 1.35; }
+#oben .kopf__werdegang li + li { margin-top: 6px; }
+#oben .kopf__werdegang b { margin-right: .3em; font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.3; letter-spacing: .01em; white-space: nowrap; }
+@media (max-width: 699.98px) {
+  #oben.kopf.blatt { grid-template-columns: minmax(0, 1fr) 30%; column-gap: 16px; }
+  #oben .kopf__rolle { grid-column: 1; grid-row: 2; align-self: start; }
+  #oben .kopf__portrait { grid-column: 2; grid-row: 2; align-self: start; margin: 10px 4px 0 0; }
+  #oben .kopf__satz { grid-column: 1 / -1; grid-row: 3; margin-top: 16px; }
+  #oben .kopf__knoepfe { grid-row: 4; gap: 8px 20px; margin-top: 16px; }
+  #oben .kopf__knoepfe .knopf { flex: 1 1 100%; }
+  #oben .kopf__fakten { grid-row: 5; margin-top: 16px; }
+  #oben .kopf__fakten > div { padding: 6px 0 7px; }
+  #oben .kopf__werdegang { grid-row: 6; margin-top: 14px; }
+  #oben .kopf__werdegang ol { padding-bottom: 6px; }
+  #oben .kopf__werdegang li + li { margin-top: 4px; }
+  #oben .lage { grid-row: 7; grid-template-columns: minmax(0, 1fr); margin-top: 12px; }
+  #oben .lage a { display: flex; flex-wrap: wrap; align-items: center; column-gap: 6px; row-gap: 0; min-height: 44px; padding: 2px 0; }
+  #oben .lage__nr { flex: 0 0 1.3rem; font-size: 1.9rem; }
+  #oben .lage__name { flex: 1 0 auto; }
+  #oben .lage .stand { margin-left: auto; gap: .45em; text-align: right; white-space: nowrap; }
+}
+@media (max-width: 359.98px) {
+  #oben .kopf__fakten dt { letter-spacing: .02em; }
+  #oben .lage__name { flex-basis: calc(100% - 1.3rem - 6px); }
+  #oben .lage .stand { margin-left: calc(1.3rem + 6px); text-align: left; }
+}
+@media (min-width: 700px) {
+  #oben .kopf__portrait { grid-column: 7 / -1; grid-row: 2 / span 2; align-self: start; justify-self: end; width: 100%; margin: 28px 6px 0 0; box-shadow: none; }
+  #oben .kopf__satz { grid-column: 1 / 7; grid-row: 2; }
+  #oben .kopf__knoepfe { grid-column: 1 / 7; grid-row: 3; gap: 12px 24px; }
+  #oben .kopf__fakten { grid-column: 1 / -1; grid-row: 4; grid-template-columns: repeat(6, minmax(0, 1fr)); justify-content: stretch; column-gap: 20px; }
+  #oben .kopf__fakten > div { grid-column: span 2; }
+  #oben .kopf__fakten > div:last-child { grid-column: span 4; }
+  #oben .kopf__werdegang { grid-column: 1 / -1; grid-row: 5; margin-top: 22px; }
+  #oben .lage { grid-row: 6; }
+  #oben .kopf__werdegang ol { padding-bottom: 6px; }
+  #oben .kopf__werdegang li + li { margin-top: 4px; }
+}
+@media (min-width: 1024px) {
+  #oben.kopf.blatt { grid-template-rows: none; padding-top: 10px; }
+  #oben .kopf__namefeld { grid-column: 2 / 11; grid-row: 1; }
+  #oben .kopf__name { font-size: max(4.5rem, min(25.1cqi, calc((100vh - 545px) / 1.6))); }
+  #oben .kopf__rolle { grid-column: 2 / 11; grid-row: 2; margin-top: 12px; }
+  #oben .kopf__satz { grid-column: 2 / 11; grid-row: 3; margin-top: 12px; max-width: none; padding-right: 12px; }
+  #oben .kopf__portrait {
+    grid-column: 11 / -2; grid-row: 1 / span 3; align-self: end; justify-self: end;
+    width: min(100%, max(140px, calc(100vh - 470px))); margin: 0 4px 0 0; z-index: auto;
+  }
+  #oben .kopf__knoepfe { grid-column: 2 / -2; grid-row: 4; margin-top: 16px; }
+  #oben .kopf__fakten { grid-column: 2 / -2; grid-row: 5; margin-top: 14px; column-gap: 24px; }
+  #oben .kopf__fakten > div { padding-top: 9px; }
+  #oben .kopf__fakten dd { font-size: clamp(1.15rem, 1.5vw, 1.4rem); }
+  #oben .kopf__werdegang { grid-column: 2 / -2; grid-row: 6; margin-top: 10px; padding-top: 2px; align-items: start; }
+  #oben .kopf__etikett { padding-top: 6px; }
+  #oben .kopf__werdegang .kopf__link { min-height: 0; padding: 5px 0 4px; }
+  #oben .kopf__werdegang ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 0; margin-top: 2px; padding-bottom: 0; }
+  #oben .kopf__werdegang li + li { margin-top: 0; }
+  #oben .kopf__werdegang li { font-size: .9rem; line-height: 1.3; padding: 0 10px; border-left: 1px solid var(--linie); }
+  #oben .kopf__werdegang li:first-child { padding-left: 0; border-left: 0; }
+  #oben .kopf__werdegang b { display: block; margin: 0 0 2px; }
+  #oben .lage { grid-row: 7; margin-top: 10px; }
+  #oben .lage a { min-height: 44px; padding-top: 7px; }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #oben .lage { grid-template-columns: repeat(4, minmax(0, 1fr)); justify-content: stretch; column-gap: 20px; }
+}
+@media (min-width: 1280px) {
+  #oben .kopf__name { font-size: max(4.5rem, min(25.1cqi, calc((100vh - 512px) / 1.6))); }
+  #oben .kopf__zusatz { max-width: none; white-space: nowrap; }
+  #oben .kopf__fakten { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 24px; }
+  #oben .kopf__fakten > div, #oben .kopf__fakten > div:last-child { grid-column: auto; }
+  #oben .kopf__werdegang { grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: auto 1fr; column-gap: 24px; padding-top: 8px; }
+  #oben .kopf__etikett { grid-column: 1; grid-row: 1; padding-top: 1px; }
+  #oben .kopf__werdegang .kopf__link { grid-column: 1; grid-row: 2; align-self: end; justify-self: start; padding: 0 0 5px; }
+  #oben .kopf__werdegang ol { grid-column: 2 / -1; grid-row: 1 / span 2; margin-top: 0; grid-template-columns: subgrid; column-gap: normal; }
+  #oben .kopf__werdegang li,
+  #oben .kopf__werdegang li:first-child { position: relative; font-size: .98rem; padding: 0; border-left: 0; }
+  #oben .kopf__werdegang li::before { content: ""; position: absolute; top: 0; bottom: 0; left: -12px; border-left: 1px solid var(--linie); }
+}
+</style>
+<style>
+#arbeitsweise { margin-top: 48px; padding-block: 32px 36px; }
+#arbeitsweise a { text-decoration-color: var(--tinte); }
+#arbeitsweise .leitsatz { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: 1fr auto auto; align-items: end; }
+#arbeitsweise .leitsatz span { font-size: 7.6cqi; }
+#arbeitsweise .leitsatz span:nth-child(1) { grid-column: 1; grid-row: 1; align-self: end; padding-right: 2.4cqi; }
+#arbeitsweise .leitsatz span:nth-child(2) { grid-column: 1; grid-row: 2; padding-right: 2.4cqi; }
+#arbeitsweise .leitsatz .leitsatz__tests { grid-column: 2; grid-row: 1 / span 2; font-size: 28.4cqi; line-height: .74; margin: 0; align-self: end; }
+#arbeitsweise .leitsatz span:nth-child(4) { grid-column: 2; grid-row: 3; }
+#arbeitsweise .arbeit__neben { margin-top: 16px; min-width: 0; }
+#arbeitsweise .arbeit__absatz { font-size: 1.0625rem; line-height: 1.45; font-weight: 500; max-width: 34em; text-wrap: pretty; }
+#arbeitsweise .wort { color: var(--tinte); border-left-color: var(--tinte); }
+#arbeitsweise .arbeit__wort { margin-top: 12px; }
+#arbeitsweise .schritte { margin-top: 20px; }
+#arbeitsweise .schritte li { grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; align-content: start; padding: 7px 0 8px; }
+#arbeitsweise .schritte li::before { grid-row: 1; font-size: 1.5rem; line-height: 1; margin: 0; }
+#arbeitsweise .schritte b { grid-column: 2; font-size: 1.5rem; line-height: 1; }
+#arbeitsweise .schritte span { grid-column: 2; font-size: 1rem; line-height: 1.4; margin-top: 3px; }
+#arbeitsweise .arbeit__fall { margin-top: 14px; font-size: 1rem; line-height: 1.45; font-weight: 500; text-wrap: pretty; }
+#arbeitsweise .arbeit__fall b { font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett-gross); letter-spacing: .01em; margin-right: .3em; }
+#arbeitsweise .ki {
+  --ki-rand: 16px;
+  position: relative; min-width: 0;
+  margin-top: 20px; padding: 0 var(--ki-rand) 16px;
+  background: var(--zettel); border: 2px solid var(--tinte);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+#arbeitsweise .ki__titel {
+  display: table; justify-self: start; max-width: calc(100% + var(--ki-rand));
+  margin: -2px 0 0 calc(-2px - var(--ki-rand));
+}
+#arbeitsweise .ki__satz { margin-top: 12px; font-size: 1.2rem; line-height: 1.3; font-weight: 500; text-wrap: pretty; }
+#arbeitsweise .ki__liste { margin-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+#arbeitsweise .ki__liste li { position: relative; border-top: 2px solid var(--tinte); padding-top: 7px; }
+#arbeitsweise .ki__name {
+  font-family: var(--f-plakat); font-weight: 900; font-size: 1.4rem; line-height: 1.1; letter-spacing: 0; word-spacing: .12em;
+  text-decoration-color: var(--gruen); text-decoration-thickness: 3px; text-underline-offset: .16em;
+  overflow-wrap: anywhere;
+}
+#arbeitsweise .ki__name::after { content: "\2192"; content: "\2192" / ""; display: inline-block; margin-left: .3em; }
+#arbeitsweise .ki__name::before { content: ""; position: absolute; inset: 0; }
+@media (hover: hover) and (pointer: fine) {
+  #arbeitsweise .ki__liste li:hover .ki__name { text-decoration-thickness: 5px; }
+}
+#arbeitsweise .ki__liste p { margin-top: 4px; font-size: 1rem; line-height: 1.4; }
+@media (max-width: 699.98px) {
+  #arbeitsweise { margin-top: 40px; padding-block: 28px 32px; }
+  #arbeitsweise .arbeit__neben { margin-top: 14px; }
+  #arbeitsweise .arbeit__wort { margin-top: 10px; }
+  #arbeitsweise .schritte { margin-top: 16px; }
+  #arbeitsweise .schritte li { padding: 6px 0 7px; }
+  #arbeitsweise .schritte span { grid-column: 1 / -1; margin-top: 2px; }
+  #arbeitsweise .arbeit__fall { margin-top: 12px; }
+  #arbeitsweise .ki { margin-top: 16px; padding-bottom: 14px; }
+  #arbeitsweise .ki__satz { margin-top: 10px; }
+  #arbeitsweise .ki__liste { margin-top: 10px; gap: 8px; }
+  #arbeitsweise .ki__liste li { padding-top: 6px; }
+}
+@media (min-width: 700px) {
+  #arbeitsweise { margin-top: 64px; padding-block: 56px 60px; }
+  #arbeitsweise .arbeit__neben { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr); column-gap: 20px; align-items: start; }
+  #arbeitsweise .arbeit__absatz { font-size: 1.125rem; }
+  #arbeitsweise .arbeit__wort { margin-top: 4px; }
+  #arbeitsweise .schritte { margin-top: 34px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #arbeitsweise .schritte li { grid-column: auto; padding: 8px 0 10px; }
+  #arbeitsweise .schritte li:last-child { grid-column: 1 / -1; }
+  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 1.75rem; }
+  #arbeitsweise .schritte span { grid-column: 1 / -1; line-height: 1.42; }
+  #arbeitsweise .arbeit__fall { margin-top: 18px; }
+  #arbeitsweise .ki { --ki-rand: 24px; margin-top: 36px; padding-bottom: 24px; }
+  #arbeitsweise .ki__satz { margin-top: 14px; max-width: 26em; font-size: var(--t-vorspann); line-height: 1.27; }
+  #arbeitsweise .ki__liste { margin-top: 20px; gap: 0; border-bottom: 2px solid var(--tinte); }
+  #arbeitsweise .ki__liste li { display: grid; grid-template-columns: 17rem minmax(0, 1fr); column-gap: 20px; align-items: baseline; padding: 10px 0 12px; }
+  #arbeitsweise .ki__liste p { margin-top: 0; }
+  #arbeitsweise .ki__name { font-size: 1.5rem; white-space: nowrap; }
+}
+@media (min-width: 1024px) {
+  #arbeitsweise { margin-top: 80px; padding-block: 56px 60px; }
+  #arbeitsweise .leitsatz { grid-column: 2 / 9; grid-row: 2; }
+  #arbeitsweise .arbeit__neben { grid-column: 9 / -2; grid-row: 2; align-self: end; display: block; margin: 0; padding-left: 8px; }
+  #arbeitsweise .arbeit__absatz { font-size: 1.125rem; }
+  #arbeitsweise .arbeit__wort { margin-top: 14px; }
+  #arbeitsweise .schritte { margin-top: 38px; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 24px; border-bottom: 0; }
+  #arbeitsweise .schritte li, #arbeitsweise .schritte li:last-child { grid-column: auto; padding: 12px 0 0; align-content: start; }
+  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 1.75rem; }
+  #arbeitsweise .schritte span { margin-top: 8px; }
+  #arbeitsweise .arbeit__fall { grid-column: 2 / -2; margin-top: 24px; border-top: 2px solid var(--tinte); padding-top: 11px; font-size: 1.0625rem; }
+  #arbeitsweise .ki {
+    --ki-rand: 32px; grid-column: 2 / -2; margin-top: 36px; padding-bottom: 30px;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; align-items: start;
+  }
+  #arbeitsweise .ki__titel { grid-column: 1 / -1; grid-row: 1; }
+  #arbeitsweise .ki__satz { grid-column: 1 / 3; grid-row: 2; margin-top: 18px; max-width: none; text-wrap: balance; }
+  #arbeitsweise .ki__liste { grid-column: 1 / -1; grid-row: 3; margin-top: 26px; grid-template-columns: subgrid; gap: 0; column-gap: normal; border-bottom: 0; align-items: stretch; }
+  #arbeitsweise .ki__liste li { display: block; padding: 10px 0 0; }
+  #arbeitsweise .ki__liste p { margin-top: 6px; }
+  #arbeitsweise .ki__name { font-size: 1.3rem; }
+}
+@media (min-width: 1280px) {
+  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 2.1rem; }
+  #arbeitsweise .ki__name { font-size: 1.6rem; }
+}
+@media print {
+  #arbeitsweise { padding-block: 10pt; }
+  #arbeitsweise .leitsatz { display: block; }
+  #arbeitsweise .leitsatz span { font-size: 26pt; padding: 0; }
+  #arbeitsweise .leitsatz .leitsatz__tests { font-size: 48pt; }
+  #arbeitsweise .ki { background: none; display: block; }
+  #arbeitsweise .ki__titel { margin: 0; }
+  #arbeitsweise .ki__name::after, #arbeitsweise .ki__name::before { content: none; }
+}
+</style>
+<style>
+#projekte { padding-top: var(--abschnitt); }
+#projekte .projekte__titel {
+  font-family: var(--f-plakat); font-weight: 900; letter-spacing: -.012em; word-spacing: .12em;
+  font-size: var(--t-rubrik); line-height: .86;
+}
+#projekte .projekte__vorspann { font-size: var(--t-vorspann); line-height: 1.27; font-weight: 500; margin-top: 10px; max-width: 26em; text-wrap: pretty; }
+#projekte .projekte__bruecke { margin-top: 10px; font-size: 1rem; line-height: 1.45; font-weight: 500; max-width: 36em; text-wrap: pretty; }
+#projekte .karte__bild .abzug__rahmen { margin: 0; }
+#projekte .karte__bild .abzug__rahmen::after { content: none; }
+#projekte .karte__bild a.abzug__bild { cursor: pointer; }
+#projekte .karte__bild .abzug__kopf > span + span { margin-left: auto; }
+#projekte .karte__bild img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+#projekte .karte__paar {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); column-gap: 5%;
+  aspect-ratio: 16 / 10; padding: 4% 14% 0; background: var(--zettel); overflow: hidden;
+}
+#projekte .karte__paar img {
+  width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: top;
+  outline: 1px solid var(--linie); outline-offset: 0;
+}
+#projekte .karte__text { container-type: inline-size; min-width: 0; }
+#projekte .karte__nr {
+  font-family: var(--f-plakat); font-weight: 900; color: var(--gruen);
+  font-size: 4.4rem; line-height: .74; margin: 0 0 10px -.04em;
+}
+#projekte .karte__titel {
+  font-family: var(--f-plakat); font-weight: 900; letter-spacing: -.01em; word-spacing: .12em;
+  font-size: min(3.6rem, 11.2cqi); line-height: .9; hyphens: manual; overflow-wrap: anywhere;
+}
+#projekte .karte__titel a { text-decoration-thickness: .06em; text-underline-offset: .1em; }
+#projekte .karte__kurz { font-size: 1.2rem; line-height: 1.3; font-weight: 500; margin-top: 12px; text-wrap: pretty; }
+#projekte .karte__stand { margin-top: 12px; font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.35; letter-spacing: .01em; }
+#projekte .karte__stand .stand { display: inline-flex; vertical-align: baseline; }
+#projekte .karte__anteil { font-size: 1rem; line-height: 1.4; margin-top: 6px; }
+#projekte .karte__punkte { margin-top: 16px; border-top: 2px solid var(--tinte); }
+#projekte .karte__punkte li {
+  display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); align-items: baseline;
+  padding: 7px 0 8px; border-bottom: 1px solid var(--linie);
+  font-size: 1.06rem; line-height: 1.32; font-weight: 600; text-wrap: pretty;
+}
+#projekte .karte__punkte li::before { content: ""; width: .62em; height: 3px; background: var(--gruen); translate: 0 -.3em; }
+#projekte .karte__kennzeile {
+  margin-top: 14px; max-width: 36em;
+  font-family: var(--f-text); font-weight: 500; font-size: 1rem; line-height: 1.4; letter-spacing: 0;
+  border-left: 3px solid var(--gruen); padding-left: 12px; text-wrap: pretty;
+}
+#projekte .karte__knoepfe { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; margin-top: 16px; }
+#projekte .karte__link {
+  display: inline-flex; align-items: center; gap: .35em; min-height: 44px;
+  font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett-gross); line-height: 1.2;
+  text-decoration-thickness: 3px; text-underline-offset: .3em;
+}
+#projekte .karte__link[href^="http"] { position: relative; padding-right: 1.35em; }
+#projekte .karte__link[href^="http"]::after {
+  content: "\2197" / ""; font-size: 1.1em; line-height: 1;
+  position: absolute; right: 0; top: 50%; translate: 0 -50%;
+}
+#projekte .karte--gross { margin-top: 56px; row-gap: 18px; scroll-margin-top: 8px; }
+#projekte .projekte__kopf + .karte--gross { margin-top: 24px; }
+#projekte .karte--rund .karte__bild img { aspect-ratio: 1029 / 1100; object-fit: contain; }
+#projekte .karten { margin-top: 64px; row-gap: 52px; }
+#projekte .karte--klein { min-width: 0; scroll-margin-top: 8px; display: flex; flex-direction: column; }
+#projekte .karte--klein .karte__text { margin-top: 14px; flex: 1 0 auto; display: flex; flex-direction: column; align-items: flex-start; }
+#projekte .karte--klein .karte__text > * { max-width: 100%; }
+#projekte .karte--klein .karte__titel { font-size: min(2.7rem, 11cqi); }
+#projekte .karte--klein .karte__nr { display: inline; font-size: 1em; margin: 0; color: var(--gruen-tief); }
+#projekte .karte--klein .karte__titel a { text-decoration-color: var(--gruen); }
+#projekte .karte--klein .karte__kurz { font-size: 1.1rem; margin-top: 10px; }
+#projekte .karte--klein .karte__knoepfe { margin-top: auto; padding-top: 16px; }
+@media (hover: hover) and (pointer: fine) {
+  #projekte .karte__titel a:hover { text-decoration-color: var(--tinte); }
+  #projekte .karte__link:hover { text-decoration-color: var(--tinte); }
+}
+@media (max-width: 699.98px) {
+  #projekte { padding-top: 32px; }
+  #projekte .projekte__kopf + .karte--gross { margin-top: 20px; }
+}
+@media (min-width: 700px) {
+  #projekte .projekte__kopf { align-items: end; }
+  #projekte .projekte__vorspann { margin-top: 14px; }
+  #projekte .projekte__bruecke { font-size: 1.0625rem; margin-top: 12px; }
+  #projekte .projekte__kopf + .karte--gross { margin-top: 36px; }
+  #projekte .karte--gross { margin-top: 72px; column-gap: 20px; align-items: center; }
+  #projekte .karte__nr { font-size: 5.6rem; }
+  #projekte .karte--gross > .karte__bild { grid-column: 1 / 5; grid-row: 1; }
+  #projekte .karte--gross > .karte__text { grid-column: 5 / -1; grid-row: 1; }
+  #projekte .karte--bild-rechts > .karte__bild { grid-column: 5 / -1; }
+  #projekte .karte--bild-rechts > .karte__text { grid-column: 1 / 5; }
+  #projekte .karte--rund .karte__bild img { aspect-ratio: 16 / 10; }
+  #projekte .karten { margin-top: 88px; row-gap: 64px; align-items: stretch; }
+  #projekte .karten > .karte:nth-child(odd) { grid-column: 1 / 5; }
+  #projekte .karten > .karte:nth-child(even) { grid-column: 5 / -1; }
+}
+@media (min-width: 1024px) {
+  #projekte .projekte__kopf { align-items: start; row-gap: 0; }
+  #projekte .projekte__titel { grid-column: 2 / 8; grid-row: 1 / span 2; align-self: start; }
+  #projekte .projekte__vorspann { grid-column: 8 / -2; grid-row: 1; margin: .35em 0 0; }
+  #projekte .projekte__bruecke { grid-column: 8 / -2; grid-row: 2; margin-top: 14px; max-width: 34em; }
+  #projekte .karte--gross { margin-top: 64px; column-gap: 24px; }
+  #projekte .projekte__kopf + .karte--gross { margin-top: 56px; }
+  #projekte .karte--gross > .karte__bild { grid-column: 2 / 9; }
+  #projekte .karte--gross > .karte__text { grid-column: 9 / -2; }
+  #projekte .karte--bild-rechts > .karte__bild { grid-column: 7 / -2; }
+  #projekte .karte--bild-rechts > .karte__text { grid-column: 2 / 7; }
+  #projekte .karte__nr { font-size: 6.4rem; }
+  #projekte .karten { margin-top: 80px; column-gap: 24px; row-gap: 64px; }
+  #projekte .karten > .karte:nth-child(odd) { grid-column: 2 / 8; }
+  #projekte .karten > .karte:nth-child(even) { grid-column: 8 / -2; }
+  #projekte .karte--klein .karte__titel { font-size: min(3rem, 10.4cqi); }
+}
+</style>
+<style>
+#ueber-mich .ueber__werdegang,
+#ueber-mich .ueber__kenntnisse,
+#ueber-mich .ueber__sprachen { margin-top: 48px; }
+#ueber-mich .rubrik { margin-bottom: 0; }
+#ueber-mich .rubrik + dl { margin-top: 6px; }
+#ueber-mich .rubrik + dl > div:first-child { border-top: 0; padding-top: 6px; }
+#ueber-mich .ueber__liste { border-bottom: 2px solid var(--tinte); }
+#ueber-mich .ueber__liste > div { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 4px; padding: 12px 0 14px; border-top: 2px solid var(--tinte); }
+#ueber-mich .ueber__liste dt { font-family: var(--f-plakat); font-weight: 900; font-size: 1.45rem; line-height: 1.02; word-spacing: .12em; letter-spacing: 0; }
+#ueber-mich .ueber__liste dd { font-size: 1.1rem; line-height: 1.4; max-width: 36em; }
+#ueber-mich .ueber__technik { margin-top: 48px; }
+#ueber-mich .ueber__technik p {
+  margin-top: 6px; padding: 6px 0 14px; border-bottom: 2px solid var(--tinte);
+  font-size: 1.1rem; line-height: 1.4; max-width: 36em; text-wrap: pretty;
+}
+#ueber-mich .zeitleiste,
+#ueber-mich .ueber__kenntnisse .ueber__liste { border-bottom: 0; }
+@media (max-width: 1023.98px) {
+  #ueber-mich .ueber__technik p { border-bottom: 0; }
+}
+@media (min-width: 700px) {
+  #ueber-mich .ueber__werdegang,
+  #ueber-mich .ueber__kenntnisse,
+  #ueber-mich .ueber__sprachen,
+  #ueber-mich .ueber__technik { margin-top: 56px; }
+  #ueber-mich .ueber__liste > div { grid-template-columns: 13.5rem minmax(0, 1fr); column-gap: 20px; align-items: baseline; }
+}
+@media (min-width: 1024px) {
+  #ueber-mich.blatt { align-items: start; grid-template-rows: auto auto 1fr; }
+  #ueber-mich .ueber__kurz { grid-column: 2 / 7; grid-row: 1; }
+  #ueber-mich .ueber__werdegang { grid-column: 8 / -2; grid-row: 1 / span 2; margin-top: 0; }
+  #ueber-mich .ueber__kenntnisse { grid-column: 2 / 7; grid-row: 2 / span 2; margin-top: 56px; }
+  #ueber-mich .ueber__sprachen { grid-column: 8 / -2; grid-row: 3; margin-top: 56px; }
+  #ueber-mich .fliesstext { margin-top: 28px; }
+  #ueber-mich .fliesstext p:first-child { font-size: clamp(1.3rem, .5rem + 1.6vw, 1.8rem); }
+  #ueber-mich .ueber__kenntnisse .ueber__liste > div { grid-template-columns: minmax(0, 1fr); }
+  #ueber-mich .ueber__sprachen .ueber__liste > div { grid-template-columns: 15rem minmax(0, 1fr); }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #ueber-mich .zeitleiste > div,
+  #ueber-mich .ueber__sprachen .ueber__liste > div { grid-template-columns: minmax(0, 1fr); }
+  #ueber-mich .zeitleiste dt { font-size: 1.7rem; }
+}
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  #ueber-mich .zeitleiste > div,
+  #ueber-mich .ueber__sprachen .ueber__liste > div { grid-template-columns: 13rem minmax(0, 1fr); }
+  #ueber-mich .zeitleiste dt { font-size: 1.7rem; }
+}
+</style>
+<style>
+#kontakt .kontakt__text {
+  max-width: none;
+  font-family: var(--f-plakat); font-weight: 900; letter-spacing: -.008em; word-spacing: .1em;
+  font-size: var(--t-punkt); line-height: .98; text-wrap: balance;
+}
+#kontakt .kontakt__angebot { margin-top: 16px; max-width: 30em; font-size: var(--t-vorspann); line-height: 1.27; font-weight: 500; text-wrap: pretty; }
+#kontakt .kontakt__zeile { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; max-width: 100%; }
+#kontakt .kontakt__zeile > a {
+  font-family: var(--f-text); font-weight: 500; font-size: var(--t-vorspann); letter-spacing: 0; word-spacing: normal; line-height: 1.2;
+  text-decoration-thickness: 2px; text-underline-offset: .18em; overflow-wrap: anywhere;
+}
+#kontakt .kontakt__kopieren[hidden] { display: none; }
+#kontakt .kontakt__meldung { font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.3; color: var(--gruen-hell); }
+#kontakt .kontakt__meldung:empty { display: none; }
+#kontakt .kontakt__name {
+  font-family: var(--f-text); font-weight: 500; font-size: 1.125rem; line-height: 1.4;
+  overflow-wrap: anywhere; padding-top: 2px;
+}
+@media (min-width: 1024px) {
+  #kontakt .blatt { align-items: end; }
+  #kontakt .kontakt__titel { grid-column: 2 / -2; grid-row: 1; }
+  #kontakt .kontakt__text { grid-column: 2 / -2; grid-row: 2; font-size: min(var(--t-rubrik), 5.7vw); line-height: 1; }
+  #kontakt .kontakt__text span { display: block; }
+  #kontakt .kontakt__angebot { grid-column: 2 / -2; grid-row: 3; margin-top: 22px; }
+  #kontakt .kontakt__wege { grid-column: 2 / -2; grid-row: 4; margin-top: 44px; }
+  #kontakt .kontakt__knoepfe { grid-column: 2 / -2; grid-row: 5; justify-self: start; margin: 32px 0 0; }
+  #kontakt .kontakt__name { font-size: 1.1875rem; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body>
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste" aria-label="Abschnitte der Seite">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="#oben">Aleks Paramonov</a>
+    <ul class="leiste__wege">
+      <li class="leiste__breit"><a href="#arbeitsweise">Arbeitsweise</a></li>
+      <li><a href="#projekte">Projekte</a></li>
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<section class="kopf blatt" id="oben" aria-labelledby="name">
+  <div class="kopf__namefeld">
+    <h1 id="name" class="kopf__name"><span>Aleks</span> <span>Paramonov</span></h1>
+  </div>
+
+  <div class="kopf__rolle">
+    <p class="kopf__beruf">AI Developer</p>
+    <p class="kopf__ort">Hamburg</p>
+    <p class="kopf__zusatz">Softwareentwicklung mit KI-Coding-Agenten (Claude Code, Codex)</p>
+  </div>
+
+  <figure class="kopf__portrait">
+    <img src="assets/kopf/portrait.webp" width="435" height="580" alt="Porträt von Aleks Paramonov: dunkles Sakko, weißes Hemd, im Hintergrund ein Regal und eine Schreibtischlampe" fetchpriority="high">
+  </figure>
+
+  <p class="kopf__satz">Ich baue Web-Anwendungen, Apps und KI-Funktionen und betreue sie auch nach dem Start. Zwei meiner Projekte nehmen Zahlungen über Stripe an. Den Proteinvergleich habe ich an einem Tag gebaut und online gestellt.</p>
+
+  <p class="kopf__knoepfe">
+    <a class="knopf knopf--haupt" href="#projekte">Projekte ansehen</a>
+    <a class="knopf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF (2&nbsp;Seiten)</a>
+    <a class="kopf__link" href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">E-Mail schreiben</a>
+    <a class="kopf__link" href="https://github.com/Kululenko/zodiacally-ephemeris" rel="noopener">Code der Rechenengine (GitHub)</a>
+  </p>
+
+  <dl class="kopf__fakten">
+    <div><dt>Verfügbar</dt><dd>ab sofort, Vollzeit oder Teilzeit</dd></div>
+    <div><dt>Arbeitsort</dt><dd>Hamburg vor Ort, hybrid oder remote</dd></div>
+    <div><dt>Einstieg als</dt><dd>Junior oder Quereinsteiger</dd></div>
+    <div><dt>Arbeits&shy;erlaubnis</dt><dd>unbefristet</dd></div>
+    <div><dt>Sprachen</dt><dd>Deutsch, Russisch, Ukrainisch (Muttersprachen), Englisch B2</dd></div>
+  </dl>
+
+  <div class="kopf__werdegang">
+    <p class="kopf__etikett" id="kopf-werdegang">Werdegang</p>
+    <ol aria-labelledby="kopf-werdegang">
+      <li><b>06/2018 bis 02/2022</b> Servicekraft im Restaurant</li>
+      <li><b>09/2022 bis 10/2023</b> Weiterbildung zum Python-Programmierer, DCI, Vollzeit</li>
+      <li><b>11/2023 bis 05/2025</b> Lernprojekte in Python, ab 12/2024 erste App</li>
+      <li><b>seit 06/2025</b> selbstständig mit eigenen Produkten</li>
+    </ol>
+    <a class="kopf__link" href="#werdegang">Ganzer Werdegang</a>
+  </div>
+
+  <ol class="lage" aria-label="Sieben Projekte und ihr Stand">
+    <li><a href="geschenkideen.html"><b class="lage__nr">1</b><span class="lage__name">Geschenkideen&shy;generator</span><span class="stand stand--live">live</span></a></li>
+    <li><a href="proteinvergleich.html"><b class="lage__nr">2</b><span class="lage__name">Protein&shy;vergleich</span><span class="stand stand--live">live</span></a></li>
+    <li><a href="zodiacally.html"><b class="lage__nr">3</b><span class="lage__name">Zodiacally</span><span class="stand stand--live">live</span></a></li>
+    <li><a href="outava.html"><b class="lage__nr">4</b><span class="lage__name">Outava</span><span class="stand stand--test">Testversion</span></a></li>
+    <li><a href="agenten.html"><b class="lage__nr">5</b><span class="lage__name">Agenten-Versuch</span><span class="stand stand--versuch">angehalten und ausgewertet</span></a></li>
+    <li><a href="hoerbuch.html"><b class="lage__nr">6</b><span class="lage__name">Hörbuch-Shop</span><span class="stand stand--live">live</span></a></li>
+    <li><a href="afuku.html"><b class="lage__nr">7</b><span class="lage__name">Afuku</span><span class="stand stand--bau">in Entwicklung</span></a></li>
+  </ol>
+</section>
+
+<section class="arbeit" id="arbeitsweise" aria-labelledby="arbeit-titel">
+  <div class="blatt">
+    <h2 class="rubrik" id="arbeit-titel">So arbeite ich</h2>
+    <p class="leitsatz"><span>Ich plane,</span> <span>Agenten bauen,</span> <span class="leitsatz__tests">Tests</span> <span>entscheiden.</span></p>
+    <div class="arbeit__neben">
+      <p class="arbeit__absatz">Ich teile die Arbeit in prüfbare Aufgaben und steuere mehrere Agenten parallel. Ich schreibe Code nicht mehr von Hand. Lesen, prüfen und Fehler eingrenzen kann ich selbst.</p>
+      <p class="wort arbeit__wort"><b>Coding-Agenten</b> KI-Programme, die nach Anweisung Code schreiben und ändern.</p>
+    </div>
+
+    <ol class="schritte">
+      <li><b>Spezifikation</b> <span>Ich lege fest, was gebaut wird: Ziel, Architektur, Datenmodell und woran das Ergebnis gemessen wird.</span></li>
+      <li><b>Agenten</b> <span>Coding-Agenten wie Claude Code und Codex schreiben den Code, jeder in einer getrennten Arbeitskopie.</span></li>
+      <li><b>Tests</b> <span>Automatisierte Tests und feste Prüfskripte zeigen, ob das Ergebnis stimmt.</span></li>
+      <li><b>Abnahme</b> <span>Ich nehme nur ab, was die Tests bestanden hat. Was online geht, probiere ich vorher selbst aus.</span></li>
+      <li><b>Live</b> <span>Dann geht es online, und ich kümmere mich weiter um Server, Bezahlung, Datenbank und Fehlersuche.</span></li>
+    </ol>
+
+    <p class="arbeit__fall"><b>Ein Beispiel aus <a href="zodiacally.html#zodiacally-punkt-3">Zodiacally</a>:</b> Im letzten vollen Lauf der App am 30.10.2026 fielen 9&nbsp;von 3.056&nbsp;Tests durch. 6&nbsp;Tests erwarteten noch den früheren Kaufablauf, 2&nbsp;scheiterten an Zeilenenden einer Datendatei, 1&nbsp;an einer zu engen Bildgrenze unter Windows. Der Produktcode blieb unverändert, die gezielten Nachtests bestanden.</p>
+
+    <section class="ki" aria-labelledby="ki-titel">
+      <h3 class="rubrik ki__titel" id="ki-titel">So setze ich KI in Produkten ein</h3>
+      <p class="ki__satz">Das Sprachmodell liest und schreibt nur Text. Was ausgewählt, sortiert und berechnet wird, entscheidet fester Programmcode.</p>
+      <ul class="ki__liste">
+        <li><a class="ki__name" href="geschenkideen.html#geschenkideen-punkt-1">Geschenkideengenerator</a> <p>Das Modell füllt nur ein festes Suchprofil aus, zum Beispiel Alter und Budget. Eine Kostenbremse begrenzt die KI-Aufrufe.</p></li>
+        <li><a class="ki__name" href="outava.html#outava-punkt-2">Outava</a> <p>Das Modell füllt nur feste Suchfelder aus. Zeiten, Öffnungszeiten und Wege prüft danach Programmcode. Das Modell läuft auf einem Server in Paris.</p></li>
+        <li><a class="ki__name" href="zodiacally.html#zodiacally-punkt-2">Zodiacally</a> <p>Die Rechenengine berechnet die Planetenpositionen. Die KI schreibt daraus die Deutung, und im Beispiel-Horoskop nennt der Abschnitt „Astrologische Belege“ zu jedem Deutungstext die Konstellation.</p></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section class="projekte" id="projekte" aria-labelledby="projekte-titel">
+  <div class="blatt projekte__kopf">
+    <h2 class="projekte__titel" id="projekte-titel">Projekte</h2>
+    <p class="projekte__vorspann">Sieben Projekte aus den Jahren 2025 und 2026, alle mit Coding-Agenten gebaut, fünf davon allein.</p>
+    <p class="projekte__bruecke">Was davon auch in Firmen gebraucht wird: Daten aus der Schnittstelle eines anderen Anbieters importieren (Outava), Preise jeden Morgen automatisch prüfen (Proteinvergleich), Zahlungen über Stripe abwickeln (Zodiacally, Hörbuch-Shop), KI-Kosten begrenzen (Geschenkideengenerator) und ein KI-Modell bei einem Anbieter in der EU nutzen (Outava).</p>
+  </div>
+
+  <article class="karte karte--gross blatt" id="geschenkideen" aria-labelledby="geschenkideen-karte">
+    <figure class="abzug karte__bild">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span><span>KI-Suche, 12.11.2026</span></p>
+          <a class="abzug__bild" href="geschenkideen.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/projekte/geschenkideen-900.webp"
+                 srcset="assets/projekte/geschenkideen-900.webp 900w, assets/projekte/geschenkideen.webp 1280w"
+                 sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                 width="1280" height="800" loading="lazy" decoding="async"
+                 alt="Drei Produktkarten mit den Spielen Qwixx, memory und Carcassonne. Jede Karte zeigt Bild, Begründung, Preis, Altersangabe und den Hinweis Werbung.">
+          </a>
+        </div>
+      </div>
+    </figure>
+    <div class="karte__text">
+      <p class="karte__nr" aria-hidden="true">1</p>
+      <h3 class="karte__titel" id="geschenkideen-karte"><a href="geschenkideen.html">Geschenkideen&shy;generator</a></h3>
+      <p class="karte__kurz">Geschenkideen-Website mit KI-Suche</p>
+      <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 06/2025</span></p>
+      <ul class="karte__punkte">
+        <li>Ein bis zwei Sätze zur Person, bis zu drei Geschenke aus einem Katalog mit rund 1.300&nbsp;Einträgen</li>
+        <li>Kostenbremse: höchstens 1&nbsp;US-Dollar am Tag für die KI-Aufrufe, danach läuft die Suche ohne KI</li>
+      </ul>
+      <p class="karte__kennzeile">Im Test vom 04.11.2026 lag kein Vorschlag über dem Budget oder außerhalb der Altersgrenze, gemessen an den gespeicherten Katalogdaten.</p>
+      <p class="karte__knoepfe">
+        <a class="knopf knopf--klein" href="geschenkideen.html">Fallstudie lesen<span class="unsichtbar">: Geschenkideengenerator</span></a>
+        <a class="karte__link" href="https://geschenkideengenerator.com/" rel="noopener">geschenkideengenerator.com öffnen</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="karte karte--gross karte--bild-rechts blatt" id="proteinvergleich" aria-labelledby="proteinvergleich-karte">
+    <figure class="abzug karte__bild">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>proteinvergleich.com</span><span>Vergleichstabelle, gefiltert, 12.11.2026</span></p>
+          <a class="abzug__bild" href="proteinvergleich.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/projekte/proteinvergleich-900.webp"
+                 srcset="assets/projekte/proteinvergleich-900.webp 900w, assets/projekte/proteinvergleich.webp 1800w"
+                 sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                 width="1800" height="1125" loading="lazy" decoding="async"
+                 alt="Tabelle mit 51 Proteinpulvern, gefiltert auf vegan, ohne künstliche Süßstoffe und eine Packungsgröße. Jede Zeile zeigt Marke, Produkt, ein gelbes Preisschild, den Proteingehalt und die Nährwerte.">
+          </a>
+        </div>
+      </div>
+    </figure>
+    <div class="karte__text">
+      <p class="karte__nr" aria-hidden="true">2</p>
+      <h3 class="karte__titel" id="proteinvergleich-karte"><a href="proteinvergleich.html">Protein&shy;vergleich</a></h3>
+      <p class="karte__kurz">Preisvergleich für 439&nbsp;Proteinpulver von 79&nbsp;Marken</p>
+      <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 11/2026</span></p>
+      <ul class="karte__punkte">
+        <li>Am 01.11.2026 um 11:26&nbsp;Uhr angelegt, um 13:50&nbsp;Uhr online, 1.000&nbsp;Besucher am ersten Tag</li>
+        <li>Jede Produktseite ordnet den Preis in einem Satz ein, zum Beispiel: günstiger als bei 44&nbsp;von 75&nbsp;anderen Produkten</li>
+      </ul>
+      <p class="karte__kennzeile">Ein automatischer Lauf prüft jeden Morgen die Preise in den Shops, die das zulassen.</p>
+      <p class="karte__knoepfe">
+        <a class="knopf knopf--klein" href="proteinvergleich.html">Fallstudie lesen<span class="unsichtbar">: Proteinvergleich</span></a>
+        <a class="karte__link" href="https://www.proteinvergleich.com/" rel="noopener">proteinvergleich.com öffnen</a>
+      </p>
+    </div>
+  </article>
+
+  <article class="karte karte--gross karte--rund blatt" id="zodiacally" aria-labelledby="zodiacally-karte">
+    <figure class="abzug karte__bild">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>zodiacally.com</span><span>Beispiel-Horoskop</span></p>
+          <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/projekte/zodiacally-900.webp"
+                 srcset="assets/projekte/zodiacally-900.webp 842w, assets/projekte/zodiacally.webp 1029w"
+                 sizes="(min-width: 1024px) 36vw, (min-width: 700px) 40vw, 92vw"
+                 width="1029" height="1100" loading="lazy" decoding="async"
+                 alt="Kreisförmiges Geburtshoroskop mit den zwölf Tierkreiszeichen, Planetensymbolen mit Gradangaben und farbigen Aspektlinien. Unten steht der Hinweis auf die Zodiacally-Ephemeride.">
+          </a>
+        </div>
+      </div>
+    </figure>
+    <div class="karte__text">
+      <p class="karte__nr" aria-hidden="true">3</p>
+      <h3 class="karte__titel" id="zodiacally-karte"><a href="zodiacally.html">Zodiacally</a></h3>
+      <p class="karte__kurz">Astrologie-Plattform als Website und Android-App, mit eigener Rechenengine und KI-Texten</p>
+      <p class="karte__stand"><span class="stand stand--live">Website live, App bei Google Play</span> <span>· seit 07/2025, nach einer Pause wieder seit 04/2026</span></p>
+      <ul class="karte__punkte">
+        <li>Eigene Rechenengine für Planetenpositionen: bei Sonne und Mond weniger als ein Hunderttausendstel Grad Abweichung von der Rechenbibliothek Swiss Ephemeris</li>
+        <li>Anmeldung mit Konto, bezahlt wird über Stripe</li>
+      </ul>
+      <p class="karte__kennzeile">Messbericht und Code der Rechenengine sind öffentlich einsehbar.</p>
+      <p class="karte__knoepfe">
+        <a class="knopf knopf--klein" href="zodiacally.html">Fallstudie lesen<span class="unsichtbar">: Zodiacally</span></a>
+        <a class="karte__link" href="https://www.zodiacally.com/de/ephemeris/" rel="noopener">Messseite auf zodiacally.com</a>
+        <a class="karte__link" href="https://github.com/Kululenko/zodiacally-ephemeris" rel="noopener">Rechenengine auf GitHub</a>
+      </p>
+    </div>
+  </article>
+
+  <div class="karten blatt">
+
+    <article class="karte karte--klein" id="outava" aria-labelledby="outava-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>App, Bilder aus dem Testlauf</span><span>KI-Symbolbilder</span></p>
+            <a class="abzug__bild" href="outava.html" tabindex="-1" aria-hidden="true">
+              <span class="karte__paar">
+                <img src="assets/outava/stapel-900.webp"
+                     width="416" height="900" loading="lazy" decoding="async"
+                     alt="Eine große Veranstaltungskarte mit dem Foto eines gedeckten Restauranttischs, darunter Titel, Stadtteil, Uhrzeit und Preis.">
+                <img src="assets/outava/start-900.webp"
+                     width="416" height="900" loading="lazy" decoding="async"
+                     alt="App-Startseite „Heute in Hamburg“ mit einem Kasten „Stapel starten“, einem Suchfeld, Schnellfiltern wie Heute und Wochenende und einer großen Veranstaltungskarte.">
+              </span>
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="outava-karte"><a href="outava.html"><span class="karte__nr" aria-hidden="true">4</span> Outava</a></h3>
+        <p class="karte__kurz">Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide</p>
+        <p class="karte__stand"><span class="stand stand--test">Testversion, nicht im Store</span> <span>· seit 05/2026, letzter Stand 10/2026</span></p>
+        <p class="karte__anteil">Gemeinsames Projekt mit einem Geschäftspartner. Mein Teil: die gesamte Technik.</p>
+        <p class="karte__kennzeile">Datenimport neu gebaut: im Folgelauf 29&nbsp;Minuten, das alte Verfahren brauchte 97.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="outava.html">Fallstudie lesen<span class="unsichtbar">: Outava</span></a>
+        </p>
+      </div>
+    </article>
+
+    <article class="karte karte--klein" id="agenten" aria-labelledby="agenten-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Aufgaben-Übersicht der KI-Agenten</span><span>Stand 29.09.2026</span></p>
+            <a class="abzug__bild" href="agenten.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/agenten-900.webp"
+                   srcset="assets/projekte/agenten-900.webp 900w, assets/projekte/agenten.webp 1400w"
+                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
+                   width="1400" height="875" loading="lazy" decoding="async"
+                   alt="Board mit den Spalten Wartet, Läuft, Zur Prüfung, Blockiert und Erledigt. Der Filter Afuku ist gewählt. In den Spalten liegen sieben Aufgabenkarten mit Titel und zuständiger Rolle.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="agenten-karte"><a href="agenten.html"><span class="karte__nr" aria-hidden="true">5</span> Agenten-Versuch</a></h3>
+        <p class="karte__kurz">35&nbsp;KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku</p>
+        <p class="karte__stand"><span class="stand stand--versuch">angehalten und ausgewertet</span> <span>· 09/2026 bis 10/2026</span></p>
+        <p class="karte__kennzeile">Von 286&nbsp;Aufgaben waren rund 200&nbsp;keine Arbeit am Produkt. Am 05.10.2026 habe ich den Versuch angehalten.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="agenten.html">Fallstudie lesen<span class="unsichtbar">: Agenten-Versuch</span></a>
+        </p>
+      </div>
+    </article>
+
+    <article class="karte karte--klein" id="hoerbuch" aria-labelledby="hoerbuch-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Download-Seite</span><span>Testkauf</span></p>
+            <a class="abzug__bild" href="hoerbuch.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/hoerbuch.webp"
+                   width="800" height="500" loading="lazy" decoding="async"
+                   alt="Ausschnitt der Download-Seite mit zwei Kästen zum Herunterladen: alles in einer Datei als M4B und einzelne Kapitel als MP3.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="hoerbuch-karte"><a href="hoerbuch.html"><span class="karte__nr" aria-hidden="true">6</span> Hörbuch-Shop</a></h3>
+        <p class="karte__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</p>
+        <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 10/2026</span></p>
+        <p class="karte__kennzeile">Kaufablauf mit echter Kartenzahlung geprüft und 475&nbsp;von 475&nbsp;Tests im Shop bestanden, beides am 23.10.2026.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="hoerbuch.html">Fallstudie lesen<span class="unsichtbar">: Hörbuch-Shop</span></a>
+          <a class="karte__link" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Shop öffnen</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="karte karte--klein" id="afuku" aria-labelledby="afuku-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Hauptmenü</span></p>
+            <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/afuku-900.webp"
+                   srcset="assets/projekte/afuku-900.webp 900w, assets/projekte/afuku.webp 1440w"
+                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
+                   width="1440" height="900" loading="lazy" decoding="async"
+                   alt="Titelbild mit dem Schriftzug Afuku und den Menüpunkten Fortsetzen, Neues Spiel, Spielstand laden, Optionen und Beenden. Rechts ein gepflasterter Platz mit Lagerfeuer, gesehen von schräg oben.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="afuku-karte"><a href="afuku.html"><span class="karte__nr" aria-hidden="true">7</span> Afuku</a></h3>
+        <p class="karte__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</p>
+        <p class="karte__stand"><span class="stand stand--bau">in Entwicklung</span> <span>· seit 09/2026</span></p>
+        <p class="karte__anteil">Zu zweit entwickelt. Mein Teil: Projektleitung und Entscheidungen, der Dungeon und das heutige Aussehen der Hauptfigur.</p>
+        <p class="karte__kennzeile">Eine Stadt und vier Dungeon-Ebenen laufen als Entwicklungsfassung.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="afuku.html">Fallstudie lesen<span class="unsichtbar">: Afuku</span></a>
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="abschnitt ueber blatt" id="ueber-mich" aria-labelledby="ueber-titel">
+  <div class="ueber__kurz" id="kurz-zu-mir">
+    <h2 class="abschnitt__titel" id="ueber-titel">Über mich</h2>
+    <div class="fliesstext">
+      <p>Ich bin Aleks, lebe in Hamburg und bin Quereinsteiger aus der Gastronomie. Im Team gearbeitet habe ich im Restaurant-Service, bei Outava mit einem Geschäftspartner und bei Afuku mit einem zweiten Entwickler.</p>
+      <p>Vier meiner sieben Projekte sind live. Wirtschaftlich getragen hat sich bisher keines davon.</p>
+      <p>Jetzt suche ich eine Festanstellung in einem Team, von dem ich lernen kann. Mitbringen kann ich meine Arbeitsweise mit Coding-Agenten.</p>
+    </div>
+  </div>
+
+  <div class="ueber__werdegang" id="werdegang">
+    <h3 class="rubrik">Werdegang</h3>
+    <dl class="zeitleiste">
+      <div><dt>Seit 06/2025</dt><dd>Selbstständiger Softwareentwickler (eigene Produkte), Hamburg</dd></div>
+      <div><dt>11/2023 bis 05/2025</dt><dd>Lernprojekte in Python und Datenanalyse, ab 12/2024 die erste eigene App. Daneben Bewerbungen als Junior-Entwickler.</dd></div>
+      <div><dt>09/2022 bis 10/2023</dt><dd>Weiterbildung zum Python-Programmierer, DCI Digital Career Institute. Einjährig in Vollzeit auf Englisch, 1.440&nbsp;Unterrichtseinheiten, darunter Python, Datenbanken und PostgreSQL, Django, APIs, Cloud-Dienste und ein Abschlussprojekt. Abschluss mit Zertifikat vom 12.10.2023.</dd></div>
+      <div><dt>03/2022 bis 09/2022</dt><dd>Wartezeit auf den Beginn der Weiterbildung</dd></div>
+      <div><dt>06/2018 bis 02/2022</dt><dd>Servicekraft, Restaurant Il Nonnino, Hamburg. Service und Gästebetreuung, zuletzt mit Verantwortung für das Team im Service.</dd></div>
+      <div><dt>07/2017</dt><dd>Allgemeine Hochschulreife, Privates Abendgymnasium Brecht, Hamburg</dd></div>
+    </dl>
+  </div>
+
+  <div class="ueber__kenntnisse">
+    <h3 class="rubrik">Kenntnisse</h3>
+    <dl class="ueber__liste">
+      <div><dt>Mit Coding-Agenten</dt><dd>Claude Code, Codex, mehrere Agenten parallel, Regelwerke für Agenten (AGENTS.md), Agenten über MCP an Unreal und Blender angebunden, Prüfläufe mit Tests und Prüfskripten</dd></div>
+      <div><dt>KI in Produkten</dt><dd>Sprachmodelle über die OpenAI API, Ausgaben nach festem JSON-Schema, Kosten- und Ratenlimits, Testläufe mit erfundenen Fällen (Evals), Modell auf einem EU-Server (Gemma&nbsp;4)</dd></div>
+      <div><dt>Aus der Weiterbildung</dt><dd>Python, Django, SQL/PostgreSQL, REST-APIs, Git, Linux/Bash, HTML/CSS</dd></div>
+    </dl>
+    <div class="ueber__technik">
+      <h3 class="rubrik">Technik in den Projekten</h3>
+      <p>Python, TypeScript, JavaScript, Node.js, React, Next.js, Astro, Flutter/Dart, PostgreSQL (Supabase), OpenAI API, Stripe, GitHub Actions, Vercel, Netlify, Cloudflare R2, Unreal Engine&nbsp;5, MCP-Server anderer Anbieter</p>
+    </div>
+  </div>
+
+  <div class="ueber__sprachen">
+    <h3 class="rubrik">Sprachen</h3>
+    <dl class="ueber__liste">
+      <div><dt>Deutsch, Russisch, Ukrainisch</dt><dd>Muttersprachen</dd></div>
+      <div><dt>Englisch</dt><dd>B2, einjährige Weiterbildung auf Englisch, Duolingo English Test 120&nbsp;von 160&nbsp;Punkten (11/2024)</dd></div>
+      <div><dt>Spanisch</dt><dd>Grundkenntnisse</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="kontakt" id="kontakt" aria-labelledby="kontakt-titel">
+  <div class="blatt">
+    <h2 class="kontakt__titel" id="kontakt-titel">Kontakt</h2>
+    <p class="kontakt__text"><span>Ich kann sofort anfangen.</span> <span>Schreiben Sie mir, ich antworte gern.</span></p>
+    <p class="kontakt__angebot">Im Gespräch führe ich die Testversion von Outava vor.</p>
+    <ul class="kontakt__wege">
+      <li>
+        <span class="kontakt__art">E-Mail</span>
+        <span class="kontakt__zeile">
+          <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+          <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button>
+          <span class="kontakt__meldung" role="status"></span>
+        </span>
+      </li>
+      <li>
+        <span class="kontakt__art">GitHub</span>
+        <span class="kontakt__name">github.com/Kululenko</span>
+      </li>
+    </ul>
+    <p class="kontakt__knoepfe">
+      <a class="knopf knopf--haupt" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>

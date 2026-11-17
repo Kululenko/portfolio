@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outava. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Outava. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#outava .projekt__kopf > .abzugreihe--hoch { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: 0; }
+#outava .projekt__kopf > .einstieg__tut { margin-top: 28px; }
+#outava .einstieg__tut > p { text-wrap: pretty; }
+#outava .balken dl > div { grid-template-columns: minmax(0, 1fr); align-items: baseline; padding: 8px 0 10px; }
+#outava .balken dl > div > :is(dt, dd) { grid-area: 1 / 1; }
+#outava .balken dd { grid-template-columns: minmax(0, 1fr) auto; row-gap: 5px; }
+#outava .balken dd > span { grid-column: 2; grid-row: 1; white-space: nowrap; }
+#outava .balken dd::before { grid-column: 1 / -1; grid-row: 2; }
+@container (min-width: 34rem) {
+  #outava .balken dl > div { grid-template-columns: 12.5rem minmax(0, 1fr); column-gap: 14px; align-items: center; padding: 7px 0; }
+  #outava .balken dl > div > dt { grid-area: auto; }
+  #outava .balken dl > div > dd { grid-area: auto; grid-template-columns: minmax(0, 1fr) 6.4rem; column-gap: 10px; align-items: center; }
+  #outava .balken dd::before { grid-column: 1; grid-row: 1; }
+  #outava .balken dd > span { justify-self: end; }
+}
+#outava .punkt__text .ablauf { width: 100%; grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+#outava .punkt__text .ablauf > li { padding-block: 7px 8px; }
+#outava .punkt__text .ablauf > li + li::before { top: -20px; height: 18px; background-size: 14px 18px; }
+@container (min-width: 40rem) {
+  #outava .punkt__text .ablauf { grid-template-columns: minmax(0, 1fr); grid-auto-flow: row; row-gap: 18px; column-gap: 0; }
+  #outava .punkt__text .ablauf > li + li::before {
+    left: 20px; top: -20px; width: 14px; height: 18px; translate: none;
+    background-image: var(--pfeil-unten); background-size: 14px 18px;
+  }
+}
+@media (min-width: 700px) {
+  #outava .projekt__kopf > .einstieg__tut { grid-column: 1 / 7; margin-top: 40px; }
+  #outava .punkte .abzugreihe { grid-template-columns: minmax(0, 1fr) calc((100% - 24px) * .376512 + 19.67px); column-gap: 24px; }
+}
+@media (min-width: 1024px) {
+  #outava .projekt__kopf > .abzugreihe { grid-column: 8 / -2; grid-row: 6; align-self: start; margin-top: 32px; }
+  #outava .projekt__kopf > .einstieg__tut { grid-column: 2 / 7; grid-row: 6; align-self: start; margin-top: 32px; }
+  #outava .punkte--kurz > .punkt:nth-child(1) { grid-column: 2 / 8; }
+  #outava .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
+  #outava .punkte > .blatt > .abzugreihe { grid-column: 3 / -3; margin-top: 40px; }
+}
+@media (min-width: 1280px) {
+  #outava .projekt__kopf > .abzugreihe { grid-column: 9 / -2; }
+  #outava .projekt__kopf > .einstieg__tut { grid-column: 2 / 8; }
+  #outava .projekt__kopf > .abzugreihe--hoch .abzug__rahmen { max-width: calc(384px * 832 / 1800 + 2 * var(--passepartout) + 4px); }
+  #outava .projekt__kopf > .abzugreihe--hoch { grid-template-columns: repeat(2, max-content); justify-content: space-between; }
+  #outava .projekt__kopf > .abzugreihe--hoch > .abzug { width: calc(384px * 832 / 1800 + 2 * var(--passepartout) + 4px + var(--schatten)); }
+  #outava .projekt__kopf > .abzugreihe--hoch figcaption { max-width: calc(100% - var(--schatten)); }
+  #outava .punkte > .blatt > .abzugreihe { grid-column: 2 / -2; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#outava"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>4</b> <span>Outava</span></p>
+    <a class="leiste__weiter" href="agenten.html" aria-label="Weiter: Agenten-Versuch">Weiter<span class="leiste__lang">: Agenten-Versuch</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="outava" aria-labelledby="outava-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 4&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">4</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="outava-titel">Outava</h1>
+    </div>
+    <p class="projekt__kurz">Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--test">Testversion, nicht im Store</span>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--test">Testversion für iOS und Android.</li>
+            <li class="stand--test">Im Gespräch führe ich sie vor.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>seit 05/2026, letzter Stand 10/2026</dd></div>
+      <div><dt>Online</dt><dd>nicht öffentlich</dd></div>
+      <div><dt>Mein Anteil</dt><dd>Gemeinsames Projekt mit einem Geschäftspartner. Mein Teil: die gesamte Technik, also App, Datenimport, KI-Guide und das Admin- und Sponsorenportal, umgesetzt mit Coding-Agenten.</dd></div>
+    </dl>
+
+    <div class="abzugreihe abzugreihe--hoch">
+      <figure class="abzug abzug--buehne abzug--hoch">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>App</span><span>Testlauf</span></p>
+            <a class="abzug__bild" href="assets/outava/stapel.webp" data-lupe data-lupe-art="handy">
+              <img src="assets/outava/stapel-900.webp" srcset="assets/outava/stapel-900.webp 416w, assets/outava/stapel.webp 832w" sizes="(min-width: 1280px) 300px, (min-width: 700px) 330px, 46vw" width="832" height="1800" loading="eager" fetchpriority="high" decoding="async" alt="Eine große Veranstaltungskarte mit dem Foto eines gedeckten Restauranttischs, darunter Titel, Stadtteil, Uhrzeit und Preis. Unter der Karte liegen drei runde Knöpfe.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>4.1</b> Der Kartenstapel mit den Knöpfen Weg, Zettel und Merken. Erfundene Beispiel-Veranstaltung, das Foto ist ein KI-Symbolbild.</figcaption>
+      </figure>
+      <figure class="abzug abzug--buehne abzug--hoch">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>App</span><span>Testlauf</span></p>
+            <a class="abzug__bild" href="assets/outava/start.webp" data-lupe data-lupe-art="handy">
+              <img src="assets/outava/start-900.webp" srcset="assets/outava/start-900.webp 416w, assets/outava/start.webp 832w" sizes="(min-width: 1280px) 300px, (min-width: 700px) 330px, 46vw" width="832" height="1800" loading="lazy" decoding="async" alt="App-Startseite „Heute in Hamburg“ mit einem Kasten „Stapel starten“, einem Suchfeld, Schnellfiltern wie Heute und Wochenende und einer großen Veranstaltungskarte.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>4.2</b> Startseite der App mit erfundenen Beispiel-Veranstaltungen, die Fotos sind KI-Symbolbilder.</figcaption>
+      </figure>
+    </div>
+
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Gedacht ist die App für Leute, die abends oder am Wochenende in Hamburg etwas unternehmen wollen. Sie zeigt, was heute und in den nächsten Tagen los ist. Man wischt Karten mit Veranstaltungen wie einen Stapel durch: links heißt weg, rechts merken, nach oben kommt die Veranstaltung auf den Abendzettel, die Liste für den Abend. Eine Suche findet Veranstaltungen und Orte, und ein KI-Guide nimmt Wünsche in normalen Sätzen an und zeigt passende Veranstaltungen.</p>
+    </div>
+  </header>
+
+  <section class="punkte" aria-labelledby="outava-punkte">
+    <h2 class="punkte__titel blatt" id="outava-punkte"><span>Was daran schwierig war</span></h2>
+
+    <div class="punkte--kurz blatt">
+      <div class="punkt" id="outava-punkt-1">
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Der Import schreibt nur Geändertes: 29&nbsp;statt 97&nbsp;Minuten</h3>
+        <div class="punkt__text">
+          <p>Die Termine kommen aus dem Veranstaltungsfeed der Hamburg Tourismus GmbH, rund 50.000&nbsp;pro Lauf. Für jeden Termin speichert eine geschützte Tabelle zwei Prüfsummen, eine Art Fingerabdruck: eine der gelieferten Daten und eine des gespeicherten Stands. Sind beide unverändert, schreibt der Import den Termin nicht neu. Der erste Lauf baut diesen Zwischenspeicher auf. Im Folgelauf wurden 1.102&nbsp;Termine geschrieben und 49.114&nbsp;übersprungen.</p>
+          <p class="wort"><b>Veranstaltungsfeed</b> Eine Liste mit Veranstaltungen, die andere Programme abrufen können.</p>
+          <figure class="balken">
+            <figcaption class="balken__titel">Dauer der Importläufe</figcaption>
+            <dl>
+              <div style="--wert: 100"><dt>Altes Verfahren, 16.10.2026</dt><dd><span><span class="balken__zahl">97</span> Minuten</span></dd></div>
+              <div style="--wert: 84.5"><dt>Neu, erster Lauf, 22.10.2026</dt><dd><span><span class="balken__zahl">82</span> Minuten</span></dd></div>
+              <div style="--wert: 29.9"><dt>Neu, Folgelauf, 22.10.2026</dt><dd><span><span class="balken__zahl">29</span> Minuten</span></dd></div>
+            </dl>
+            <p class="balken__fuss">Von den 29&nbsp;Minuten des Laufs entfielen rund 20&nbsp;auf den Import selbst, der Rest vor allem auf die Einordnung der Termine.</p>
+          </figure>
+        </div>
+      </div>
+
+      <div class="punkt" id="outava-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>KI-Guide mit Gemma&nbsp;4&nbsp;auf einem Server in Paris</h3>
+        <div class="punkt__text">
+          <p>Das Sprachmodell füllt aus der Frage nur feste Suchfelder aus, über die Vorschläge entscheidet es nicht. Es läuft in der EU, und vor der ersten Anfrage bittet die App um Erlaubnis. Für die aktuelle Fassung des KI-Guides gibt es noch keine Messung am Sprachmodell.</p>
+          <ol class="ablauf">
+            <li>Frage in normalen Sätzen</li>
+            <li>Sprachmodell füllt feste Suchfelder aus</li>
+            <li>Server wählt aus und sortiert</li>
+            <li>Programmcode prüft Zeiten, Öffnungszeiten und Wege</li>
+            <li>Vorschläge</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="blatt">
+      <div class="abzugreihe" data-falten="1">
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>Erklärvideo</span></p>
+              <div class="clip" style="--ar: 1280 / 720">
+                <img class="clip__poster" src="assets/outava/wischen-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video mit einem Handy-Rahmen, in dem Karten mit Veranstaltungen nacheinander nach links, nach rechts und nach oben gewischt werden. Daneben stehen kurze Erklärtexte.">
+                  <source src="assets/outava/wischen-720.mp4" type="video/mp4" media="(max-width: 700px)">
+                  <source src="assets/outava/wischen-1280.mp4" type="video/mp4">
+                </video>
+                <noscript><a class="clip__knopf" href="assets/outava/wischen-1280.mp4">Video öffnen</a></noscript>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>4.3</b> Entwurf eines Erklärvideos aus App-Ansichten mit Beispielinhalten: die drei Wischgesten. Die Fotos sind KI-Symbolbilder.</figcaption>
+        </figure>
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>Android-Emulator</span></p>
+              <a class="abzug__bild" href="assets/outava/einwilligung-wahl.webp" data-lupe>
+                <img src="assets/outava/einwilligung-wahl-900.webp" srcset="assets/outava/einwilligung-wahl-900.webp 900w, assets/outava/einwilligung-wahl.webp 1080w" sizes="(min-width: 1024px) 420px, (min-width: 700px) 36vw, 92vw" width="1080" height="1006" loading="lazy" decoding="async" alt="Einwilligungsseite mit zwei Optionen. Die Option „Ohne Produktanalyse fortfahren“ ist markiert, darunter liegen der Link zu den Datenschutzhinweisen und der Knopf „Outava starten“.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>4.4</b> Erster Start der App: Die datensparsame Wahl „Ohne Produktanalyse fortfahren“ ist vorausgewählt. Aufnahme aus einem automatisierten Testlauf im Android-Emulator vom 22.10.2026.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>Flutter/Dart, PostgreSQL (Supabase), Python, TypeScript, React, GitHub Actions, Sprachmodell Gemma&nbsp;4&nbsp;bei Scaleway in Paris</p>
+      <details class="aufbau">
+        <summary>Für Entwickler: Aufbau</summary>
+        <ol class="ablauf">
+          <li>Veranstaltungsfeed der Hamburg Tourismus GmbH</li>
+          <li>Import in GitHub Actions, mit Zwischenspeicher</li>
+          <li>PostgreSQL bei Supabase</li>
+          <li>Suche auf dem Server, Treffer seitenweise</li>
+          <li>App in Flutter</li>
+        </ol>
+        <p>Der KI-Guide läuft als Supabase Edge Function in TypeScript und nutzt Gemma&nbsp;4&nbsp;über Scaleway in Paris.</p>
+        <p>Der Suchindex umfasste am 11.09.2026 rund 59.000&nbsp;Veranstaltungen und über 24.000&nbsp;Orte. Bei den Veranstaltungen sind das mehr, als der Feed an diesem Tag lieferte, weil der Index auch den vorhandenen Bestand enthält. Für App, Server, Portal und Datenimport gibt es über 2.500&nbsp;automatisierte Tests (Stand 22.10.2026).</p>
+      </details>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter: Projekt 5&nbsp;von 7</p>
+    <a class="fall-ende__naechstes" href="agenten.html">
+      <span class="fall-ende__ziffer" aria-hidden="true">5</span>
+      <span class="fall-ende__name">Agenten-Versuch</span>
+      <span class="fall-ende__kurz">35&nbsp;KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku</span>
+      <img class="fall-ende__bild" src="assets/projekte/agenten-900.webp" alt="" width="900" height="563" loading="lazy">
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#outava">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>

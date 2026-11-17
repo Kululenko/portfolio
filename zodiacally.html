@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zodiacally. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Astrologie-Plattform als Website und Android-App, mit eigener Rechenengine und KI-Texten. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Zodiacally. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Astrologie-Plattform als Website und Android-App, mit eigener Rechenengine und KI-Texten. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#zodiacally .projekt__kopf > .einstieg__tut { margin-top: 28px; }
+@media (min-width: 700px) {
+  #zodiacally .projekt__kopf > .einstieg__tut { margin-top: 40px; }
+}
+@media (min-width: 1024px) {
+  #zodiacally .projekt__kopf > .abzug--buehne { grid-column: 8 / -2; grid-row: 6; align-self: start; margin-top: 32px; }
+  #zodiacally .projekt__kopf > .einstieg__tut { grid-column: 2 / 8; grid-row: 6; align-self: start; margin-top: 32px; }
+}
+@media (min-width: 1280px) {
+  #zodiacally .projekt__kopf > .abzug--buehne { grid-column: 9 / -2; }
+  #zodiacally .beleg:not(.beleg--bild-links) > .beleg__text { grid-column: 2 / 7; }
+  #zodiacally .beleg:not(.beleg--bild-links) > .abzug { grid-column: 8 / -2; }
+  #zodiacally .beleg--bild-links > .abzug { grid-column: 2 / 8; }
+  #zodiacally .beleg--bild-links > .beleg__text { grid-column: 9 / -2; }
+}
+#zodiacally .beleg > .abzugreihe { margin-top: 0; }
+@media (min-width: 700px) {
+  #zodiacally .beleg > .abzugreihe { grid-template-columns: minmax(0, 1fr) calc((100% - 20px) * .260021 + 18.75px); column-gap: 20px; }
+  #zodiacally .beleg > .abzugreihe > .abzug--hoch { max-width: none; }
+}
+@media (min-width: 700px) and (max-width: 1023.98px) {
+  #zodiacally .beleg > .abzugreihe { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  #zodiacally .beleg > .abzugreihe { grid-column: 7 / -2; grid-row: 1; align-self: start; }
+}
+@media (max-width: 699.98px) {
+  #zodiacally .zahlen th { font-size: 2rem; padding-right: 12px; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#zodiacally"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>3</b> <span>Zodiacally</span></p>
+    <a class="leiste__weiter" href="outava.html" aria-label="Weiter: Outava">Weiter<span class="leiste__lang">: Outava</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="zodiacally" aria-labelledby="zodiacally-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 3&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">3</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="zodiacally-titel">Zodiacally</h1>
+    </div>
+    <p class="projekt__kurz">Astrologie-Plattform als Website und Android-App, mit eigener Rechenengine und KI-Texten</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--live">Website live, App bei Google Play</span>
+      <a class="knopf knopf--klein" href="https://www.zodiacally.com/de/ephemeris/" rel="noopener">Messseite auf zodiacally.com</a>
+      <a class="knopf knopf--klein" href="https://github.com/Kululenko/zodiacally-ephemeris" rel="noopener">Rechenengine auf GitHub</a>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--live">Die App bei Google Play wurde zuletzt am 08.10.2026 aktualisiert.</li>
+            <li class="stand--test">Version 1.1.4&nbsp;ist vorbereitet und noch nicht veröffentlicht.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>seit 07/2025, nach einer Pause wieder seit 04/2026</dd></div>
+      <div><dt>Online</dt><dd><a href="https://www.zodiacally.com/de/ephemeris/" rel="noopener">zodiacally.com/<wbr>de/<wbr>ephemeris</a></dd></div>
+      <div><dt>Mein Anteil</dt><dd>Allein entwickelt, mit Coding-Agenten als Werkzeug: Konzept, Rechenengine, Website, App, Ablauf der Readings und Bezahlung. Die Texte unter dem Namen Lyra schreibt eine KI nach meinen Vorgaben.</dd></div>
+    </dl>
+
+    <figure class="abzug abzug--buehne">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>zodiacally.com</span></p>
+          <a class="abzug__bild" href="assets/zodiacally/chart.webp" data-lupe>
+            <img src="assets/zodiacally/chart-900.webp" srcset="assets/zodiacally/chart-900.webp 900w, assets/zodiacally/chart.webp 1560w" sizes="(min-width: 1280px) 38vw, (min-width: 1024px) 44vw, (min-width: 700px) 92vw, 98vw" width="1560" height="1508" loading="eager" fetchpriority="high" decoding="async" alt="Kreisförmiges Geburtshoroskop mit den zwölf Tierkreiszeichen, Planetensymbolen mit Gradangaben und farbigen Aspektlinien. Unten steht der Hinweis auf die Zodiacally-Ephemeride.">
+          </a>
+        </div>
+      </div>
+      <figcaption><b>3.1</b> Geburtshoroskop aus dem Beispiel-Reading der Website. Das Profil dahinter ist erfunden.</figcaption>
+    </figure>
+
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Man gibt Geburtsdatum, Geburtszeit und Geburtsort ein, die Software berechnet daraus die Stellung von Sonne, Mond und Planeten und zeichnet das Geburtshoroskop. Eine KI schreibt dazu einen persönlichen Text, auf der Seite „Reading“ genannt, für den Tag, die Woche, den Monat oder das Jahr. Gedacht ist das zur Unterhaltung und Selbstreflexion.</p>
+      <p>Ohne Konto gibt es einen kostenlosen Transit-Rechner. Er zeigt, wie die Planeten in den nächsten Tagen zum Geburtshoroskop stehen.</p>
+      <div class="woerter">
+        <p class="wort"><b>Rechenengine</b> Das Programm, das die Stellung der Planeten ausrechnet.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="punkte" aria-labelledby="zodiacally-punkte">
+    <h2 class="punkte__titel blatt" id="zodiacally-punkte"><span>Was ich gelöst habe</span></h2>
+
+    <div class="beleg blatt" id="zodiacally-punkt-1">
+      <div class="beleg__text">
+        <h3><span class="beleg__nr" aria-hidden="true">1</span>Eigene Rechenengine, öffentlich nachgemessen</h3>
+        <p>Die Planetenpositionen berechnet eine eigene Rechenengine auf Basis öffentlicher NASA-Daten. Sie ersetzt in Zodiacally die Rechenbibliothek Swiss Ephemeris. Im öffentlichen Messlauf vom 08.11.2026 wich sie bei Sonne und Mond um weniger als ein Hunderttausendstel Grad von der Swiss Ephemeris ab. Bei anderen Himmelskörpern ist die Abweichung größer, bei Chiron bis 930&nbsp;Millibogensekunden. Für denselben Zeitpunkt gerechnet, war das Tierkreiszeichen in 0&nbsp;von 240.000&nbsp;Positionen anders.</p>
+        <figure class="balken">
+          <figcaption class="balken__titel">Größte Abweichung, 08.11.2026</figcaption>
+          <dl>
+            <div style="--wert: 8.3"><dt>Sonne</dt><dd><span><span class="balken__zahl">3,0</span> Millibogensekunden</span></dd></div>
+            <div style="--wert: 24.2"><dt>Mond</dt><dd><span><span class="balken__zahl">8,7</span> Millibogensekunden</span></dd></div>
+            <div class="balken__mass" style="--wert: 100"><dt>Zum Vergleich</dt><dd><span>ein Hunderttausendstel Grad, das sind 36&nbsp;Millibogensekunden</span></dd></div>
+          </dl>
+          <p class="balken__fuss">Gemessen an 20.000&nbsp;Zeitpunkten von 1900 bis 2100. Messbericht und Code sind <a href="https://github.com/Kululenko/zodiacally-ephemeris" rel="noopener">öffentlich einsehbar</a>.</p>
+        </figure>
+      </div>
+      <figure class="abzug" data-kreis="13.89,89,19.1,4.37" data-notiz-lage="unten-links">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>zodiacally.com</span></p>
+            <a class="abzug__bild" href="assets/zodiacally/messung.webp" data-lupe>
+              <img src="assets/zodiacally/messung-900.webp" srcset="assets/zodiacally/messung-900.webp 900w, assets/zodiacally/messung.webp 1800w" sizes="(min-width: 1024px) 46vw, (min-width: 700px) 80vw, 92vw" width="1800" height="972" loading="lazy" decoding="async" alt="Überschrift „14- bis 24-mal schneller pro Chart, sobald alles geladen ist“. Darunter eine Tabelle mit Rechenzeiten der Zodiacally Ephemeris und der Swiss Ephemeris für vier Aufgaben und Erläuterungen zum Messaufbau und zur Startzeit.">
+            </a>
+          </div>
+          <p class="abzug__notiz">Auch das steht dort: Beim Start ist die Swiss Ephemeris schneller.</p>
+        </div>
+        <figcaption><b>3.2</b> Die Seite zur Rechenengine auf zodiacally.com. Am 08.11.2026 auf einem Apple&nbsp;M1&nbsp;war die Rechenengine pro Horoskop 14-mal schneller, sobald alles geladen war. Die 24&nbsp;im Bild stammt aus der Messung vom 04.11.2026 auf einem anderen Rechner.</figcaption>
+      </figure>
+    </div>
+
+    <div class="beleg beleg--bild-links blatt" id="zodiacally-punkt-2">
+      <div class="beleg__text">
+        <h3><span class="beleg__nr" aria-hidden="true">2</span>KI-Texte aus berechneten Werten</h3>
+        <p>Die KI bekommt die berechneten Planetenpositionen und Konstellationen als festen Datensatz und schreibt daraus die Deutung. Im Abschnitt „Astrologische Belege“ des Beispiel-Readings steht neben jedem Deutungstext die Konstellation, auf die er sich stützt. Prüfskripte gleichen Deutung und berechnete Werte ab. Ein dokumentierter Lauf vom 06.09.2026 prüfte zwei erfundene Profile ohne Befund, damals noch mit der Swiss Ephemeris.</p>
+        <p class="wort"><b>Konstellation</b> Wie die Planeten zueinander stehen.</p>
+      </div>
+      <figure class="abzug">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>zodiacally.com</span></p>
+            <a class="abzug__bild" href="assets/zodiacally/belege.webp" data-lupe>
+              <img src="assets/zodiacally/belege-900.webp" srcset="assets/zodiacally/belege-900.webp 900w, assets/zodiacally/belege.webp 1800w" sizes="(min-width: 1024px) 46vw, (min-width: 700px) 80vw, 92vw" width="1800" height="708" loading="lazy" decoding="async" alt="Abschnitt „Astrologische Belege“ mit einer Liste von Konstellationen wie Sonne Konjunktion Saturn samt Gradangaben. Rechts daneben steht jeweils ein kurzer Deutungstext.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>3.3</b> Beispiel-Reading der Website: links die berechneten Konstellationen, rechts der Deutungstext dazu. Erfundenes Beispielprofil.</figcaption>
+      </figure>
+    </div>
+
+    <div class="beleg blatt" id="zodiacally-punkt-3">
+      <div class="beleg__text">
+        <h3><span class="beleg__nr" aria-hidden="true">3</span>Bezahlung mit Stripe und ein voller Testlauf</h3>
+        <p>Die Website hat eine Anmeldung mit Konto, bezahlt wird über den Zahlungsdienst Stripe. Für App und Website zusammen gibt es über 4.000&nbsp;automatisierte Tests.</p>
+        <div class="zettel">
+          <table class="zahlen">
+            <caption>Letzter voller Lauf der App am 30.10.2026</caption>
+            <tbody>
+              <tr><th scope="row">3.056</th><td>Tests</td></tr>
+              <tr><th scope="row">2.924</th><td>bestanden</td></tr>
+              <tr><th scope="row">9</th><td>fehlgeschlagen: 6&nbsp;Tests erwarteten noch den früheren Kaufablauf, 2&nbsp;scheiterten an Zeilenenden einer Datendatei, 1&nbsp;an einer zu engen Bildgrenze unter Windows</td></tr>
+              <tr><th scope="row">123</th><td>übersprungen, 122&nbsp;davon in früheren Kauf- und Freischaltoberflächen</td></tr>
+            </tbody>
+          </table>
+          <p class="zettel__fuss">Die gezielten Nachtests bestanden. Einen zweiten vollen Lauf gab es nicht.</p>
+        </div>
+      </div>
+      <div class="abzugreihe" data-falten="1">
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>zodiacally.com</span></p>
+              <div class="clip" style="--ar: 1280 / 800">
+                <img class="clip__poster" src="assets/zodiacally/startseite-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="">
+                <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video der Zodiacally-Startseite. Die Seite wird langsam nach unten gescrollt, vom Titelbild zum Kasten mit den aktuellen Mondterminen und weiter zu den Reading-Karten.">
+                  <source src="assets/zodiacally/startseite-720.mp4" type="video/mp4" media="(max-width: 700px)">
+                  <source src="assets/zodiacally/startseite-1280.mp4" type="video/mp4">
+                </video>
+                <noscript><a class="clip__knopf" href="assets/zodiacally/startseite-1280.mp4">Video öffnen</a></noscript>
+              </div>
+            </div>
+          </div>
+          <figcaption><b>3.4</b> Bildschirmaufnahme der Live-Seite vom 12.11.2026: Startseite, aktueller Himmel und die Reading-Arten.</figcaption>
+        </figure>
+        <figure class="abzug abzug--hoch">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>Android-App</span><span>Testlauf</span></p>
+              <a class="abzug__bild" href="assets/zodiacally/app-himmel.webp" data-lupe data-lupe-art="handy">
+                <img src="assets/zodiacally/app-himmel-900.webp" srcset="assets/zodiacally/app-himmel-900.webp 506w, assets/zodiacally/app-himmel.webp 1012w" sizes="(min-width: 1024px) 210px, (min-width: 700px) 190px, 80vw" width="1012" height="1800" loading="lazy" decoding="async" alt="App-Bildschirm „Der Himmel heute“ mit einem halb beleuchteten Mond, der Angabe Letztes Viertel und den Terminen für den nächsten Neumond und Vollmond.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>3.5</b> Himmelsansicht der Android-App, berechnet für den 03.10.2026.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>Astro, React, Node.js, PostgreSQL (Supabase), Flutter/Dart, Stripe</p>
+      <details class="aufbau">
+        <summary>Für Entwickler: Aufbau</summary>
+        <ol class="ablauf">
+          <li>Geburtsdaten</li>
+          <li>Rechenengine in JavaScript, in der App als Port in Dart</li>
+          <li>berechnete Planetenpositionen und Konstellationen als fester Datensatz</li>
+          <li>Ein Sprachmodell schreibt die Deutung</li>
+          <li>Reading</li>
+        </ol>
+        <p>Dazu: Node.js und Express als API, PostgreSQL bei Supabase mit Row Level Security, Stripe für die Bezahlung.</p>
+      </details>
+    </div>
+    <div class="belege">
+      <h2 class="rubrik">Zum Nachprüfen</h2>
+      <ul>
+        <li>Transit-Rechner ohne Konto: <a href="https://www.zodiacally.com/de/transit-rechner/" rel="noopener">zodiacally.com/de/transit-rechner</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter: Projekt 4&nbsp;von 7</p>
+    <a class="fall-ende__naechstes" href="outava.html">
+      <span class="fall-ende__ziffer" aria-hidden="true">4</span>
+      <span class="fall-ende__name">Outava</span>
+      <span class="fall-ende__kurz">Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide</span>
+      <img class="fall-ende__bild" src="assets/projekte/outava-900.webp" alt="" width="416" height="900" loading="lazy">
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#zodiacally">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>
