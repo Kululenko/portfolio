@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agenten-Versuch. Aleks Paramonov, AI Developer in Hamburg</title>
-<meta name="description" content="35 KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
-<meta property="og:title" content="Agenten-Versuch. Aleks Paramonov, AI Developer in Hamburg">
-<meta property="og:description" content="35 KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<title>Agenten-Orchestrierung. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="Agenten-Orchestrierung. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
@@ -31,8 +31,6 @@ if (location.protocol !== "file:") {
 <link rel="stylesheet" href="css/werkbuch.css">
 <style>
 #agenten .projekt__kopf .abzug__bild { max-height: 400px; overflow: hidden; }
-#agenten .punkt .vergleich { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; margin-top: 22px; }
-#agenten .punkt .vergleich dd { font-size: clamp(1.2rem, 1rem + .6vw, 1.45rem); line-height: 1.08; }
 #agenten .agenten__team {
   display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); column-gap: 16px; align-items: end;
 }
@@ -46,6 +44,8 @@ if (location.protocol !== "file:") {
   #agenten .einstieg > .einstieg__tut { grid-column: 2 / 9; }
   #agenten .einstieg__tut > p { max-width: 34em; }
   #agenten .einstieg > .agenten__team { grid-column: 10 / -2; }
+  #agenten .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
+  #agenten .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
 }
 @media (min-width: 1280px) {
   #agenten .einstieg > .einstieg__tut { grid-column: 2 / 8; }
@@ -64,7 +64,7 @@ if (location.protocol !== "file:") {
   <div class="leiste__innen">
     <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
     <a class="leiste__zurueck" href="index.html#agenten"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
-    <p class="leiste__projekt"><b>5</b> <span>Agenten-Versuch</span></p>
+    <p class="leiste__projekt"><b>6</b> <span>Agenten-Orchestrierung</span></p>
     <a class="leiste__weiter" href="hoerbuch.html" aria-label="Weiter: Hörbuch-Shop">Weiter<span class="leiste__lang">: Hörbuch-Shop</span> <span aria-hidden="true">→</span></a>
     <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
     <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
@@ -77,14 +77,14 @@ if (location.protocol !== "file:") {
 <article class="projekt" id="agenten" aria-labelledby="agenten-titel">
 
   <header class="projekt__kopf blatt">
-    <p class="kapitelzeile"><span>Projekt 5&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
-    <p class="projekt__nr" aria-hidden="true">5</p>
+    <p class="kapitelzeile"><span>Projekt 6&nbsp;von 8<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">6</p>
     <div class="projekt__titelfeld">
-      <h1 class="projekt__titel" id="agenten-titel">Agenten-Versuch</h1>
+      <h1 class="projekt__titel" id="agenten-titel">Agenten-Orchestrierung</h1>
     </div>
-    <p class="projekt__kurz">35&nbsp;KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku</p>
+    <p class="projekt__kurz">Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht</p>
     <p class="projekt__tor">
-      <span class="stand stand--pille stand--versuch">angehalten und ausgewertet</span>
+      <span class="stand stand--pille stand--bau">in Arbeit</span>
     </p>
 
     <dl class="steckbrief">
@@ -92,14 +92,14 @@ if (location.protocol !== "file:") {
         <dt>Status</dt>
         <dd>
           <ul class="standliste">
-            <li class="stand--versuch">Aufgebaut ab dem 25.09.2026, am 05.10.2026 angehalten, am 08.10.2026 schriftlich ausgewertet.</li>
-            <li class="stand--bau">Der kleinere Aufbau ist geplant, aber nicht umgesetzt.</li>
+            <li class="stand--bau">Ziel ist eine Zentrale, mit der ich spreche und die alle Aufgaben verteilt.</li>
+            <li class="stand--bau">Bisher sind es einzelne Abläufe je Projekt, die ich im Chat mit Codex und Claude steuere, meist per Diktat.</li>
           </ul>
         </dd>
       </div>
-      <div><dt>Zeitraum</dt><dd>09/2026 bis 10/2026</dd></div>
+      <div><dt>Zeitraum</dt><dd>seit 09/2026</dd></div>
       <div><dt>Online</dt><dd>nicht öffentlich</dd></div>
-      <div><dt>Mein Anteil</dt><dd>Allein aufgebaut und gesteuert: Rollen und Regeln für die KI-Agenten und das Cockpit zur Übersicht, umgesetzt mit Coding-Agenten. Die Plattform Paperclip ist freie Software, die andere entwickelt haben.</dd></div>
+      <div><dt>Mein Anteil</dt><dd>Allein aufgebaut und gesteuert, umgesetzt mit Coding-Agenten. Paperclip, die Plattform des ersten Versuchs, ist freie Software, die andere entwickelt haben.</dd></div>
     </dl>
 
     <figure class="abzug abzug--buehne">
@@ -111,17 +111,14 @@ if (location.protocol !== "file:") {
           </a>
         </div>
       </div>
-      <figcaption><b>5.1</b> Das Aufgaben-Board im Cockpit, gefiltert auf Afuku. Datenstand 29.09.2026, am 12.11.2026 neu angezeigt. Daher stehen dort Angaben wie „vor 45&nbsp;Tagen“.</figcaption>
+      <figcaption><b>6.1</b> Vorgeschichte: der Versuch mit 35&nbsp;Rollen. Das Aufgaben-Board, gefiltert auf Afuku, Datenstand 29.09.2026, am 12.11.2026 neu angezeigt. Daher stehen dort Angaben wie „vor 45&nbsp;Tagen“.</figcaption>
     </figure>
   </header>
 
   <div class="einstieg blatt">
     <div class="einstieg__tut">
-      <h2 class="rubrik">Was ich gemacht habe</h2>
-      <p>Ich habe auf einem gemieteten Server 35&nbsp;Rollen anlegen lassen: Leitung, Technik, Prüfung und Fachrollen für acht meiner Projekte. Die Rollen bekamen Aufgaben und prüften sich gegenseitig. Abgearbeitet wurden die Aufgaben nicht von der Plattform selbst, sondern von Zusatzprogrammen, vor allem von einem Programm auf meinem Rechner. Für den Überblick habe ich ein Cockpit bauen lassen. Es zeigte, wer arbeitete, was wartete und wo eine Entscheidung von mir fehlte. Entscheiden konnte ich dort mit einem Klick oder per Sprache, die ein Modell auf meinem Rechner erkannte.</p>
-      <div class="woerter">
-        <p class="wort"><b>Agenten-Rolle</b> Eine schriftliche Vorgabe mit Aufgabe und Regeln, nach der eine KI arbeitet.</p>
-      </div>
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Die Abläufe melden sich per Telegram bei Fehlern oder mit einer Vorschau. Beiträge für Reddit und Facebook kommen als fertiges Paket aufs Handy, und ich veröffentliche sie selbst. Weitere tägliche Routinen beantworten Support-Mails und schicken mir morgens eine To-do-Liste. Wenn es nichts Neues gibt, bleiben sie still. Auch die Folgen meiner YouTube-Kanäle entstehen in solchen Abläufen.</p>
     </div>
     <figure class="abzug agenten__team">
       <div class="abzug__flaeche">
@@ -132,7 +129,7 @@ if (location.protocol !== "file:") {
           </a>
         </div>
       </div>
-      <figcaption><b>5.2</b> Alle 35&nbsp;Rollen in einem Bild, Datenstand 29.09.2026. Vier Aufgabenzeilen sind abgedeckt.</figcaption>
+      <figcaption><b>6.2</b> Vorgeschichte: der Versuch mit 35&nbsp;Rollen. Alle Rollen in einem Bild, Datenstand 29.09.2026. Vier Aufgabenzeilen sind abgedeckt.</figcaption>
     </figure>
   </div>
 
@@ -143,32 +140,16 @@ if (location.protocol !== "file:") {
     </div>
     <div class="punkte--kurz blatt">
       <div class="punkt" id="agenten-punkt-1">
-        <h3><span class="punkt__nr" aria-hidden="true">1</span>Rund 200&nbsp;von 286&nbsp;Aufgaben waren keine Arbeit am Produkt</h3>
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>35&nbsp;Rollen waren zu viel Struktur</h3>
         <div class="punkt__text">
-          <p>Laut Auswertung waren die rund 200&nbsp;Aufgaben Prüfen, Planen, Routinen und Weiterleiten. Ein Artikel lief über sechs Stationen: Autor, Prüfung, Korrektur, Gegencheck, Prüfung vor dem Zusammenführen und Live-Prüfung. Öffentlich kam über das System wenig an: ein Journalartikel, ein Paket für Reddit und eine Zeile in einer YouTube-Beschreibung.</p>
-          <figure class="balken">
-            <figcaption class="balken__titel">Aufgaben im Versuch</figcaption>
-            <dl>
-              <div style="--wert: 100"><dt>Alle</dt><dd><span><span class="balken__zahl">286</span> Aufgaben</span></dd></div>
-              <div style="--wert: 69.9"><dt>Davon</dt><dd><span>rund <span class="balken__zahl">200</span> ohne Arbeit am Produkt</span></dd></div>
-            </dl>
-          </figure>
+          <p>Im September 2026 habe ich 35&nbsp;KI-Agenten-Rollen für acht Projekte angelegt. Am 05.10.2026 habe ich den Versuch angehalten: Rund 200&nbsp;von 286&nbsp;Aufgaben waren Prüfen, Planen und Weiterleiten.</p>
+          <p class="wort"><b>Agenten-Rolle</b> Eine schriftliche Vorgabe mit Aufgabe und Regeln, nach der eine KI arbeitet.</p>
         </div>
       </div>
       <div class="punkt" id="agenten-punkt-2">
-        <h3><span class="punkt__nr" aria-hidden="true">2</span>18&nbsp;von 35&nbsp;Rollen leiteten oder prüften</h3>
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Danach kleiner: feste Abläufe, Prüfskripte entscheiden</h3>
         <div class="punkt__text">
-          <p>Die Auswertung nennt das „zu viel Struktur“. Blockaden blieben dabei liegen: Fast alle blockierten Aufgaben, 16&nbsp;von 18, hatten keinen Kommentar, und Technikfehler landeten als Aufgaben bei mir.</p>
-        </div>
-      </div>
-      <div class="punkt" id="agenten-punkt-3">
-        <h3><span class="punkt__nr" aria-hidden="true">3</span>Meine Entscheidung: anhalten und kleiner planen</h3>
-        <div class="punkt__text">
-          <p>Am 05.10.2026 habe ich den Versuch angehalten. Die schriftliche Auswertung vom 08.10.2026 haben Agenten in meinem Auftrag geschrieben. Danach habe ich mich für einen viel kleineren Aufbau ohne Prüf-Agenten entschieden.</p>
-          <dl class="vergleich">
-            <div><dt>Im Versuch</dt><dd>35&nbsp;Rollen für 8&nbsp;Projekte auf 4&nbsp;Ebenen</dd></div>
-            <div><dt>Im Plan</dt><dd>2&nbsp;KI-Agenten und 1&nbsp;Skript für 2&nbsp;Projekte, ohne Hierarchie</dd></div>
-          </dl>
+          <p>Danach lief für Zodiacally ab dem 09.10.2026 ein kleinerer Aufbau: feste Abläufe in der Cloud schreiben Artikel und X-Posts, Prüfskripte entscheiden, was live geht. Den Artikel-Teil habe ich am 30.10.2026 wieder pausiert.</p>
         </div>
       </div>
     </div>
@@ -177,17 +158,17 @@ if (location.protocol !== "file:") {
   <div class="projekt__ende blatt">
     <div class="technik">
       <h2 class="rubrik">Technik</h2>
-      <p>Paperclip (freie Software), Claude und Codex für die Ausführung, Cockpit mit Node.js ohne Zusatzpakete, HTML, CSS und JavaScript, Spracherkennung lokal mit Whisper</p>
+      <p>Codex und Claude, geplante Abläufe in der Cloud und auf meinem Rechner, Prüfskripte, Telegram. Im ersten Versuch: Paperclip (freie Software) und ein Cockpit mit Node.js</p>
     </div>
   </div>
 
   <nav class="fall-ende blatt" aria-label="Weiter">
-    <p class="fall-ende__kapitel">Weiter: Projekt 6&nbsp;von 7</p>
+    <p class="fall-ende__kapitel">Weiter: Projekt 7&nbsp;von 8</p>
     <a class="fall-ende__naechstes" href="hoerbuch.html">
-      <span class="fall-ende__ziffer" aria-hidden="true">6</span>
+      <span class="fall-ende__ziffer" aria-hidden="true">7</span>
       <span class="fall-ende__name">Hörbuch-Shop</span>
       <span class="fall-ende__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</span>
-      <img class="fall-ende__bild" src="assets/projekte/hoerbuch.webp" alt="" width="800" height="500" loading="lazy">
+      <img class="fall-ende__bild" src="assets/projekte/hoerbuch-900.webp" alt="" width="900" height="563" loading="lazy">
     </a>
     <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
       <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>

@@ -33,25 +33,14 @@ if (location.protocol !== "file:") {
 #afuku { --abschnitt: 48px; }
 @media (min-width: 700px) { #afuku { --abschnitt: 80px; } }
 #afuku .projekt__kopf > .einstieg__tut { margin-top: 28px; }
-#afuku .projekt__ende > .abzugreihe { margin-top: 0; }
+#afuku .afuku__hof figcaption { text-wrap: pretty; }
 @media (min-width: 700px) and (max-width: 1023.98px) {
   #afuku .projekt__kopf > .einstieg__tut { grid-column: 1 / 7; margin-top: 40px; }
-  #afuku .projekt__ende > .abzugreihe { grid-column: 1 / -1; grid-row: 1; }
-  #afuku .projekt__ende > .technik { grid-row: 2; }
 }
 @media (min-width: 1024px) {
   #afuku .projekt__kopf > .abzug--buehne { grid-column: 2 / 8; grid-row: 6; align-self: start; margin-top: 32px; }
   #afuku .projekt__kopf > .einstieg__tut { grid-column: 8 / -2; grid-row: 6; align-self: start; margin-top: 32px; }
-  #afuku .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
-  #afuku .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
-}
-@media (min-width: 1024px) and (max-width: 1279.98px) {
-  #afuku .projekt__ende > .abzugreihe { grid-column: 2 / -2; grid-row: 1; }
-  #afuku .projekt__ende > .technik { grid-row: 2; }
-}
-@media (min-width: 1280px) {
-  #afuku .projekt__ende > .abzugreihe { grid-column: 2 / 8; grid-row: 1; gap: 24px; }
-  #afuku .projekt__ende > .technik { grid-column: 8 / -2; grid-row: 1; }
+  #afuku .punkte > .blatt > .afuku__hof { grid-column: 2 / -2; }
 }
 </style>
 <script src="js/werkbuch.js" defer></script>
@@ -62,7 +51,7 @@ if (location.protocol !== "file:") {
   <div class="leiste__innen">
     <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
     <a class="leiste__zurueck" href="index.html#afuku"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
-    <p class="leiste__projekt"><b>7</b> <span>Afuku</span></p>
+    <p class="leiste__projekt"><b>8</b> <span>Afuku</span></p>
     <a class="leiste__weiter" href="index.html#ueber-mich" aria-label="Weiter: Über mich und Kontakt">Weiter<span class="leiste__lang">: Über mich und Kontakt</span> <span aria-hidden="true">→</span></a>
     <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
     <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
@@ -75,8 +64,8 @@ if (location.protocol !== "file:") {
 <article class="projekt" id="afuku" aria-labelledby="afuku-titel">
 
   <header class="projekt__kopf blatt">
-    <p class="kapitelzeile"><span>Projekt 7&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
-    <p class="projekt__nr" aria-hidden="true">7</p>
+    <p class="kapitelzeile"><span>Projekt 8&nbsp;von 8<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">8</p>
     <div class="projekt__titelfeld">
       <h1 class="projekt__titel" id="afuku-titel">Afuku</h1>
     </div>
@@ -109,7 +98,7 @@ if (location.protocol !== "file:") {
           </a>
         </div>
       </div>
-      <figcaption><b>7.1</b> Hauptmenü des Spiels. Dahinter der Platz der Stadt Eos mit der Hauptfigur Kael.</figcaption>
+      <figcaption><b>8.1</b> Hauptmenü des Spiels. Dahinter der Platz der Stadt Eos mit der Hauptfigur Kael.</figcaption>
     </figure>
     <div class="einstieg__tut">
       <h2 class="rubrik">Was es tut</h2>
@@ -135,34 +124,54 @@ if (location.protocol !== "file:") {
           <p>Es gibt die Stadt Eos als Ausgangspunkt und vier Dungeon-Ebenen, jede mit einem Thema und einem Boss am Ende. Dazu kommen 322&nbsp;automatisierte Tests für die Spielregeln im gemeinsamen Projekt. Laut Projekt-Audit vom 10.11.2026 läuft das alles technisch, durchgespielt hat den aktuellen Stand aber noch kein Mensch. Am selben Tag habe ich den Kern für die nächsten acht Wochen festgelegt: die Stadt Eos, Ebene&nbsp;1&nbsp;und ein Boss, für einen Spieler.</p>
         </div>
       </div>
+      <div class="punkt" id="afuku-punkt-3">
+        <h3><span class="punkt__nr" aria-hidden="true">3</span>Seit November 2026: der Verwachsene Hof</h3>
+        <div class="punkt__text">
+          <p>Neu seit November 2026 ist der Verwachsene Hof, ein Erkundungsgebiet. Ich habe es in Auftrag gegeben, gebaut haben es KI-Agenten, die neuen Modelle per Skript in Blender. Gegner gibt es dort noch nicht.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blatt">
+      <div class="abzugreihe abzugreihe--drei afuku__hof" data-falten="1">
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Testlauf</span></p>
+              <a class="abzug__bild" href="assets/afuku/hof-tor.webp" data-lupe>
+                <img src="assets/afuku/hof-tor-900.webp" srcset="assets/afuku/hof-tor-900.webp 900w, assets/afuku/hof-tor.webp 1800w" sizes="(min-width: 1280px) 400px, (min-width: 700px) 31vw, 92vw" width="1800" height="1013" loading="lazy" decoding="async" alt="Blick von schräg oben auf einen gepflasterten Weg unter einem steinernen Torbogen mit Ziegeldach. Kael mit rotem Schal steht im Tor, daneben Wiese, Blumen, ein Holzkarren und ein Baum. Oben links die Leiste mit Leben, oben rechts Holz, Schrott, Lumen und Nahtsplitter.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>8.2</b> Aus einem automatisierten Testlauf mit der Spielkamera, 18.11.2026: Kael am Tor des Verwachsenen Hofs, eines neuen Erkundungsgebiets. Gegner gibt es dort noch nicht.</figcaption>
+        </figure>
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Testlauf</span></p>
+              <a class="abzug__bild" href="assets/afuku/hof-brunnenplatz.webp" data-lupe>
+                <img src="assets/afuku/hof-brunnenplatz-900.webp" srcset="assets/afuku/hof-brunnenplatz-900.webp 900w, assets/afuku/hof-brunnenplatz.webp 1800w" sizes="(min-width: 1280px) 400px, (min-width: 700px) 31vw, 92vw" width="1800" height="1013" loading="lazy" decoding="async" alt="Ein runder Brunnen mit Holzgestell auf einem Platz aus Pflastersteinen, daneben Fässer, Sonnenblumen, ein Gemüsebeet und ein Steinweg. Kael steht am Rand des Platzes.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>8.3</b> Aus demselben Testlauf: der Brunnenplatz im Verwachsenen Hof. Die neuen Modelle des Gebiets entstanden per Skript in Blender.</figcaption>
+        </figure>
+        <figure class="abzug">
+          <div class="abzug__flaeche">
+            <div class="abzug__rahmen">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Testlauf</span></p>
+              <a class="abzug__bild" href="assets/afuku/hof-kraeuterhain.webp" data-lupe>
+                <img src="assets/afuku/hof-kraeuterhain-900.webp" srcset="assets/afuku/hof-kraeuterhain-900.webp 900w, assets/afuku/hof-kraeuterhain.webp 1800w" sizes="(min-width: 1280px) 400px, (min-width: 700px) 31vw, 92vw" width="1800" height="1013" loading="lazy" decoding="async" alt="Ein kleiner Brunnen mit Wasserrinne zwischen blühenden Büschen, Beeten mit Lavendel und Steinplatten auf einem Sandweg. Kael steht neben dem Brunnen.">
+              </a>
+            </div>
+          </div>
+          <figcaption><b>8.4</b> Aus einem automatisierten Testlauf, 18.11.2026: der Kräuterhain im Verwachsenen Hof.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
   <div class="projekt__ende blatt">
-    <div class="abzugreihe" data-falten="1">
-      <figure class="abzug">
-        <div class="abzug__flaeche">
-          <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Testlauf</span></p>
-            <a class="abzug__bild" href="assets/afuku/segen-auswahl.webp" data-lupe>
-              <img src="assets/afuku/segen-auswahl-900.webp" srcset="assets/afuku/segen-auswahl-900.webp 900w, assets/afuku/segen-auswahl.webp 1600w" sizes="(min-width: 1280px) 23vw, (min-width: 700px) 46vw, 92vw" width="1600" height="900" loading="lazy" decoding="async" alt="Drei Karten nebeneinander mit den Segen Vergeltung, Scharfe Präzision und Brennende Schneide, jede mit Symbol und kurzer Beschreibung.">
-            </a>
-          </div>
-        </div>
-        <figcaption><b>7.2</b> Aus einem automatisierten Testlauf: Nach dem Boss von Ebene&nbsp;4&nbsp;stehen drei Segen zur Wahl für den nächsten Versuch.</figcaption>
-      </figure>
-      <figure class="abzug">
-        <div class="abzug__flaeche">
-          <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Afuku</span></p>
-            <a class="abzug__bild" href="assets/afuku/kael-in-eos.webp" data-lupe>
-              <img src="assets/afuku/kael-in-eos-900.webp" srcset="assets/afuku/kael-in-eos-900.webp 900w, assets/afuku/kael-in-eos.webp 1280w" sizes="(min-width: 1280px) 23vw, (min-width: 700px) 46vw, 92vw" width="1280" height="720" loading="lazy" decoding="async" alt="Ein Kämpfer mit rotem Schal, großem Schrottschwert und rundem Schild steht auf einem gepflasterten Platz.">
-            </a>
-          </div>
-        </div>
-        <figcaption><b>7.3</b> Die Hauptfigur Kael in der Stadt Eos, Stand 27.09.2026, mit frei aufgestellter Kamera statt der Spielkamera. Die Figur entstand mit einem Bildgenerator und einem 3D-Generator.</figcaption>
-      </figure>
-    </div>
     <div class="technik">
       <h2 class="rubrik">Technik</h2>
       <p>Unreal Engine&nbsp;5, C++, Blender mit Python-Skripten, MCP-Server, Git</p>

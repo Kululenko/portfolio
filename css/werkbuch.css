@@ -408,7 +408,7 @@ a { color: inherit; text-decoration-line: underline; text-decoration-thickness: 
 .kopf__knoepfe .knopf--haupt { flex: 1 1 100%; }
 .kopf__knoepfe .knopf { flex: 1 1 auto; }
 
-/* Lagebild: sieben Projekte und ihr Stand */
+/* Lagebild: acht Projekte und ihr Stand (seit Runde 6) */
 .lage { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; margin-top: 28px; border-top: 3px solid var(--tinte); }
 .lage li { border-bottom: 1px solid var(--linie); }
 .lage a {
@@ -475,6 +475,7 @@ a { color: inherit; text-decoration-line: underline; text-decoration-thickness: 
 #hoerbuch         { --titel-em: 4.86; --titel-em-schmal: 3.13; }
 #afuku            { --titel-em: 2.1; }
 #agenten          { --titel-em: 8.31; --titel-em-schmal: 5.2; }
+#youtube          { --titel-em: 5.56; --titel-em-schmal: 3.15; }   /* Runde 6: "YouTube-Kanäle", schmal "YouTube-" */
 
 .steckbrief { margin-top: 26px; border-bottom: 2px solid var(--tinte); }
 .steckbrief > div { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr); column-gap: 10px; padding: 10px 0 11px; border-top: 1px solid var(--tinte); }
@@ -1325,7 +1326,7 @@ html:not(.js) .stift__punkt { display: none; }
   }
   .kopf__fakten { grid-column: 2 / -2; grid-row: 5; margin-top: 26px; grid-template-columns: 3.05fr 3.75fr 2.75fr 2.45fr; justify-content: stretch; column-gap: 24px; }
   .kopf__fakten dd { font-size: clamp(1.4rem, 1.95vw, 1.75rem); }
-  .lage { grid-column: 2 / -2; grid-row: 6; grid-template-columns: repeat(7, auto); justify-content: space-between; column-gap: 18px; margin-top: 20px; border-top: 1px solid var(--tinte); }
+  .lage { grid-column: 2 / -2; grid-row: 6; grid-template-columns: repeat(8, auto); justify-content: space-between; column-gap: 18px; margin-top: 20px; border-top: 1px solid var(--tinte); }
   .lage li { border-bottom: 0; }
   .lage a { min-height: 50px; padding: 9px 0 0; grid-template-columns: auto minmax(0, 1fr); column-gap: 7px; }
   .lage__nr { font-size: 2.5rem; }
@@ -1487,6 +1488,12 @@ html:not(.js) .stift__punkt { display: none; }
 
 @media (min-width: 1340px) {
   .lage__name { white-space: nowrap; }
+}
+/* Runde 6: acht Eintraege. Von 1280 bis 1339 px bricht kein Name um, dafuer ist die Luecke kleiner,
+   so bleibt die Lage-Zeile bei 1280 x 800 einzeilig im ersten Bildschirm. */
+@media (min-width: 1280px) and (max-width: 1339.98px) {
+  .lage__name { white-space: nowrap; }
+  .lage { column-gap: 10px; }
 }
 
 /* Handy quer (G12): Bei hoechstens 500 px Hoehe laeuft die Leiste nicht mit. Sie naehme sonst ein Achtel

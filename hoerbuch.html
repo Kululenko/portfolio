@@ -36,25 +36,35 @@ if (location.protocol !== "file:") {
 #hoerbuch .hoerbuch__waldtext > .woerter { margin-top: 14px; }
 #hoerbuch .hoerbuch__buehne figcaption { text-wrap: balance; }
 #hoerbuch .hoerbuch__buehne .abzug__bild img { aspect-ratio: 16 / 10; object-fit: cover; }
+#hoerbuch .hoerbuch__trailerlink {
+  display: flex; align-items: center; gap: .35em; width: fit-content; min-height: 44px; margin-top: 2px;
+  font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.2; color: var(--tinte);
+  text-decoration-thickness: 2px; text-underline-offset: .3em;
+}
+#hoerbuch .hoerbuch__trailerlink::after { content: "\2197" / ""; font-size: 1.1em; line-height: 1; }
+@media (hover: hover) and (pointer: fine) {
+  #hoerbuch .hoerbuch__trailerlink:hover { text-decoration-color: var(--gruen); }
+}
+@media (min-width: 700px) {
+  #hoerbuch .hoerbuch__wald .clip { aspect-ratio: 16 / 9; }
+  #hoerbuch .hoerbuch__wald .clip > :is(.clip__poster, video) { object-fit: cover; object-position: center bottom; }
+}
 @media (min-width: 700px) and (max-width: 1023.98px) {
   #hoerbuch .einstieg__tut { grid-column: 1 / -1; grid-row: 1; }
-  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 1 / 5; grid-row: 2; }
-  #hoerbuch .hoerbuch__waldtext { grid-column: 5 / -1; grid-row: 2; align-self: center; }
+  #hoerbuch .einstieg > .hoerbuch__trailer { grid-column: 1 / 5; grid-row: 3; }
+  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 5 / -1; grid-row: 3; }
+  #hoerbuch .hoerbuch__waldtext { grid-column: 1 / -1; grid-row: 2; }
 }
 @media (min-width: 1024px) {
-  #hoerbuch .einstieg { margin-top: 40px; grid-template-rows: auto 1fr; row-gap: 20px; }
+  #hoerbuch .einstieg { margin-top: 40px; row-gap: 32px; align-items: start; }
   #hoerbuch .projekt__kopf > .hoerbuch__buehne { grid-column: 3 / -2; }
-  #hoerbuch .einstieg__tut { grid-column: 2 / 9; grid-row: 1; }
-  #hoerbuch .hoerbuch__waldtext { grid-column: 2 / 9; grid-row: 2; align-self: start; }
-  #hoerbuch .hoerbuch__waldtext > .woerter { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
-  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 9 / -2; grid-row: 1 / span 2; align-self: start; }
+  #hoerbuch .einstieg__tut { grid-column: 2 / 8; grid-row: 1; }
+  #hoerbuch .hoerbuch__waldtext { grid-column: 8 / -2; grid-row: 1; align-self: end; }
+  #hoerbuch .einstieg > .hoerbuch__trailer { grid-column: 2 / 8; grid-row: 2; }
+  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 8 / -2; grid-row: 2; }
+  #hoerbuch .hoerbuch__waldtext > .woerter { margin-top: 20px; }
   #hoerbuch .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
   #hoerbuch .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
-}
-@media (min-width: 1024px) and (max-width: 1279.98px) {
-  #hoerbuch .einstieg__tut { grid-column: 2 / 8; }
-  #hoerbuch .hoerbuch__waldtext { grid-column: 2 / 8; }
-  #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 8 / -2; }
 }
 </style>
 <script src="js/werkbuch.js" defer></script>
@@ -65,7 +75,7 @@ if (location.protocol !== "file:") {
   <div class="leiste__innen">
     <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
     <a class="leiste__zurueck" href="index.html#hoerbuch"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
-    <p class="leiste__projekt"><b>6</b> <span>Hörbuch-Shop</span></p>
+    <p class="leiste__projekt"><b>7</b> <span>Hörbuch-Shop</span></p>
     <a class="leiste__weiter" href="afuku.html" aria-label="Weiter: Afuku">Weiter<span class="leiste__lang">: Afuku</span> <span aria-hidden="true">→</span></a>
     <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
     <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
@@ -78,8 +88,8 @@ if (location.protocol !== "file:") {
 <article class="projekt" id="hoerbuch" aria-labelledby="hoerbuch-titel">
 
   <header class="projekt__kopf blatt">
-    <p class="kapitelzeile"><span>Projekt 6&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
-    <p class="projekt__nr" aria-hidden="true">6</p>
+    <p class="kapitelzeile"><span>Projekt 7&nbsp;von 8<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">7</p>
     <div class="projekt__titelfeld">
       <h1 class="projekt__titel" id="hoerbuch-titel">Hörbuch-Shop</h1>
     </div>
@@ -113,7 +123,7 @@ if (location.protocol !== "file:") {
             </a>
           </div>
         </div>
-        <figcaption><b>6.1</b> Kaufbereich mit der Bestellbox am 12.11.2026. Der Preis im Bild ist ein befristetes Angebot.</figcaption>
+        <figcaption><b>7.1</b> Kaufbereich mit der Bestellbox am 12.11.2026. Der Preis im Bild ist ein befristetes Angebot.</figcaption>
       </figure>
       <figure class="abzug abzug--buehne">
         <div class="abzug__flaeche">
@@ -124,7 +134,7 @@ if (location.protocol !== "file:") {
             </a>
           </div>
         </div>
-        <figcaption><b>6.2</b> Die Download-Seite nach dem Testkauf mit echter Zahlung vom 23.10.2026.</figcaption>
+        <figcaption><b>7.2</b> Die Download-Seite nach dem Testkauf mit echter Zahlung vom 23.10.2026.</figcaption>
       </figure>
     </div>
   </header>
@@ -135,6 +145,22 @@ if (location.protocol !== "file:") {
       <p>Über diesen Shop verkaufe ich das Hörbuch „Die Lichtung“ direkt, ohne Verkaufsplattform, unter meinem Autorennamen Aleks Kavalenko. Besucher können zuerst kostenlos reinhören: in eine Hörprobe von knapp vier Minuten und in ein ganzes Kapitel. Wer kauft, bestellt direkt im Shop und zahlt über den Zahlungsdienst Stripe. Danach erscheint der Download-Link, und er kommt zusätzlich per E-Mail.</p>
       <p>Das Hörbuch dauert 8&nbsp;Stunden 18&nbsp;Minuten und hat 32&nbsp;Abschnitte: 29&nbsp;Kapitel, dazu Eröffnung, Vorwort und Abspann. Laut Shop sprechen 13&nbsp;KI-Stimmen 16&nbsp;Rollen. Der Romantext ist ebenfalls mit KI entstanden.</p>
     </div>
+    <figure class="abzug hoerbuch__trailer">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>Hörbuch-Trailer</span></p>
+          <div class="clip" style="--ar: 1280 / 720">
+            <img class="clip__poster" src="assets/hoerbuch/trailer-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+            <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video im Stil einer Tuschzeichnung: eine Gestalt mit Kapuze und Messer, danach ein Wald bei Vollmond mit vielen Gestalten in Umhängen. Eingeblendet stehen die Zeilen „Holt, Mara.“ und „Jede Figur mit eigener Stimme“.">
+              <source src="assets/hoerbuch/trailer-720.mp4" type="video/mp4" media="(max-width: 700px)">
+              <source src="assets/hoerbuch/trailer-1280.mp4" type="video/mp4">
+            </video>
+            <noscript><a class="clip__knopf" href="assets/hoerbuch/trailer-1280.mp4">Video öffnen</a></noscript>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>7.3</b> Ausschnitt aus dem Hörbuch-Trailer vom 17.10.2026, ohne Ton. Die Bilder hat Google Veo erzeugt, die Stimmen im Trailer ElevenLabs. <a class="hoerbuch__trailerlink" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Ganzer Trailer mit Ton auf der Shop-Seite</a></figcaption>
+    </figure>
     <figure class="abzug hoerbuch__wald">
       <div class="abzug__flaeche">
         <div class="abzug__rahmen">
@@ -149,7 +175,7 @@ if (location.protocol !== "file:") {
           </div>
         </div>
       </div>
-      <figcaption><b>6.3</b> Bildschirmaufnahme der Live-Seite vom 12.11.2026: Hörprobe starten und im Wald vorspringen.</figcaption>
+      <figcaption><b>7.4</b> Bildschirmaufnahme der Live-Seite vom 12.11.2026: Hörprobe starten und im Wald vorspringen.</figcaption>
     </figure>
     <div class="hoerbuch__waldtext">
       <p>Die Hörprobe erscheint als Wald, gebaut aus der Wellenform der Aufnahme. Was schon gehört ist, färbt sich rot. Ein Klick in den Wald springt an die Stelle.</p>
@@ -180,7 +206,7 @@ if (location.protocol !== "file:") {
   <div class="projekt__ende blatt">
     <div class="technik">
       <h2 class="rubrik">Technik</h2>
-      <p>Next.js, React, TypeScript, Stripe, Cloudflare R2, Upstash Redis, Resend, Vercel, ElevenLabs</p>
+      <p>Next.js, React, TypeScript, Stripe, Cloudflare R2, Upstash Redis, Resend, Vercel, ElevenLabs, Google Veo für den Trailer</p>
       <details class="aufbau">
         <summary>Für Entwickler: Aufbau</summary>
         <ol class="ablauf">
@@ -196,9 +222,9 @@ if (location.protocol !== "file:") {
   </div>
 
   <nav class="fall-ende blatt" aria-label="Weiter">
-    <p class="fall-ende__kapitel">Weiter: Projekt 7&nbsp;von 7</p>
+    <p class="fall-ende__kapitel">Weiter: Projekt 8&nbsp;von 8</p>
     <a class="fall-ende__naechstes" href="afuku.html">
-      <span class="fall-ende__ziffer" aria-hidden="true">7</span>
+      <span class="fall-ende__ziffer" aria-hidden="true">8</span>
       <span class="fall-ende__name">Afuku</span>
       <span class="fall-ende__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</span>
       <img class="fall-ende__bild" src="assets/projekte/afuku-900.webp" alt="" width="900" height="563" loading="lazy">

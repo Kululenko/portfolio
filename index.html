@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aleks Paramonov, AI Developer in Hamburg</title>
-<meta name="description" content="Portfolio von Aleks Paramonov, AI Developer in Hamburg. Web-Anwendungen, Apps und KI-Funktionen, gebaut mit Coding-Agenten. Sieben Projekte, vier live.">
+<meta name="description" content="Portfolio von Aleks Paramonov, AI Developer in Hamburg. Web-Anwendungen, Apps und KI-Funktionen, gebaut mit Coding-Agenten. Acht Projekte, vier live.">
 <meta property="og:title" content="Aleks Paramonov, AI Developer in Hamburg">
-<meta property="og:description" content="Portfolio von Aleks Paramonov, AI Developer in Hamburg. Web-Anwendungen, Apps und KI-Funktionen, gebaut mit Coding-Agenten. Sieben Projekte, vier live.">
+<meta property="og:description" content="Portfolio von Aleks Paramonov, AI Developer in Hamburg. Web-Anwendungen, Apps und KI-Funktionen, gebaut mit Coding-Agenten. Acht Projekte, vier live.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
@@ -143,118 +143,6 @@ if (location.protocol !== "file:") {
 }
 </style>
 <style>
-#arbeitsweise { margin-top: 48px; padding-block: 32px 36px; }
-#arbeitsweise a { text-decoration-color: var(--tinte); }
-#arbeitsweise .leitsatz { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: 1fr auto auto; align-items: end; }
-#arbeitsweise .leitsatz span { font-size: 7.6cqi; }
-#arbeitsweise .leitsatz span:nth-child(1) { grid-column: 1; grid-row: 1; align-self: end; padding-right: 2.4cqi; }
-#arbeitsweise .leitsatz span:nth-child(2) { grid-column: 1; grid-row: 2; padding-right: 2.4cqi; }
-#arbeitsweise .leitsatz .leitsatz__tests { grid-column: 2; grid-row: 1 / span 2; font-size: 28.4cqi; line-height: .74; margin: 0; align-self: end; }
-#arbeitsweise .leitsatz span:nth-child(4) { grid-column: 2; grid-row: 3; }
-#arbeitsweise .arbeit__neben { margin-top: 16px; min-width: 0; }
-#arbeitsweise .arbeit__absatz { font-size: 1.0625rem; line-height: 1.45; font-weight: 500; max-width: 34em; text-wrap: pretty; }
-#arbeitsweise .wort { color: var(--tinte); border-left-color: var(--tinte); }
-#arbeitsweise .arbeit__wort { margin-top: 12px; }
-#arbeitsweise .schritte { margin-top: 20px; }
-#arbeitsweise .schritte li { grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; align-content: start; padding: 7px 0 8px; }
-#arbeitsweise .schritte li::before { grid-row: 1; font-size: 1.5rem; line-height: 1; margin: 0; }
-#arbeitsweise .schritte b { grid-column: 2; font-size: 1.5rem; line-height: 1; }
-#arbeitsweise .schritte span { grid-column: 2; font-size: 1rem; line-height: 1.4; margin-top: 3px; }
-#arbeitsweise .arbeit__fall { margin-top: 14px; font-size: 1rem; line-height: 1.45; font-weight: 500; text-wrap: pretty; }
-#arbeitsweise .arbeit__fall b { font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett-gross); letter-spacing: .01em; margin-right: .3em; }
-#arbeitsweise .ki {
-  --ki-rand: 16px;
-  position: relative; min-width: 0;
-  margin-top: 20px; padding: 0 var(--ki-rand) 16px;
-  background: var(--zettel); border: 2px solid var(--tinte);
-  -webkit-print-color-adjust: exact; print-color-adjust: exact;
-}
-#arbeitsweise .ki__titel {
-  display: table; justify-self: start; max-width: calc(100% + var(--ki-rand));
-  margin: -2px 0 0 calc(-2px - var(--ki-rand));
-}
-#arbeitsweise .ki__satz { margin-top: 12px; font-size: 1.2rem; line-height: 1.3; font-weight: 500; text-wrap: pretty; }
-#arbeitsweise .ki__liste { margin-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
-#arbeitsweise .ki__liste li { position: relative; border-top: 2px solid var(--tinte); padding-top: 7px; }
-#arbeitsweise .ki__name {
-  font-family: var(--f-plakat); font-weight: 900; font-size: 1.4rem; line-height: 1.1; letter-spacing: 0; word-spacing: .12em;
-  text-decoration-color: var(--gruen); text-decoration-thickness: 3px; text-underline-offset: .16em;
-  overflow-wrap: anywhere;
-}
-#arbeitsweise .ki__name::after { content: "\2192"; content: "\2192" / ""; display: inline-block; margin-left: .3em; }
-#arbeitsweise .ki__name::before { content: ""; position: absolute; inset: 0; }
-@media (hover: hover) and (pointer: fine) {
-  #arbeitsweise .ki__liste li:hover .ki__name { text-decoration-thickness: 5px; }
-}
-#arbeitsweise .ki__liste p { margin-top: 4px; font-size: 1rem; line-height: 1.4; }
-@media (max-width: 699.98px) {
-  #arbeitsweise { margin-top: 40px; padding-block: 28px 32px; }
-  #arbeitsweise .arbeit__neben { margin-top: 14px; }
-  #arbeitsweise .arbeit__wort { margin-top: 10px; }
-  #arbeitsweise .schritte { margin-top: 16px; }
-  #arbeitsweise .schritte li { padding: 6px 0 7px; }
-  #arbeitsweise .schritte span { grid-column: 1 / -1; margin-top: 2px; }
-  #arbeitsweise .arbeit__fall { margin-top: 12px; }
-  #arbeitsweise .ki { margin-top: 16px; padding-bottom: 14px; }
-  #arbeitsweise .ki__satz { margin-top: 10px; }
-  #arbeitsweise .ki__liste { margin-top: 10px; gap: 8px; }
-  #arbeitsweise .ki__liste li { padding-top: 6px; }
-}
-@media (min-width: 700px) {
-  #arbeitsweise { margin-top: 64px; padding-block: 56px 60px; }
-  #arbeitsweise .arbeit__neben { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr); column-gap: 20px; align-items: start; }
-  #arbeitsweise .arbeit__absatz { font-size: 1.125rem; }
-  #arbeitsweise .arbeit__wort { margin-top: 4px; }
-  #arbeitsweise .schritte { margin-top: 34px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #arbeitsweise .schritte li { grid-column: auto; padding: 8px 0 10px; }
-  #arbeitsweise .schritte li:last-child { grid-column: 1 / -1; }
-  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 1.75rem; }
-  #arbeitsweise .schritte span { grid-column: 1 / -1; line-height: 1.42; }
-  #arbeitsweise .arbeit__fall { margin-top: 18px; }
-  #arbeitsweise .ki { --ki-rand: 24px; margin-top: 36px; padding-bottom: 24px; }
-  #arbeitsweise .ki__satz { margin-top: 14px; max-width: 26em; font-size: var(--t-vorspann); line-height: 1.27; }
-  #arbeitsweise .ki__liste { margin-top: 20px; gap: 0; border-bottom: 2px solid var(--tinte); }
-  #arbeitsweise .ki__liste li { display: grid; grid-template-columns: 17rem minmax(0, 1fr); column-gap: 20px; align-items: baseline; padding: 10px 0 12px; }
-  #arbeitsweise .ki__liste p { margin-top: 0; }
-  #arbeitsweise .ki__name { font-size: 1.5rem; white-space: nowrap; }
-}
-@media (min-width: 1024px) {
-  #arbeitsweise { margin-top: 80px; padding-block: 56px 60px; }
-  #arbeitsweise .leitsatz { grid-column: 2 / 9; grid-row: 2; }
-  #arbeitsweise .arbeit__neben { grid-column: 9 / -2; grid-row: 2; align-self: end; display: block; margin: 0; padding-left: 8px; }
-  #arbeitsweise .arbeit__absatz { font-size: 1.125rem; }
-  #arbeitsweise .arbeit__wort { margin-top: 14px; }
-  #arbeitsweise .schritte { margin-top: 38px; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: 24px; border-bottom: 0; }
-  #arbeitsweise .schritte li, #arbeitsweise .schritte li:last-child { grid-column: auto; padding: 12px 0 0; align-content: start; }
-  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 1.75rem; }
-  #arbeitsweise .schritte span { margin-top: 8px; }
-  #arbeitsweise .arbeit__fall { grid-column: 2 / -2; margin-top: 24px; border-top: 2px solid var(--tinte); padding-top: 11px; font-size: 1.0625rem; }
-  #arbeitsweise .ki {
-    --ki-rand: 32px; grid-column: 2 / -2; margin-top: 36px; padding-bottom: 30px;
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; align-items: start;
-  }
-  #arbeitsweise .ki__titel { grid-column: 1 / -1; grid-row: 1; }
-  #arbeitsweise .ki__satz { grid-column: 1 / 3; grid-row: 2; margin-top: 18px; max-width: none; text-wrap: balance; }
-  #arbeitsweise .ki__liste { grid-column: 1 / -1; grid-row: 3; margin-top: 26px; grid-template-columns: subgrid; gap: 0; column-gap: normal; border-bottom: 0; align-items: stretch; }
-  #arbeitsweise .ki__liste li { display: block; padding: 10px 0 0; }
-  #arbeitsweise .ki__liste p { margin-top: 6px; }
-  #arbeitsweise .ki__name { font-size: 1.3rem; }
-}
-@media (min-width: 1280px) {
-  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 2.1rem; }
-  #arbeitsweise .ki__name { font-size: 1.6rem; }
-}
-@media print {
-  #arbeitsweise { padding-block: 10pt; }
-  #arbeitsweise .leitsatz { display: block; }
-  #arbeitsweise .leitsatz span { font-size: 26pt; padding: 0; }
-  #arbeitsweise .leitsatz .leitsatz__tests { font-size: 48pt; }
-  #arbeitsweise .ki { background: none; display: block; }
-  #arbeitsweise .ki__titel { margin: 0; }
-  #arbeitsweise .ki__name::after, #arbeitsweise .ki__name::before { content: none; }
-}
-</style>
-<style>
 #projekte { padding-top: var(--abschnitt); }
 #projekte .projekte__titel {
   font-family: var(--f-plakat); font-weight: 900; letter-spacing: -.012em; word-spacing: .12em;
@@ -347,6 +235,12 @@ if (location.protocol !== "file:") {
   #projekte .karten { margin-top: 88px; row-gap: 64px; align-items: stretch; }
   #projekte .karten > .karte:nth-child(odd) { grid-column: 1 / 5; }
   #projekte .karten > .karte:nth-child(even) { grid-column: 5 / -1; }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) {
+    grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: start;
+  }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) > .karte__bild { grid-column: 1 / 5; }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) > .karte__text { grid-column: 5 / -1; margin-top: 0; }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) .karte__knoepfe { margin-top: 0; }
 }
 @media (min-width: 1024px) {
   #projekte .projekte__kopf { align-items: start; row-gap: 0; }
@@ -364,6 +258,120 @@ if (location.protocol !== "file:") {
   #projekte .karten > .karte:nth-child(odd) { grid-column: 2 / 8; }
   #projekte .karten > .karte:nth-child(even) { grid-column: 8 / -2; }
   #projekte .karte--klein .karte__titel { font-size: min(3rem, 10.4cqi); }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) { grid-column: 2 / -2; }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) > .karte__bild { grid-column: 1 / 7; }
+  #projekte .karten > .karte--klein:last-child:nth-child(odd) > .karte__text { grid-column: 7 / -1; }
+}
+</style>
+<style>
+#arbeitsweise { margin-top: 48px; padding-block: 32px 36px; }
+#arbeitsweise a { text-decoration-color: var(--tinte); }
+#arbeitsweise .leitsatz { display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto; align-items: end; }
+#arbeitsweise .leitsatz span { font-size: 7.6cqi; }
+#arbeitsweise .leitsatz span:nth-child(1) { grid-column: 1; grid-row: 1; align-self: end; padding-right: 2.4cqi; }
+#arbeitsweise .leitsatz span:nth-child(2) { grid-column: 1; grid-row: 2; padding-right: 2.4cqi; align-self: start; margin-top: .9cqi; }
+#arbeitsweise .leitsatz span:nth-child(3) { grid-column: 2; grid-row: 1; align-self: end; }
+#arbeitsweise .leitsatz .leitsatz__tests { grid-column: 2; grid-row: 2; font-size: 16.5cqi; line-height: .78; margin: 0; align-self: start; }
+#arbeitsweise .arbeit__neben { margin-top: 16px; min-width: 0; }
+#arbeitsweise .arbeit__absatz { font-size: 1.0625rem; line-height: 1.45; font-weight: 500; max-width: 34em; text-wrap: pretty; }
+#arbeitsweise .wort { color: var(--tinte); border-left-color: var(--tinte); }
+#arbeitsweise .arbeit__wort { margin-top: 12px; }
+#arbeitsweise .schritte { margin-top: 20px; }
+#arbeitsweise .schritte li { grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; align-content: start; padding: 7px 0 8px; }
+#arbeitsweise .schritte li::before { grid-row: 1; font-size: 1.5rem; line-height: 1; margin: 0; }
+#arbeitsweise .schritte b { grid-column: 2; font-size: 1.5rem; line-height: 1; }
+#arbeitsweise .schritte span { grid-column: 2; font-size: 1rem; line-height: 1.4; margin-top: 3px; }
+#arbeitsweise .arbeit__fall { margin-top: 14px; font-size: 1rem; line-height: 1.45; font-weight: 500; text-wrap: pretty; }
+#arbeitsweise .arbeit__fall b { font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett-gross); letter-spacing: .01em; margin-right: .3em; }
+#arbeitsweise .ki {
+  --ki-rand: 16px;
+  position: relative; min-width: 0;
+  margin-top: 20px; padding: 0 var(--ki-rand) 16px;
+  background: var(--zettel); border: 2px solid var(--tinte);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+#arbeitsweise .ki__titel {
+  display: table; justify-self: start; max-width: calc(100% + var(--ki-rand));
+  margin: -2px 0 0 calc(-2px - var(--ki-rand));
+}
+#arbeitsweise .ki__satz { margin-top: 12px; font-size: 1.2rem; line-height: 1.3; font-weight: 500; text-wrap: pretty; }
+#arbeitsweise .ki__liste { margin-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+#arbeitsweise .ki__liste li { position: relative; border-top: 2px solid var(--tinte); padding-top: 7px; }
+#arbeitsweise .ki__name {
+  font-family: var(--f-plakat); font-weight: 900; font-size: 1.4rem; line-height: 1.1; letter-spacing: 0; word-spacing: .12em;
+  text-decoration-color: var(--gruen); text-decoration-thickness: 3px; text-underline-offset: .16em;
+  overflow-wrap: anywhere;
+}
+#arbeitsweise .ki__name::after { content: "\2192"; content: "\2192" / ""; display: inline-block; margin-left: .3em; }
+#arbeitsweise .ki__name::before { content: ""; position: absolute; inset: 0; }
+@media (hover: hover) and (pointer: fine) {
+  #arbeitsweise .ki__liste li:hover .ki__name { text-decoration-thickness: 5px; }
+}
+#arbeitsweise .ki__liste p { margin-top: 4px; font-size: 1rem; line-height: 1.4; }
+@media (max-width: 699.98px) {
+  #arbeitsweise { margin-top: 40px; padding-block: 28px 32px; }
+  #arbeitsweise .arbeit__neben { margin-top: 14px; }
+  #arbeitsweise .arbeit__wort { margin-top: 10px; }
+  #arbeitsweise .schritte { margin-top: 16px; }
+  #arbeitsweise .schritte li { padding: 6px 0 7px; }
+  #arbeitsweise .schritte span { grid-column: 1 / -1; margin-top: 2px; }
+  #arbeitsweise .arbeit__fall { margin-top: 12px; }
+  #arbeitsweise .ki { margin-top: 16px; padding-bottom: 14px; }
+  #arbeitsweise .ki__satz { margin-top: 10px; }
+  #arbeitsweise .ki__liste { margin-top: 10px; gap: 8px; }
+  #arbeitsweise .ki__liste li { padding-top: 6px; }
+}
+@media (min-width: 700px) {
+  #arbeitsweise { margin-top: 64px; padding-block: 56px 60px; }
+  #arbeitsweise .arbeit__neben { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr); column-gap: 20px; align-items: start; }
+  #arbeitsweise .arbeit__absatz { font-size: 1.125rem; }
+  #arbeitsweise .arbeit__wort { margin-top: 4px; }
+  #arbeitsweise .schritte { margin-top: 34px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #arbeitsweise .schritte li { grid-column: auto; padding: 8px 0 10px; }
+  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 1.75rem; }
+  #arbeitsweise .schritte span { grid-column: 1 / -1; line-height: 1.42; }
+  #arbeitsweise .arbeit__fall { margin-top: 18px; }
+  #arbeitsweise .ki { --ki-rand: 24px; margin-top: 36px; padding-bottom: 24px; }
+  #arbeitsweise .ki__satz { margin-top: 14px; max-width: 26em; font-size: var(--t-vorspann); line-height: 1.27; }
+  #arbeitsweise .ki__liste { margin-top: 20px; gap: 0; border-bottom: 2px solid var(--tinte); }
+  #arbeitsweise .ki__liste li { display: grid; grid-template-columns: 17rem minmax(0, 1fr); column-gap: 20px; align-items: baseline; padding: 10px 0 12px; }
+  #arbeitsweise .ki__liste p { margin-top: 0; }
+  #arbeitsweise .ki__name { font-size: 1.5rem; white-space: nowrap; }
+}
+@media (min-width: 1024px) {
+  #arbeitsweise { margin-top: 80px; padding-block: 56px 60px; }
+  #arbeitsweise .leitsatz { grid-column: 2 / 9; grid-row: 2; }
+  #arbeitsweise .arbeit__neben { grid-column: 9 / -2; grid-row: 2; align-self: end; display: block; margin: 0; padding-left: 8px; }
+  #arbeitsweise .arbeit__absatz { font-size: 1.125rem; }
+  #arbeitsweise .arbeit__wort { margin-top: 14px; }
+  #arbeitsweise .schritte { margin-top: 38px; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 32px; border-bottom: 0; }
+  #arbeitsweise .schritte li, #arbeitsweise .schritte li:last-child { grid-column: auto; padding: 12px 0 0; align-content: start; }
+  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 1.75rem; }
+  #arbeitsweise .schritte span { margin-top: 8px; }
+  #arbeitsweise .arbeit__fall { grid-column: 2 / -2; margin-top: 24px; border-top: 2px solid var(--tinte); padding-top: 11px; font-size: 1.0625rem; }
+  #arbeitsweise .ki {
+    --ki-rand: 32px; grid-column: 2 / -2; margin-top: 36px; padding-bottom: 30px;
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; align-items: start;
+  }
+  #arbeitsweise .ki__titel { grid-column: 1 / -1; grid-row: 1; }
+  #arbeitsweise .ki__satz { grid-column: 1 / 3; grid-row: 2; margin-top: 18px; max-width: none; text-wrap: balance; }
+  #arbeitsweise .ki__liste { grid-column: 1 / -1; grid-row: 3; margin-top: 26px; grid-template-columns: subgrid; gap: 0; column-gap: normal; border-bottom: 0; align-items: stretch; }
+  #arbeitsweise .ki__liste li { display: block; padding: 10px 0 0; }
+  #arbeitsweise .ki__liste p { margin-top: 6px; }
+  #arbeitsweise .ki__name { font-size: 1.3rem; }
+}
+@media (min-width: 1280px) {
+  #arbeitsweise .schritte li::before, #arbeitsweise .schritte b { font-size: 2.1rem; }
+  #arbeitsweise .ki__name { font-size: 1.6rem; }
+}
+@media print {
+  #arbeitsweise { padding-block: 10pt; }
+  #arbeitsweise .leitsatz { display: block; }
+  #arbeitsweise .leitsatz span { font-size: 26pt; padding: 0; }
+  #arbeitsweise .leitsatz .leitsatz__tests { font-size: 40pt; }
+  #arbeitsweise .ki { background: none; display: block; }
+  #arbeitsweise .ki__titel { margin: 0; }
+  #arbeitsweise .ki__name::after, #arbeitsweise .ki__name::before { content: none; }
 }
 </style>
 <style>
@@ -454,8 +462,8 @@ if (location.protocol !== "file:") {
   <div class="leiste__innen">
     <a class="leiste__marke" href="#oben">Aleks Paramonov</a>
     <ul class="leiste__wege">
-      <li class="leiste__breit"><a href="#arbeitsweise">Arbeitsweise</a></li>
       <li><a href="#projekte">Projekte</a></li>
+      <li class="leiste__breit"><a href="#arbeitsweise">Arbeitsweise</a></li>
       <li><a href="#ueber-mich">Über mich</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
@@ -509,53 +517,22 @@ if (location.protocol !== "file:") {
     <a class="kopf__link" href="#werdegang">Ganzer Werdegang</a>
   </div>
 
-  <ol class="lage" aria-label="Sieben Projekte und ihr Stand">
+  <ol class="lage" aria-label="Acht Projekte und ihr Stand">
     <li><a href="geschenkideen.html"><b class="lage__nr">1</b><span class="lage__name">Geschenkideen&shy;generator</span><span class="stand stand--live">live</span></a></li>
     <li><a href="proteinvergleich.html"><b class="lage__nr">2</b><span class="lage__name">Protein&shy;vergleich</span><span class="stand stand--live">live</span></a></li>
     <li><a href="zodiacally.html"><b class="lage__nr">3</b><span class="lage__name">Zodiacally</span><span class="stand stand--live">live</span></a></li>
     <li><a href="outava.html"><b class="lage__nr">4</b><span class="lage__name">Outava</span><span class="stand stand--test">Testversion</span></a></li>
-    <li><a href="agenten.html"><b class="lage__nr">5</b><span class="lage__name">Agenten-Versuch</span><span class="stand stand--versuch">angehalten und ausgewertet</span></a></li>
-    <li><a href="hoerbuch.html"><b class="lage__nr">6</b><span class="lage__name">Hörbuch-Shop</span><span class="stand stand--live">live</span></a></li>
-    <li><a href="afuku.html"><b class="lage__nr">7</b><span class="lage__name">Afuku</span><span class="stand stand--bau">in Entwicklung</span></a></li>
+    <li><a href="youtube.html"><b class="lage__nr">5</b><span class="lage__name">YouTube-Kanäle</span><span class="stand stand--live">öffentlich</span></a></li>
+    <li><a href="agenten.html"><b class="lage__nr">6</b><span class="lage__name">Agenten-Orchestrierung</span><span class="stand stand--bau">in Arbeit</span></a></li>
+    <li><a href="hoerbuch.html"><b class="lage__nr">7</b><span class="lage__name">Hörbuch-Shop</span><span class="stand stand--live">live</span></a></li>
+    <li><a href="afuku.html"><b class="lage__nr">8</b><span class="lage__name">Afuku</span><span class="stand stand--bau">in Entwicklung</span></a></li>
   </ol>
-</section>
-
-<section class="arbeit" id="arbeitsweise" aria-labelledby="arbeit-titel">
-  <div class="blatt">
-    <h2 class="rubrik" id="arbeit-titel">So arbeite ich</h2>
-    <p class="leitsatz"><span>Ich plane,</span> <span>Agenten bauen,</span> <span class="leitsatz__tests">Tests</span> <span>entscheiden.</span></p>
-    <div class="arbeit__neben">
-      <p class="arbeit__absatz">Ich teile die Arbeit in prüfbare Aufgaben und steuere mehrere Agenten parallel. Ich schreibe Code nicht mehr von Hand. Lesen, prüfen und Fehler eingrenzen kann ich selbst.</p>
-      <p class="wort arbeit__wort"><b>Coding-Agenten</b> KI-Programme, die nach Anweisung Code schreiben und ändern.</p>
-    </div>
-
-    <ol class="schritte">
-      <li><b>Spezifikation</b> <span>Ich lege fest, was gebaut wird: Ziel, Architektur, Datenmodell und woran das Ergebnis gemessen wird.</span></li>
-      <li><b>Agenten</b> <span>Coding-Agenten wie Claude Code und Codex schreiben den Code, jeder in einer getrennten Arbeitskopie.</span></li>
-      <li><b>Tests</b> <span>Automatisierte Tests und feste Prüfskripte zeigen, ob das Ergebnis stimmt.</span></li>
-      <li><b>Abnahme</b> <span>Ich nehme nur ab, was die Tests bestanden hat. Was online geht, probiere ich vorher selbst aus.</span></li>
-      <li><b>Live</b> <span>Dann geht es online, und ich kümmere mich weiter um Server, Bezahlung, Datenbank und Fehlersuche.</span></li>
-    </ol>
-
-    <p class="arbeit__fall"><b>Ein Beispiel aus <a href="zodiacally.html#zodiacally-punkt-3">Zodiacally</a>:</b> Im letzten vollen Lauf der App am 30.10.2026 fielen 9&nbsp;von 3.056&nbsp;Tests durch. 6&nbsp;Tests erwarteten noch den früheren Kaufablauf, 2&nbsp;scheiterten an Zeilenenden einer Datendatei, 1&nbsp;an einer zu engen Bildgrenze unter Windows. Der Produktcode blieb unverändert, die gezielten Nachtests bestanden.</p>
-
-    <section class="ki" aria-labelledby="ki-titel">
-      <h3 class="rubrik ki__titel" id="ki-titel">So setze ich KI in Produkten ein</h3>
-      <p class="ki__satz">Das Sprachmodell liest und schreibt nur Text. Was ausgewählt, sortiert und berechnet wird, entscheidet fester Programmcode.</p>
-      <ul class="ki__liste">
-        <li><a class="ki__name" href="geschenkideen.html#geschenkideen-punkt-1">Geschenkideengenerator</a> <p>Das Modell füllt nur ein festes Suchprofil aus, zum Beispiel Alter und Budget. Eine Kostenbremse begrenzt die KI-Aufrufe.</p></li>
-        <li><a class="ki__name" href="outava.html#outava-punkt-2">Outava</a> <p>Das Modell füllt nur feste Suchfelder aus. Zeiten, Öffnungszeiten und Wege prüft danach Programmcode. Das Modell läuft auf einem Server in Paris.</p></li>
-        <li><a class="ki__name" href="zodiacally.html#zodiacally-punkt-2">Zodiacally</a> <p>Die Rechenengine berechnet die Planetenpositionen. Die KI schreibt daraus die Deutung, und im Beispiel-Horoskop nennt der Abschnitt „Astrologische Belege“ zu jedem Deutungstext die Konstellation.</p></li>
-      </ul>
-    </section>
-  </div>
 </section>
 
 <section class="projekte" id="projekte" aria-labelledby="projekte-titel">
   <div class="blatt projekte__kopf">
     <h2 class="projekte__titel" id="projekte-titel">Projekte</h2>
-    <p class="projekte__vorspann">Sieben Projekte aus den Jahren 2025 und 2026, alle mit Coding-Agenten gebaut, fünf davon allein.</p>
-    <p class="projekte__bruecke">Was davon auch in Firmen gebraucht wird: Daten aus der Schnittstelle eines anderen Anbieters importieren (Outava), Preise jeden Morgen automatisch prüfen (Proteinvergleich), Zahlungen über Stripe abwickeln (Zodiacally, Hörbuch-Shop), KI-Kosten begrenzen (Geschenkideengenerator) und ein KI-Modell bei einem Anbieter in der EU nutzen (Outava).</p>
+    <p class="projekte__vorspann">Acht Projekte aus den Jahren 2025 und 2026, alle mit Coding-Agenten gebaut, sechs davon allein.</p>
   </div>
 
   <article class="karte karte--gross blatt" id="geschenkideen" aria-labelledby="geschenkideen-karte">
@@ -680,9 +657,35 @@ if (location.protocol !== "file:") {
         <p class="karte__kurz">Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide</p>
         <p class="karte__stand"><span class="stand stand--test">Testversion, nicht im Store</span> <span>· seit 05/2026, letzter Stand 10/2026</span></p>
         <p class="karte__anteil">Gemeinsames Projekt mit einem Geschäftspartner. Mein Teil: die gesamte Technik.</p>
-        <p class="karte__kennzeile">Datenimport neu gebaut: im Folgelauf 29&nbsp;Minuten, das alte Verfahren brauchte 97.</p>
+        <p class="karte__kennzeile">Empfehlungssystem von Grund auf gebaut: Mit Einwilligung lernt der Kartenstapel aus jedem Wisch.</p>
         <p class="karte__knoepfe">
           <a class="knopf knopf--klein" href="outava.html">Fallstudie lesen<span class="unsichtbar">: Outava</span></a>
+        </p>
+      </div>
+    </article>
+
+    <article class="karte karte--klein" id="youtube" aria-labelledby="youtube-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Hörgeschichte, Standbild</span><span>KI-Bild</span></p>
+            <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/youtube-900.webp"
+                   srcset="assets/projekte/youtube-900.webp 900w, assets/projekte/youtube.webp 1152w"
+                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
+                   width="1152" height="720" loading="lazy" decoding="async"
+                   alt="Zwei Zelte nachts im Wald, eines grün, eines rot mit einer Laterne. Dazwischen weiße Balken einer Tonspur, oben rechts das Etikett Horror-Hörbuch.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="youtube-karte"><a href="youtube.html"><span class="karte__nr" aria-hidden="true">5</span> YouTube-Kanäle</a></h3>
+        <p class="karte__kurz">Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten</p>
+        <p class="karte__stand"><span class="stand stand--live">öffentlich</span> <span>· seit 08/2026</span></p>
+        <p class="karte__kennzeile">Bei Zodiacally entsteht jede Folge in einem geplanten Lauf, von der Recherche bis zum eingeplanten Upload.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="youtube.html">Fallstudie lesen<span class="unsichtbar">: YouTube-Kanäle</span></a>
         </p>
       </div>
     </article>
@@ -691,7 +694,7 @@ if (location.protocol !== "file:") {
       <figure class="abzug karte__bild">
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Aufgaben-Übersicht der KI-Agenten</span><span>Stand 29.09.2026</span></p>
+            <p class="abzug__kopf"><span>Aufgaben-Board, erster Versuch</span><span>Stand 29.09.2026</span></p>
             <a class="abzug__bild" href="agenten.html" tabindex="-1" aria-hidden="true">
               <img src="assets/projekte/agenten-900.webp"
                    srcset="assets/projekte/agenten-900.webp 900w, assets/projekte/agenten.webp 1400w"
@@ -703,12 +706,12 @@ if (location.protocol !== "file:") {
         </div>
       </figure>
       <div class="karte__text">
-        <h3 class="karte__titel" id="agenten-karte"><a href="agenten.html"><span class="karte__nr" aria-hidden="true">5</span> Agenten-Versuch</a></h3>
-        <p class="karte__kurz">35&nbsp;KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku</p>
-        <p class="karte__stand"><span class="stand stand--versuch">angehalten und ausgewertet</span> <span>· 09/2026 bis 10/2026</span></p>
-        <p class="karte__kennzeile">Von 286&nbsp;Aufgaben waren rund 200&nbsp;keine Arbeit am Produkt. Am 05.10.2026 habe ich den Versuch angehalten.</p>
+        <h3 class="karte__titel" id="agenten-karte"><a href="agenten.html"><span class="karte__nr" aria-hidden="true">6</span> Agenten-Orchestrierung</a></h3>
+        <p class="karte__kurz">Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht</p>
+        <p class="karte__stand"><span class="stand stand--bau">in Arbeit</span> <span>· seit 09/2026</span></p>
+        <p class="karte__kennzeile">Erst ein Versuch mit 35&nbsp;Rollen, am 05.10.2026 angehalten. Heute laufen einzelne, feste Abläufe je Projekt.</p>
         <p class="karte__knoepfe">
-          <a class="knopf knopf--klein" href="agenten.html">Fallstudie lesen<span class="unsichtbar">: Agenten-Versuch</span></a>
+          <a class="knopf knopf--klein" href="agenten.html">Fallstudie lesen<span class="unsichtbar">: Agenten-Orchestrierung</span></a>
         </p>
       </div>
     </article>
@@ -717,20 +720,22 @@ if (location.protocol !== "file:") {
       <figure class="abzug karte__bild">
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Download-Seite</span><span>Testkauf</span></p>
+            <p class="abzug__kopf"><span>Hörbuch-Trailer, Standbild</span><span>KI-Bild (Google Veo)</span></p>
             <a class="abzug__bild" href="hoerbuch.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/hoerbuch.webp"
-                   width="800" height="500" loading="lazy" decoding="async"
-                   alt="Ausschnitt der Download-Seite mit zwei Kästen zum Herunterladen: alles in einer Datei als M4B und einzelne Kapitel als MP3.">
+              <img src="assets/projekte/hoerbuch-900.webp"
+                   srcset="assets/projekte/hoerbuch-900.webp 900w, assets/projekte/hoerbuch.webp 1152w"
+                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
+                   width="1152" height="720" loading="lazy" decoding="async"
+                   alt="Tuschzeichnung eines Waldes bei Vollmond. Links und rechts stehen Gestalten in dunklen Umhängen mit roten Spuren, dazwischen zieht Nebel.">
             </a>
           </div>
         </div>
       </figure>
       <div class="karte__text">
-        <h3 class="karte__titel" id="hoerbuch-karte"><a href="hoerbuch.html"><span class="karte__nr" aria-hidden="true">6</span> Hörbuch-Shop</a></h3>
+        <h3 class="karte__titel" id="hoerbuch-karte"><a href="hoerbuch.html"><span class="karte__nr" aria-hidden="true">7</span> Hörbuch-Shop</a></h3>
         <p class="karte__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</p>
         <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 10/2026</span></p>
-        <p class="karte__kennzeile">Kaufablauf mit echter Kartenzahlung geprüft und 475&nbsp;von 475&nbsp;Tests im Shop bestanden, beides am 23.10.2026.</p>
+        <p class="karte__kennzeile">Kaufablauf mit echter Kartenzahlung am 23.10.2026 geprüft.</p>
         <p class="karte__knoepfe">
           <a class="knopf knopf--klein" href="hoerbuch.html">Fallstudie lesen<span class="unsichtbar">: Hörbuch-Shop</span></a>
           <a class="karte__link" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Shop öffnen</a>
@@ -754,7 +759,7 @@ if (location.protocol !== "file:") {
         </div>
       </figure>
       <div class="karte__text">
-        <h3 class="karte__titel" id="afuku-karte"><a href="afuku.html"><span class="karte__nr" aria-hidden="true">7</span> Afuku</a></h3>
+        <h3 class="karte__titel" id="afuku-karte"><a href="afuku.html"><span class="karte__nr" aria-hidden="true">8</span> Afuku</a></h3>
         <p class="karte__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</p>
         <p class="karte__stand"><span class="stand stand--bau">in Entwicklung</span> <span>· seit 09/2026</span></p>
         <p class="karte__anteil">Zu zweit entwickelt. Mein Teil: Projektleitung und Entscheidungen, der Dungeon und das heutige Aussehen der Hauptfigur.</p>
@@ -768,12 +773,32 @@ if (location.protocol !== "file:") {
   </div>
 </section>
 
+<section class="arbeit" id="arbeitsweise" aria-labelledby="arbeit-titel">
+  <div class="blatt">
+    <h2 class="rubrik" id="arbeit-titel">So arbeite ich</h2>
+    <p class="leitsatz"><span>Ich plane,</span> <span>Agenten bauen,</span> <span>ich</span> <span class="leitsatz__tests">reviewe.</span></p>
+    <div class="arbeit__neben">
+      <p class="arbeit__absatz">Ich teile die Arbeit in Aufgaben und steuere mehrere Agenten parallel. Ich schreibe Code nicht mehr von Hand. Lesen, prüfen und Fehler eingrenzen kann ich selbst.</p>
+      <p class="wort arbeit__wort"><b>Coding-Agenten</b> KI-Programme, die nach Anweisung Code schreiben und ändern.</p>
+    </div>
+
+    <ol class="schritte schritte--vier">
+      <li><b>Planen</b> <span>Ich lege fest, was gebaut wird: Ziel, Architektur und Datenmodell.</span></li>
+      <li><b>Agenten</b> <span>Coding-Agenten wie Claude Code und Codex schreiben den Code, jeder in einer getrennten Arbeitskopie.</span></li>
+      <li><b>Review</b> <span>Ich lese die wichtigen Änderungen, probiere das Ergebnis aus und gebe es erst dann frei.</span></li>
+      <li><b>Live</b> <span>Dann geht es online, und ich kümmere mich weiter um Server, Bezahlung, Datenbank und Fehlersuche.</span></li>
+    </ol>
+
+    <p class="arbeit__fall"><b>KI in meinen Produkten:</b> Das Sprachmodell liest und schreibt nur Text. Was ausgewählt, sortiert und berechnet wird, entscheidet fester Programmcode.</p>
+  </div>
+</section>
+
 <section class="abschnitt ueber blatt" id="ueber-mich" aria-labelledby="ueber-titel">
   <div class="ueber__kurz" id="kurz-zu-mir">
     <h2 class="abschnitt__titel" id="ueber-titel">Über mich</h2>
     <div class="fliesstext">
       <p>Ich bin Aleks, lebe in Hamburg und bin Quereinsteiger aus der Gastronomie. Im Team gearbeitet habe ich im Restaurant-Service, bei Outava mit einem Geschäftspartner und bei Afuku mit einem zweiten Entwickler.</p>
-      <p>Vier meiner sieben Projekte sind live. Wirtschaftlich getragen hat sich bisher keines davon.</p>
+      <p>Vier meiner acht Projekte sind live. Wirtschaftlich getragen hat sich bisher keines davon.</p>
       <p>Jetzt suche ich eine Festanstellung in einem Team, von dem ich lernen kann. Mitbringen kann ich meine Arbeitsweise mit Coding-Agenten.</p>
     </div>
   </div>

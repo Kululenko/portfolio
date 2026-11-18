@@ -62,8 +62,6 @@ if (location.protocol !== "file:") {
 @media (min-width: 1024px) {
   #outava .projekt__kopf > .abzugreihe { grid-column: 8 / -2; grid-row: 6; align-self: start; margin-top: 32px; }
   #outava .projekt__kopf > .einstieg__tut { grid-column: 2 / 7; grid-row: 6; align-self: start; margin-top: 32px; }
-  #outava .punkte--kurz > .punkt:nth-child(1) { grid-column: 2 / 8; }
-  #outava .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
   #outava .punkte > .blatt > .abzugreihe { grid-column: 3 / -3; margin-top: 40px; }
 }
 @media (min-width: 1280px) {
@@ -85,7 +83,7 @@ if (location.protocol !== "file:") {
     <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
     <a class="leiste__zurueck" href="index.html#outava"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
     <p class="leiste__projekt"><b>4</b> <span>Outava</span></p>
-    <a class="leiste__weiter" href="agenten.html" aria-label="Weiter: Agenten-Versuch">Weiter<span class="leiste__lang">: Agenten-Versuch</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__weiter" href="youtube.html" aria-label="Weiter: YouTube-Kanäle">Weiter<span class="leiste__lang">: YouTube-Kanäle</span> <span aria-hidden="true">→</span></a>
     <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
     <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
   </div>
@@ -97,7 +95,7 @@ if (location.protocol !== "file:") {
 <article class="projekt" id="outava" aria-labelledby="outava-titel">
 
   <header class="projekt__kopf blatt">
-    <p class="kapitelzeile"><span>Projekt 4&nbsp;von 7<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="kapitelzeile"><span>Projekt 4&nbsp;von 8<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
     <p class="projekt__nr" aria-hidden="true">4</p>
     <div class="projekt__titelfeld">
       <h1 class="projekt__titel" id="outava-titel">Outava</h1>
@@ -158,9 +156,30 @@ if (location.protocol !== "file:") {
 
     <div class="punkte--kurz blatt">
       <div class="punkt" id="outava-punkt-1">
-        <h3><span class="punkt__nr" aria-hidden="true">1</span>Der Import schreibt nur Geändertes: 29&nbsp;statt 97&nbsp;Minuten</h3>
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Ein Empfehlungssystem von Grund auf, das aus jedem Wisch lernt</h3>
         <div class="punkt__text">
-          <p>Die Termine kommen aus dem Veranstaltungsfeed der Hamburg Tourismus GmbH, rund 50.000&nbsp;pro Lauf. Für jeden Termin speichert eine geschützte Tabelle zwei Prüfsummen, eine Art Fingerabdruck: eine der gelieferten Daten und eine des gespeicherten Stands. Sind beide unverändert, schreibt der Import den Termin nicht neu. Der erste Lauf baut diesen Zwischenspeicher auf. Im Folgelauf wurden 1.102&nbsp;Termine geschrieben und 49.114&nbsp;übersprungen.</p>
+          <p>Welche Karte oben liegt, rechnet der Server aus: Jede Veranstaltung bekommt 0&nbsp;bis 100&nbsp;Punkte aus Interessen, Zeitpunkt, Nachfrage, Trend und vollständigen Angaben. Mit Einwilligung zählt ein Wisch nach rechts oder oben als Interesse, nach links leicht dagegen, und ältere Signale verlieren an Gewicht. Danach mischt der Server nach: höchstens zwei gleiche Formate hintereinander, und auf drei festen Plätzen stehen selten gezeigte Veranstaltungen. Das Format, eines von 21, vergibt ein Regelwerk mit Wortlisten, keine KI. Das System ist so umfangreich, dass es auch für die Coding-Agenten eine schwere Aufgabe war.</p>
+        </div>
+      </div>
+
+      <div class="punkt" id="outava-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>KI-Guide auf dem Empfehlungssystem</h3>
+        <div class="punkt__text">
+          <p>Das Sprachmodell, Gemma&nbsp;4&nbsp;bei Scaleway in Paris, füllt nur ein festes Schema mit 23&nbsp;Feldern aus, zum Beispiel Absicht, Datum, Formate, Budget und Ausschlüsse. Die Vorschläge ordnet der Server mit denselben Bausteinen wie den Stapel, mit Einwilligung auch nach den Wischen. Schwierig war zum Beispiel „Theater heute Abend“: Im Oktober 2026 kamen dafür Restaurant-Vorschläge, weil der Planer ein bekanntes Ende verlangte, und das fehlte den meisten Bühnen-Veranstaltungen. Seit dem Umbau plant der Guide fehlende Enden mit einer geschätzten Dauer. Für die aktuelle Fassung des KI-Guides gibt es noch keine Messung am Sprachmodell.</p>
+          <ol class="ablauf">
+            <li>Frage in normalen Sätzen</li>
+            <li>Sprachmodell füllt ein festes Schema aus</li>
+            <li>Server ordnet mit dem Empfehlungssystem</li>
+            <li>Programmcode prüft Zeiten, Öffnungszeiten und Wege</li>
+            <li>Vorschläge</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="punkt" id="outava-punkt-3">
+        <h3><span class="punkt__nr" aria-hidden="true">3</span>Import und Prüfungen in GitHub Actions</h3>
+        <div class="punkt__text">
+          <p>Die Termine kommen aus dem Veranstaltungsfeed der Hamburg Tourismus GmbH, rund 50.000&nbsp;pro Lauf. Über Prüfsummen, eine Art Fingerabdruck, erkennt der Import unveränderte Termine und schreibt nur Geändertes neu. Bei jeder Änderung am Code prüft GitHub Actions getrennt die App, die Server-Funktionen, das Admin-Portal und die Datenbank. Der Import läuft nach Zeitplan und bricht ab, wenn die Einordnung danach nicht stimmt. Neuer Code wird von Hand ausgeliefert, nicht automatisch.</p>
           <p class="wort"><b>Veranstaltungsfeed</b> Eine Liste mit Veranstaltungen, die andere Programme abrufen können.</p>
           <figure class="balken">
             <figcaption class="balken__titel">Dauer der Importläufe</figcaption>
@@ -171,20 +190,6 @@ if (location.protocol !== "file:") {
             </dl>
             <p class="balken__fuss">Von den 29&nbsp;Minuten des Laufs entfielen rund 20&nbsp;auf den Import selbst, der Rest vor allem auf die Einordnung der Termine.</p>
           </figure>
-        </div>
-      </div>
-
-      <div class="punkt" id="outava-punkt-2">
-        <h3><span class="punkt__nr" aria-hidden="true">2</span>KI-Guide mit Gemma&nbsp;4&nbsp;auf einem Server in Paris</h3>
-        <div class="punkt__text">
-          <p>Das Sprachmodell füllt aus der Frage nur feste Suchfelder aus, über die Vorschläge entscheidet es nicht. Es läuft in der EU, und vor der ersten Anfrage bittet die App um Erlaubnis. Für die aktuelle Fassung des KI-Guides gibt es noch keine Messung am Sprachmodell.</p>
-          <ol class="ablauf">
-            <li>Frage in normalen Sätzen</li>
-            <li>Sprachmodell füllt feste Suchfelder aus</li>
-            <li>Server wählt aus und sortiert</li>
-            <li>Programmcode prüft Zeiten, Öffnungszeiten und Wege</li>
-            <li>Vorschläge</li>
-          </ol>
         </div>
       </div>
     </div>
@@ -242,12 +247,12 @@ if (location.protocol !== "file:") {
   </div>
 
   <nav class="fall-ende blatt" aria-label="Weiter">
-    <p class="fall-ende__kapitel">Weiter: Projekt 5&nbsp;von 7</p>
-    <a class="fall-ende__naechstes" href="agenten.html">
+    <p class="fall-ende__kapitel">Weiter: Projekt 5&nbsp;von 8</p>
+    <a class="fall-ende__naechstes" href="youtube.html">
       <span class="fall-ende__ziffer" aria-hidden="true">5</span>
-      <span class="fall-ende__name">Agenten-Versuch</span>
-      <span class="fall-ende__kurz">35&nbsp;KI-Agenten-Rollen für acht Projekte, darunter Zodiacally, Outava und Afuku</span>
-      <img class="fall-ende__bild" src="assets/projekte/agenten-900.webp" alt="" width="900" height="563" loading="lazy">
+      <span class="fall-ende__name">YouTube-Kanäle</span>
+      <span class="fall-ende__kurz">Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten</span>
+      <img class="fall-ende__bild" src="assets/projekte/youtube-900.webp" alt="" width="900" height="563" loading="lazy">
     </a>
     <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
       <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube-Kanäle. Aleks Paramonov, AI Developer in Hamburg</title>
+<meta name="description" content="Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:title" content="YouTube-Kanäle. Aleks Paramonov, AI Developer in Hamburg">
+<meta property="og:description" content="Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F2F2EC">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<script>
+document.documentElement.className += " js";
+if (location.protocol !== "file:") {
+  ["archivo-schmal-900", "archivo-breit-700", "newsreader-text"].forEach(function (n) {
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = "anonymous";
+    l.href = "assets/fonts/" + n + ".woff2";
+    document.head.appendChild(l);
+  });
+}
+</script>
+<link rel="stylesheet" href="css/werkbuch.css">
+<style>
+#youtube .einstieg__tut > p { max-width: 34em; text-wrap: pretty; }
+#youtube .youtube__buehne figcaption { text-wrap: pretty; }
+#youtube .belege a { white-space: nowrap; }
+#youtube .punkt__text .ablauf { width: 100%; grid-template-columns: minmax(0, 1fr); row-gap: 18px; }
+#youtube .punkt__text .ablauf > li { padding-block: 7px 8px; }
+#youtube .punkt__text .ablauf > li + li::before { top: -20px; height: 18px; background-size: 14px 18px; }
+@container (min-width: 40rem) {
+  #youtube .punkt__text .ablauf { grid-template-columns: minmax(0, 1fr); grid-auto-flow: row; row-gap: 18px; column-gap: 0; }
+  #youtube .punkt__text .ablauf > li + li::before {
+    left: 20px; top: -20px; width: 14px; height: 18px; translate: none;
+    background-image: var(--pfeil-unten); background-size: 14px 18px;
+  }
+}
+@media (min-width: 700px) {
+  #youtube .projekt__kopf > .youtube__buehne { grid-template-columns: calc((100% - 20px) * .51957 - 19.57px) minmax(0, 1fr); }
+}
+@media (min-width: 1024px) {
+  #youtube .projekt__kopf > .youtube__buehne { grid-column: 3 / -2; grid-template-columns: calc((100% - 24px) * .51957 - 19.57px) minmax(0, 1fr); }
+  #youtube .einstieg { margin-top: 48px; }
+  #youtube .einstieg > .einstieg__tut { grid-column: 2 / 8; }
+  #youtube .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
+  #youtube .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
+}
+</style>
+<script src="js/werkbuch.js" defer></script>
+</head>
+<body id="oben" class="fallstudie">
+<a class="sprung" href="#inhalt">Zum Inhalt springen</a>
+<nav class="leiste leiste--fall" aria-label="Fallstudie">
+  <div class="leiste__innen">
+    <a class="leiste__marke" href="index.html#oben">Aleks Paramonov</a>
+    <a class="leiste__zurueck" href="index.html#youtube"><span aria-hidden="true">←</span> <span class="leiste__lang">Alle </span>Projekte</a>
+    <p class="leiste__projekt"><b>5</b> <span>YouTube-Kanäle</span></p>
+    <a class="leiste__weiter" href="agenten.html" aria-label="Weiter: Agenten-Orchestrierung">Weiter<span class="leiste__lang">: Agenten-Orchestrierung</span> <span aria-hidden="true">→</span></a>
+    <a class="leiste__kontakt" href="index.html#kontakt">Kontakt</a>
+    <a class="leiste__pdf" href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf<span class="leiste__lang"> (PDF)</span></a>
+  </div>
+  <div class="leiste__fortschritt" aria-hidden="true"><span></span></div>
+</nav>
+
+<main id="inhalt">
+
+<article class="projekt" id="youtube" aria-labelledby="youtube-titel">
+
+  <header class="projekt__kopf blatt">
+    <p class="kapitelzeile"><span>Projekt 5&nbsp;von 8<span class="kapitelzeile__name"><span class="kapitelzeile__trenner">&nbsp;· </span>Aleks&nbsp;Paramonov</span></span></p>
+    <p class="projekt__nr" aria-hidden="true">5</p>
+    <div class="projekt__titelfeld">
+      <h1 class="projekt__titel" id="youtube-titel">YouTube-Kanäle</h1>
+    </div>
+    <p class="projekt__kurz">Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten</p>
+    <p class="projekt__tor">
+      <span class="stand stand--pille stand--live">öffentlich</span>
+      <a class="knopf knopf--klein" href="https://www.youtube.com/@truecrimemysteryDE" target="_blank" rel="noopener">Kanal Hörgeschichten</a>
+      <a class="knopf knopf--klein" href="https://www.youtube.com/@ZodiacallyDE" target="_blank" rel="noopener">Kanal Zodiacally</a>
+    </p>
+
+    <dl class="steckbrief">
+      <div>
+        <dt>Status</dt>
+        <dd>
+          <ul class="standliste">
+            <li class="stand--live">Hörgeschichten: 27&nbsp;Folgen vom 11.08.2026 bis 12.11.2026.</li>
+            <li class="stand--live">Zodiacally: 20&nbsp;Erklärvideos vom 15.09.2026 bis 17.11.2026, dazu Shorts.</li>
+          </ul>
+        </dd>
+      </div>
+      <div><dt>Zeitraum</dt><dd>seit 08/2026</dd></div>
+      <div><dt>Online</dt><dd><a href="https://www.youtube.com/@truecrimemysteryDE" target="_blank" rel="noopener">youtube.com/<wbr>@truecrime<wbr>mysteryDE</a><br><a href="https://www.youtube.com/@ZodiacallyDE" target="_blank" rel="noopener">youtube.com/<wbr>@ZodiacallyDE</a></dd></div>
+      <div><dt>Mein Anteil</dt><dd>Allein aufgebaut, mit Coding-Agenten: die Abläufe, in denen KI-Agenten die Folgen produzieren. Bei den Hörgeschichten nehme ich Geschichte und Titelbild ab und gebe den Upload frei.</dd></div>
+    </dl>
+
+    <div class="abzugreihe youtube__buehne" data-falten="1">
+      <figure class="abzug abzug--buehne">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>YouTube, Hörgeschichte</span></p>
+            <div class="clip" style="--ar: 1280 / 720">
+              <img class="clip__poster" src="assets/youtube/hoergeschichte-poster.webp" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async" alt="">
+              <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video: zwei Zelte nachts im Wald, dazwischen weiße Balken, die sich zur Stimme bewegen. Oben rechts steht Horror-Hörbuch.">
+                <source src="assets/youtube/hoergeschichte-720.mp4" type="video/mp4" media="(max-width: 700px)">
+                <source src="assets/youtube/hoergeschichte-1280.mp4" type="video/mp4">
+              </video>
+              <noscript><a class="clip__knopf" href="assets/youtube/hoergeschichte-1280.mp4">Video öffnen</a></noscript>
+            </div>
+          </div>
+        </div>
+        <figcaption><b>5.1</b> Ausschnitt aus der Hörgeschichte „Was der Wald gehört hat“, erschienen am 28.10.2026, ohne Ton. Das Bild stammt aus der Bildgenerierung, die Balken bewegen sich zur KI-Stimme.</figcaption>
+      </figure>
+      <figure class="abzug abzug--buehne">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Prüfbogen</span></p>
+            <a class="abzug__bild" href="assets/youtube/pruefbogen.webp" data-lupe>
+              <img src="assets/youtube/pruefbogen-900.webp" srcset="assets/youtube/pruefbogen-900.webp 900w, assets/youtube/pruefbogen.webp 960w" sizes="(min-width: 1024px) 560px, (min-width: 700px) 46vw, 94vw" width="960" height="584" loading="lazy" decoding="async" alt="Vier Bilder aus einem Video auf dunkelblauem Sternenhimmel: ein Tierkreis mit dem Jahr 1995, ein Raster aus Punkten, der Titel „Uranus, Neptun, Pluto, die Generationsplaneten“ und Umlaufbahnen um die Sonne. Unten stehen Untertitel.">
+            </a>
+          </div>
+        </div>
+        <figcaption><b>5.2</b> Ausschnitt aus dem Prüfbogen zur Zodiacally-Folge 26, die der geplante Lauf am 09.11.2026 produziert hat: alle fünf Sekunden ein Bild aus dem fertigen Video. Die Grafiken sind mit HyperFrames als Code animiert.</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <div class="einstieg einstieg--ohne-bild blatt">
+    <div class="einstieg__tut">
+      <h2 class="rubrik">Was es tut</h2>
+      <p>Ich betreibe zwei Kanäle. „True Crime Mystery Horror Hörbücher“ bringt lange Hörgeschichten, meist knapp eine Stunde je Folge. Der Kanal Zodiacally erklärt Astrologie in Videos von fünf bis neun Minuten und gehört zu meinem Projekt Zodiacally. Die Folgen produzieren KI-Agenten. In den Beschreibungen beider Kanäle steht, dass die Stimme eine KI-Stimme ist.</p>
+    </div>
+  </div>
+
+  <section class="punkte" aria-labelledby="youtube-punkte">
+    <h2 class="punkte__titel blatt" id="youtube-punkte"><span>Was ich gelöst habe</span></h2>
+    <div class="punkte--kurz blatt">
+      <div class="punkt" id="youtube-punkt-1">
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Hörgeschichten: Schnitt in DaVinci Resolve über einen MCP-Server</h3>
+        <div class="punkt__text">
+          <p>Das Skript entsteht in vier Akten, die Stimme kommt von ElevenLabs, die Bilder aus der Bildgenerierung. Geschnitten und exportiert wird nur über einen MCP-Server in DaVinci Resolve, ein Community-Projekt, das ich eingerichtet und unter Windows habe reparieren lassen. Die fertige Datei wird automatisch geprüft, dann lädt ein Agent sie in YouTube Studio hoch und plant den Termin.</p>
+          <p class="wort"><b>MCP-Server</b> Eine Schnittstelle, über die KI-Agenten ein Programm bedienen.</p>
+        </div>
+      </div>
+      <div class="punkt" id="youtube-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Zodiacally: jeden Tag ein Lauf, ohne Rückfragen</h3>
+        <div class="punkt__text">
+          <p>Jeden Tag um 10&nbsp;Uhr startet ein geplanter Lauf mit der Vorgabe „Arbeite komplett selbstständig und stell Alex keine Fragen“. Sofort veröffentlichen darf er nie, nur zu einem festen Termin. Eine Folge braucht etwa drei bis vier Stunden, davon rund 40&nbsp;Minuten Rendern.</p>
+          <ol class="ablauf">
+            <li>Recherche mit Quellen und Skript</li>
+            <li>Stimme mit ElevenLabs, Abgleich per Spracherkennung</li>
+            <li>Animation mit HyperFrames als Code</li>
+            <li>Render, Prüfung und Titelbild</li>
+            <li>Upload mit festem Termin</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="projekt__ende blatt">
+    <div class="technik">
+      <h2 class="rubrik">Technik</h2>
+      <p>Claude Code und Codex, ElevenLabs für Stimme und Spracherkennung, Bildgenerierung, HyperFrames, FFmpeg, DaVinci Resolve über einen MCP-Server, YouTube Studio</p>
+    </div>
+    <div class="belege">
+      <h2 class="rubrik">Zum Nachprüfen</h2>
+      <ul>
+        <li>Hörgeschichte „Was der Wald gehört hat“, 53&nbsp;Minuten: <a href="https://www.youtube.com/watch?v=cQ8pNBGsnB4" target="_blank" rel="noopener">youtube.com/<wbr>watch?v=cQ8pNBGsnB4</a></li>
+        <li>Zodiacally-Folge „Finsternisse einfach erklärt“: <a href="https://www.youtube.com/watch?v=69AYuaFap4s" target="_blank" rel="noopener">youtube.com/<wbr>watch?v=69AYuaFap4s</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <nav class="fall-ende blatt" aria-label="Weiter">
+    <p class="fall-ende__kapitel">Weiter: Projekt 6&nbsp;von 8</p>
+    <a class="fall-ende__naechstes" href="agenten.html">
+      <span class="fall-ende__ziffer" aria-hidden="true">6</span>
+      <span class="fall-ende__name">Agenten-Orchestrierung</span>
+      <span class="fall-ende__kurz">Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht</span>
+      <img class="fall-ende__bild" src="assets/projekte/agenten-900.webp" alt="" width="900" height="563" loading="lazy">
+    </a>
+    <p class="fall-ende__kontakt"><span class="kontakt__art">E-Mail</span> <a href="mailto:alex.pmail1110@gmail.com?subject=AI%20Developer%2C%20Aleks%20Paramonov">alex.pmail1110@gmail.com</a>
+      <button class="knopf knopf--klein kontakt__kopieren" type="button" data-kopieren="alex.pmail1110@gmail.com" hidden>Adresse kopieren</button></p>
+    <p class="fall-ende__wege"><a href="index.html#youtube">Alle Projekte</a> <a href="assets/Aleks_Paramonov_Lebenslauf.pdf" target="_blank" rel="noopener">Lebenslauf als PDF</a></p>
+  </nav>
+</article>
+
+</main>
+
+<footer class="fuss blatt">
+  <p>Aleks Paramonov, Hamburg. Stand November 2026.</p>
+  <p class="fuss__links"><a href="impressum.html">Impressum</a> <a href="datenschutz.html">Datenschutz</a> <a href="#inhalt">Nach oben</a></p>
+</footer>
+
+</body>
+</html>
