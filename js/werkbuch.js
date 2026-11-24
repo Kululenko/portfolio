@@ -4,6 +4,7 @@
    2 videos   Videos starten erst, wenn sie 600 ms im Blickfeld sind, nie bei Datensparmodus,
               2G, "weniger Bewegung" oder unter 700 px Breite; eigener Knopf zum Abspielen
               und Anhalten, er steht rechts in der Zeile am Rahmen (.abzug__kopf), nie auf dem Bild.
+              Videos mit data-ton bekommen dazu den Knopf "Ton an": erst er laedt die Fassung mit Ton.
               Unter 700 px oeffnet "Abspielen" das Video im Vollbild (Querformat quer), wo es das
               Geraet erlaubt; sonst spielt es wie bisher im Rahmen. Fuer das Vollbild nimmt es die
               grosse Datei (source ohne media), am iPhone spielt das Geraet es selbst im Vollbild
@@ -246,6 +247,43 @@
       beschriften();
       v.addEventListener("play", beschriften);
       v.addEventListener("pause", beschriften);
+
+      // Ton (seit 24.11.2026): Ein Video mit data-ton="<Datei mit Ton>" laeuft wie alle anderen stumm an.
+      // Der Knopf "Ton an" wechselt beim ersten Druck auf die Fassung mit Ton und spielt sie von vorn,
+      // ohne Schleife. "Ton aus" schaltet nur stumm. Nichts toent von selbst.
+      var tonDatei = v.getAttribute("data-ton");
+      if (tonDatei) {
+        var ton = document.createElement("button");
+        ton.type = "button";
+        ton.className = "clip__ton";
+        ort.insertBefore(ton, knopf);
+        var tonZeigen = function () {
+          var an = !v.muted;
+          ton.textContent = an ? "Ton aus" : "Ton an";
+          ton.setAttribute("aria-label", ton.textContent + zusatz);
+          ton.setAttribute("aria-pressed", an ? "true" : "false");
+        };
+        ton.addEventListener("click", function () {
+          if (v.__uhr) { window.clearTimeout(v.__uhr); v.__uhr = null; }
+          if (v.muted) {
+            if (v.dataset.tonGeladen !== "ja") {
+              v.dataset.tonGeladen = "ja";
+              v.loop = false;
+              v.src = tonDatei;
+              v.load();
+            }
+            v.muted = false;
+            v.dataset.angehalten = "nein";
+            v.dataset.gewollt = "ja";
+            abspielen(v);
+          } else {
+            v.muted = true;
+          }
+          tonZeigen();
+        });
+        v.addEventListener("volumechange", tonZeigen);
+        tonZeigen();
+      }
 
       // Im Vollbild mit den Bedienelementen des Geraets (Anhalten, Schliessen), danach wieder ohne.
       // Nach dem Verlassen laeuft das Video weiter, der Knopf zeigt "Anhalten".

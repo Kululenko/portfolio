@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hörbuch-Shop. Aleks Paramonov, AI Developer in Hamburg</title>
-<meta name="description" content="Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta name="description" content="Mein Hörbuch mit KI-Stimmen und der Shop dazu, unter meinem Autorennamen. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
 <meta property="og:title" content="Hörbuch-Shop. Aleks Paramonov, AI Developer in Hamburg">
-<meta property="og:description" content="Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
+<meta property="og:description" content="Mein Hörbuch mit KI-Stimmen und der Shop dazu, unter meinem Autorennamen. Fallstudie von Aleks Paramonov, AI Developer in Hamburg.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:image" content="https://aleksparamonov.de/assets/kopf/teilen.jpg">
@@ -63,9 +63,9 @@ if (location.protocol !== "file:") {
   #hoerbuch .einstieg > .hoerbuch__trailer { grid-column: 2 / 8; grid-row: 2; }
   #hoerbuch .einstieg > .hoerbuch__wald { grid-column: 8 / -2; grid-row: 2; }
   #hoerbuch .hoerbuch__waldtext > .woerter { margin-top: 20px; }
-  #hoerbuch .punkte--kurz > .punkt:first-child { grid-column: 2 / 8; }
-  #hoerbuch .punkte--kurz > .punkt:nth-child(2) { grid-column: 8 / -2; }
 }
+#hoerbuch .hoerbuch__probe { margin-top: var(--abschnitt); }
+@media (min-width: 1024px) { #hoerbuch .hoerbuch__probe > .hoerprobe { grid-column: 2 / 9; } }
 </style>
 <script src="js/werkbuch.js" defer></script>
 </head>
@@ -93,7 +93,7 @@ if (location.protocol !== "file:") {
     <div class="projekt__titelfeld">
       <h1 class="projekt__titel" id="hoerbuch-titel">Hörbuch-Shop</h1>
     </div>
-    <p class="projekt__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</p>
+    <p class="projekt__kurz">Mein Hörbuch mit KI-Stimmen und der Shop dazu, unter meinem Autorennamen</p>
     <p class="projekt__tor">
       <span class="stand stand--pille stand--live">live</span>
       <a class="knopf knopf--klein" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Shop öffnen</a>
@@ -143,7 +143,6 @@ if (location.protocol !== "file:") {
     <div class="einstieg__tut">
       <h2 class="rubrik">Was es tut</h2>
       <p>Über diesen Shop verkaufe ich das Hörbuch „Die Lichtung“ direkt, ohne Verkaufsplattform, unter meinem Autorennamen Aleks Kavalenko. Besucher können zuerst kostenlos reinhören: in eine Hörprobe von knapp vier Minuten und in ein ganzes Kapitel. Wer kauft, bestellt direkt im Shop und zahlt über den Zahlungsdienst Stripe. Danach erscheint der Download-Link, und er kommt zusätzlich per E-Mail.</p>
-      <p>Das Hörbuch dauert 8&nbsp;Stunden 18&nbsp;Minuten und hat 32&nbsp;Abschnitte: 29&nbsp;Kapitel, dazu Eröffnung, Vorwort und Abspann. Laut Shop sprechen 13&nbsp;KI-Stimmen 16&nbsp;Rollen. Der Romantext ist ebenfalls mit KI entstanden.</p>
     </div>
     <figure class="abzug hoerbuch__trailer">
       <div class="abzug__flaeche">
@@ -151,7 +150,7 @@ if (location.protocol !== "file:") {
           <p class="abzug__kopf"><span>Hörbuch-Trailer</span></p>
           <div class="clip" style="--ar: 1280 / 720">
             <img class="clip__poster" src="assets/hoerbuch/trailer-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
-            <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video im Stil einer Tuschzeichnung: eine Gestalt mit Kapuze und Messer, danach ein Wald bei Vollmond mit vielen Gestalten in Umhängen. Eingeblendet stehen die Zeilen „Holt, Mara.“ und „Jede Figur mit eigener Stimme“.">
+            <video muted playsinline loop preload="none" width="1280" height="720" data-ton="assets/hoerbuch/trailer-ton.mp4" aria-label="Video im Stil einer Tuschzeichnung: eine Gestalt mit Kapuze und Messer, danach ein Wald bei Vollmond mit vielen Gestalten in Umhängen. Eingeblendet stehen die Zeilen „Holt, Mara.“ und „Jede Figur mit eigener Stimme“.">
               <source src="assets/hoerbuch/trailer-720.mp4" type="video/mp4" media="(max-width: 700px)">
               <source src="assets/hoerbuch/trailer-1280.mp4" type="video/mp4">
             </video>
@@ -159,7 +158,7 @@ if (location.protocol !== "file:") {
           </div>
         </div>
       </div>
-      <figcaption><b>4.3</b> Ausschnitt aus dem Hörbuch-Trailer vom 17.10.2026, ohne Ton. Die Bilder hat Google Veo erzeugt, die Stimmen im Trailer ElevenLabs. <a class="hoerbuch__trailerlink" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Ganzer Trailer mit Ton auf der Shop-Seite</a></figcaption>
+      <figcaption><b>4.3</b> Der Hörbuch-Trailer vom 17.10.2026. Er läuft stumm an, „Ton an“ spielt ihn ganz und mit Ton, 46&nbsp;Sekunden. Die Bilder hat Google Veo erzeugt, die Stimmen ElevenLabs.</figcaption>
     </figure>
     <figure class="abzug hoerbuch__wald">
       <div class="abzug__flaeche">
@@ -185,17 +184,31 @@ if (location.protocol !== "file:") {
     </div>
   </div>
 
+  <div class="blatt hoerbuch__probe">
+    <div class="hoerprobe">
+      <p class="hoerprobe__titel">Kapitel 16&nbsp;anhören</p>
+      <p class="hoerprobe__text">„Die erste Nacht“, das ganze Kapitel, 18&nbsp;Minuten, so wie es im Hörbuch steht: KI-Stimmen, Musik und Geräusche.</p>
+      <audio controls preload="none" src="assets/hoerbuch/kapitel-16.mp3" aria-label="Hörprobe: Kapitel 16 aus dem Hörbuch Die Lichtung, 18 Minuten"></audio>
+    </div>
+  </div>
+
   <section class="punkte" aria-labelledby="hoerbuch-punkte">
     <h2 class="punkte__titel blatt" id="hoerbuch-punkte"><span>Was ich gelöst habe</span></h2>
     <div class="punkte--kurz blatt">
       <div class="punkt" id="hoerbuch-punkt-1">
-        <h3><span class="punkt__nr" aria-hidden="true">1</span>Kauf und Auslieferung ohne Verkaufsplattform</h3>
+        <h3><span class="punkt__nr" aria-hidden="true">1</span>Ein ganzer Roman, vertont mit KI-Stimmen</h3>
+        <div class="punkt__text">
+          <p>Den Roman „Die Lichtung“ habe ich mit KI geschrieben und danach komplett vertont, ungekürzt. Das Hörbuch dauert 8&nbsp;Stunden 18&nbsp;Minuten und hat 32&nbsp;Abschnitte: 29&nbsp;Kapitel, dazu Eröffnung, Vorwort und Abspann. Die Stimmen sind über die Programmierschnittstelle (API) von ElevenLabs erzeugt: Laut Shop sprechen 13&nbsp;KI-Stimmen 16&nbsp;Rollen. Dazu kommen Musik und Geräusche.</p>
+        </div>
+      </div>
+      <div class="punkt" id="hoerbuch-punkt-2">
+        <h3><span class="punkt__nr" aria-hidden="true">2</span>Kauf und Auslieferung ohne Verkaufsplattform</h3>
         <div class="punkt__text">
           <p>Nach der Zahlung meldet Stripe den Kauf an den Shop (Webhook). Der Shop prüft bei jeder Zahlungsmeldung, ob sie wirklich von Stripe kommt (Signatur). Kommt dieselbe Meldung zweimal an, wird die Bestellung trotzdem nur einmal ausgeliefert. Die Hörbuch-Dateien liegen in einem privaten Speicher und werden nur über befristete Links ausgeliefert: Ein Link gilt 30&nbsp;Tage und höchstens 10-mal je Format, ein neuer lässt sich bis 24&nbsp;Monate nach dem Kauf anfordern.</p>
         </div>
       </div>
-      <div class="punkt" id="hoerbuch-punkt-2">
-        <h3><span class="punkt__nr" aria-hidden="true">2</span>Testkauf mit echter Kartenzahlung</h3>
+      <div class="punkt" id="hoerbuch-punkt-3">
+        <h3><span class="punkt__nr" aria-hidden="true">3</span>Testkauf mit echter Kartenzahlung</h3>
         <div class="punkt__text">
           <p>Am 23.10.2026 habe ich den ganzen Ablauf mit einem Testkauf geprüft, bezahlt mit echter Karte: Zahlung, Bestellmail, Rechnung und beide Downloads. Beide Downloads wurden dabei per Prüfsumme, einer Art Fingerabdruck der Datei, mit den Originalen verglichen. Dazu kommen 475&nbsp;automatisierte Tests für den Shop, alle bestanden (Prüfprotokoll vom 23.10.2026).</p>
         </div>

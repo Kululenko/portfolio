@@ -630,6 +630,43 @@ html:not(.js) .clip video { display: none; }
   left: auto; right: calc(4px - var(--passepartout)); bottom: calc(100% + 4px);
   padding: 0 12px; box-shadow: none; font-size: var(--t-etikett);
 }
+/* Knopf "Ton an" / "Ton aus" (seit 24.11.2026): steht links neben "Abspielen", gleich gebaut, mit Lautsprecher.
+   Gedrueckt (Ton laeuft) ist er gruen. */
+.clip__ton {
+  display: inline-flex; align-items: center; gap: .55em; flex: none;
+  min-width: 44px; min-height: 44px; padding: 0 12px;
+  background: var(--zettel); color: var(--tinte); border: 2px solid var(--tinte);
+  font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1; cursor: pointer;
+}
+.clip__ton::before {
+  content: ""; flex: none; width: .95em; height: .8em; background: currentColor;
+  clip-path: polygon(0 30%, 32% 30%, 68% 0, 68% 100%, 32% 70%, 0 70%);
+}
+.clip__ton[aria-pressed="true"] { background: var(--gruen); }
+@media (hover: hover) and (pointer: fine) { .clip__ton:hover { background: var(--gruen); } }
+.clip__ton:focus-visible { outline: 3px solid var(--tinte); outline-offset: 2px; }
+.abzug__kopf > .clip__ton { margin: calc(var(--passepartout) * -1 + 3px) 6px -2px auto; }
+.abzug__kopf > .clip__ton + .clip__knopf { margin-left: 0; }
+.abzug__kopf > span + span ~ .clip__ton { margin-left: 0; }
+
+/* Handy: Mit zwei Knoepfen wird die Zeile eng. Die Etiketten stehen dann oben, die Knoepfe darunter rechts. */
+@media (max-width: 699.98px) {
+  .abzug__kopf:has(> .clip__ton) { flex-wrap: wrap; row-gap: 6px; }
+  .abzug__kopf:has(> .clip__ton) > span { flex: 1 1 40%; overflow-wrap: normal; }
+}
+/* Ab 700 px bleiben Etikett und beide Knoepfe in einer Zeile: Das Etikett bricht um, die Zeile bleibt so hoch
+   wie mit einem Knopf. So stehen Rahmen nebeneinander weiter buendig (YouTube-Buehne). */
+@media (min-width: 700px) {
+  .abzug__kopf:has(> .clip__ton) { flex-wrap: nowrap; }
+  .abzug__kopf:has(> .clip__ton) > span { overflow-wrap: normal; }
+}
+
+/* Hoerprobe: ein Stueck zum Anhoeren mit den Bedienelementen des Browsers. Laedt erst beim Abspielen. */
+.hoerprobe { display: grid; gap: 10px; padding: 16px 18px 18px; background: var(--zettel); border: 2px solid var(--tinte); }
+.hoerprobe__titel { font-family: var(--f-plakat); font-weight: 900; font-size: 1.5rem; line-height: 1.05; }
+.hoerprobe__text { font-size: 1rem; line-height: 1.4; max-width: 38em; text-wrap: pretty; }
+.hoerprobe audio { width: 100%; min-height: 44px; }
+
 /* ein zweiter Hinweis in der Zeile (zum Beispiel "Wiedergabe") bleibt rechts, direkt vor dem Knopf */
 .abzug__kopf:has(> .clip__knopf) > span + span { margin-left: auto; }
 .abzug__kopf > span + span ~ .clip__knopf { margin-left: 0; }

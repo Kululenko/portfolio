@@ -193,6 +193,19 @@ if (location.protocol !== "file:") {
 #projekte .galerie__flaeche > .clip > .clip__poster { aspect-ratio: auto; object-fit: contain; }
 #projekte .galerie__flaeche--frei > * { min-width: 0; min-height: 0; }
 #projekte .galerie__flaeche .karte__duo, #projekte .galerie__flaeche .karte__paar { height: 100%; aspect-ratio: auto; }
+#projekte .galerie__flaeche--probe { background: #1c1712; align-items: center; }
+#projekte .galerie__bild--da .galerie__flaeche--probe,
+html:not(.js) #projekte .galerie__flaeche--probe { background: #1c1712 url(assets/projekte/hoerbuch-900.webp) center / cover; }
+#projekte .galerie__flaeche--probe > .hoerprobe { margin: 0 6%; padding: 12px 14px 14px; gap: 6px; }
+#projekte .galerie__flaeche--probe .hoerprobe__titel { font-size: 1.35rem; }
+#projekte .galerie__flaeche--probe .hoerprobe__text { font-size: .95rem; }
+#projekte .galerie__bild > .abzug__kopf > .clip__ton { margin: 0 6px 0 auto; }
+#projekte .galerie__bild > .abzug__kopf > span + span ~ .clip__ton { margin-left: 0; }
+#projekte .galerie__bild > .abzug__kopf > .clip__ton + .clip__knopf { margin-left: 0; }
+@media (max-width: 1023.98px) {
+  #projekte .galerie__bild > .abzug__kopf:has(+ .galerie__flaeche video[data-ton]) { flex-wrap: wrap; align-content: space-between; row-gap: 6px; min-height: 96px; padding-bottom: 6px; }
+  #projekte .galerie__bild > .abzug__kopf:has(+ .galerie__flaeche video[data-ton]) > span { flex: 1 1 40%; overflow-wrap: normal; }
+}
 html.js #projekte .galerie__bild:not(:first-child):not(.galerie__bild--da) .galerie__flaeche > * { display: none; }
 #projekte .galerie__leiste {
   display: flex; align-items: center; justify-content: flex-end; gap: 6px 12px; margin-top: 8px;
@@ -846,27 +859,25 @@ html.js #projekte .galerie__bild:not(:first-child):not(.galerie__bild--da) .gale
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
             <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu Hörbuch-Shop, seitlich blättern">
-              <div class="galerie__bild" data-name="Hörbuch-Shop, Standbild">
-                <p class="abzug__kopf"><span>Hörbuch-Trailer, Standbild</span><span>KI-Bild (Google Veo)</span></p>
-                <div class="galerie__flaeche galerie__flaeche--dunkel">
-                  <a class="abzug__bild" href="hoerbuch.html" tabindex="-1" aria-hidden="true">
-                    <img src="assets/projekte/hoerbuch-900.webp"
-                         srcset="assets/projekte/hoerbuch-900.webp 900w, assets/projekte/hoerbuch.webp 1152w"
-                         sizes="(min-width: 700px) 44vw, 92vw"
-                         width="1152" height="720" loading="lazy" decoding="async"
-                         alt="Tuschzeichnung eines Waldes bei Vollmond. Links und rechts stehen Gestalten in dunklen Umhängen mit roten Spuren, dazwischen zieht Nebel.">
-                  </a>
-                </div>
-              </div>
               <div class="galerie__bild" data-name="Hörbuch-Shop, Trailer">
-                <p class="abzug__kopf"><span>Hörbuch-Trailer, ohne Ton</span><span>KI-Bilder (Google Veo)</span></p>
+                <p class="abzug__kopf"><span>Hörbuch-Trailer</span><span>KI-Bilder (Google Veo)</span></p>
                 <div class="galerie__flaeche galerie__flaeche--dunkel">
                   <div class="clip" style="--ar: 1280 / 720">
                     <img class="clip__poster" src="assets/hoerbuch/trailer-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
-                    <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video im Stil einer Tuschzeichnung: eine Gestalt mit Kapuze und Messer, danach ein Wald bei Vollmond mit vielen Gestalten in Umhängen. Eingeblendet stehen die Zeilen „Holt, Mara.“ und „Jede Figur mit eigener Stimme“.">
-                      <source src="assets/hoerbuch/trailer-720.mp4" type="video/mp4">
+                    <video muted playsinline loop preload="none" width="1280" height="720" data-ton="assets/hoerbuch/trailer-ton-karte.mp4" aria-label="Der Hörbuch-Trailer im Stil einer Tuschzeichnung: Kerze und Feder, ein Wald mit roten Spuren, ein Buch mit Namenslisten, eine Gestalt mit Kapuze und Messer und Gestalten im Nebel. Eingeblendet stehen Zeilen wie „Sie fordern Blut“, „Das Hörbuch, ungekürzt, 8 Std. 18 Min.“, „13 Stimmen für 16 Rollen“ und „Mit Musik und Geräuschen“.">
+                      <source src="assets/hoerbuch/trailer-stumm-640.mp4" type="video/mp4">
                     </video>
-                    <noscript><a class="clip__knopf" href="assets/hoerbuch/trailer-720.mp4">Video öffnen</a></noscript>
+                    <noscript><a class="clip__knopf" href="assets/hoerbuch/trailer-ton-karte.mp4">Video öffnen</a></noscript>
+                  </div>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Hörbuch-Shop, Kapitel 16">
+                <p class="abzug__kopf"><span>Hörprobe aus dem Hörbuch</span><span>KI-Stimmen (ElevenLabs)</span></p>
+                <div class="galerie__flaeche galerie__flaeche--probe">
+                  <div class="hoerprobe">
+                    <p class="hoerprobe__titel">Kapitel 16&nbsp;anhören</p>
+                    <p class="hoerprobe__text">„Die erste Nacht“, das ganze Kapitel, 18&nbsp;Minuten.</p>
+                    <audio controls preload="none" src="assets/hoerbuch/kapitel-16.mp3" aria-label="Hörprobe: Kapitel 16 aus dem Hörbuch Die Lichtung, 18 Minuten"></audio>
                   </div>
                 </div>
               </div>
@@ -893,9 +904,13 @@ html.js #projekte .galerie__bild:not(:first-child):not(.galerie__bild--da) .gale
       </figure>
       <div class="karte__text">
         <h3 class="karte__titel" id="hoerbuch-karte"><a href="hoerbuch.html"><span class="karte__nr" aria-hidden="true">4</span> Hörbuch-Shop</a></h3>
-        <p class="karte__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</p>
+        <p class="karte__kurz">Mein Hörbuch mit KI-Stimmen und der Shop dazu, unter meinem Autorennamen</p>
         <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 10/2026</span></p>
-        <p class="karte__kennzeile">Kaufablauf mit echter Kartenzahlung am 23.10.2026 geprüft.</p>
+        <ul class="karte__punkte">
+          <li>Ein ganzer Roman als Hörbuch: mit KI geschrieben und komplett vertont, 8&nbsp;Stunden 18&nbsp;Minuten, ungekürzt</li>
+          <li>13&nbsp;KI-Stimmen für 16&nbsp;Rollen, erzeugt über die ElevenLabs-API, dazu Musik und Geräusche</li>
+          <li>Verkauf im eigenen Shop: Kaufablauf mit echter Kartenzahlung am 23.10.2026 geprüft</li>
+        </ul>
         <p class="karte__knoepfe">
           <a class="knopf knopf--klein" href="hoerbuch.html">Fallstudie lesen<span class="unsichtbar">: Hörbuch-Shop</span></a>
           <a class="karte__link" href="https://alekskavalenko.de/hoerbuch" rel="noopener">Shop öffnen</a>
@@ -909,26 +924,26 @@ html.js #projekte .galerie__bild:not(:first-child):not(.galerie__bild--da) .gale
           <div class="abzug__rahmen">
             <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu YouTube-Kanäle, seitlich blättern">
               <div class="galerie__bild" data-name="YouTube, Zodiacally Folge 26">
-                <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Standbild</span></p>
+                <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Anfang der Folge</span></p>
                 <div class="galerie__flaeche galerie__flaeche--dunkel">
-                  <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
-                    <img src="assets/projekte/youtube-900.webp"
-                         srcset="assets/projekte/youtube-900.webp 900w, assets/projekte/youtube.webp 1440w"
-                         sizes="(min-width: 700px) 44vw, 92vw"
-                         width="1440" height="900" loading="lazy" decoding="async"
-                         alt="Titelbild eines Erklärvideos auf dunkelblauem Sternenhimmel: links drei Planeten, daneben die Schrift „Uranus, Neptun, Pluto, die Generationsplaneten“. Unten steht ein Untertitel.">
-                  </a>
+                  <div class="clip" style="--ar: 1280 / 720">
+                    <img class="clip__poster" src="assets/youtube/folge26-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                    <video muted playsinline loop preload="none" width="1280" height="720" data-ton="assets/youtube/folge26-ton.mp4" aria-label="Video: der Anfang eines Erklärvideos auf dunkelblauem Sternenhimmel. Ein Tierkreis mit den Jahren 1984 und 1995, drei Planeten und der Titel „Uranus, Neptun, Pluto, die Generationsplaneten“. Unten laufen Untertitel mit.">
+                      <source src="assets/youtube/folge26-stumm-640.mp4" type="video/mp4">
+                    </video>
+                    <noscript><a class="clip__knopf" href="assets/youtube/folge26-ton.mp4">Video öffnen</a></noscript>
+                  </div>
                 </div>
               </div>
               <div class="galerie__bild" data-name="YouTube, Hörgeschichte">
-                <p class="abzug__kopf"><span>YouTube, Hörgeschichte, ohne Ton</span><span>KI-Bild</span></p>
+                <p class="abzug__kopf"><span>YouTube, Hörgeschichte</span><span>KI-Bild</span></p>
                 <div class="galerie__flaeche galerie__flaeche--dunkel">
                   <div class="clip" style="--ar: 1280 / 720">
                     <img class="clip__poster" src="assets/youtube/hoergeschichte-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
-                    <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video: zwei Zelte nachts im Wald, dazwischen weiße Balken, die sich zur Stimme bewegen. Oben rechts steht Horror-Hörbuch.">
+                    <video muted playsinline loop preload="none" width="1280" height="720" data-ton="assets/youtube/hoergeschichte-ton.mp4" aria-label="Video: zwei Zelte nachts im Wald, dazwischen weiße Balken, die sich zur Stimme bewegen. Oben rechts steht Horror-Hörbuch.">
                       <source src="assets/youtube/hoergeschichte-720.mp4" type="video/mp4">
                     </video>
-                    <noscript><a class="clip__knopf" href="assets/youtube/hoergeschichte-720.mp4">Video öffnen</a></noscript>
+                    <noscript><a class="clip__knopf" href="assets/youtube/hoergeschichte-ton.mp4">Video öffnen</a></noscript>
                   </div>
                 </div>
               </div>
