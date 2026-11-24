@@ -172,6 +172,45 @@ if (location.protocol !== "file:") {
 #projekte .karte__duo > .clip { height: 100%; width: auto; aspect-ratio: var(--ar); border-radius: 14px; outline: 1px solid rgb(255 255 255 / .28); background: #070511; }
 #projekte .karte__duo .clip__poster { aspect-ratio: auto; height: 100%; object-fit: cover; }
 @media (max-width: 699.98px) { #projekte .karte__duo { aspect-ratio: 5 / 4; padding: 4%; column-gap: 3%; } }
+#projekte .galerie__band {
+  display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+}
+#projekte .galerie--an .galerie__band { scrollbar-width: none; }
+#projekte .galerie--an .galerie__band::-webkit-scrollbar { display: none; }
+#projekte .galerie__band:focus-visible { outline: 3px solid var(--tinte); outline-offset: 3px; }
+#projekte .galerie__bild { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; display: flex; flex-direction: column; }
+#projekte .galerie__bild > .abzug__kopf { flex: 1 0 auto; min-height: 46px; align-items: center; flex-wrap: nowrap; column-gap: 12px; }
+#projekte .galerie__bild > .abzug__kopf > span { flex: 0 1 auto; }
+#projekte .galerie__bild > .abzug__kopf > .clip__knopf { margin: 0 0 0 auto; }
+#projekte .galerie__bild > .abzug__kopf > span + span ~ .clip__knopf { margin-left: 0; }
+#projekte .galerie__flaeche { aspect-ratio: 16 / 10; overflow: hidden; display: grid; place-items: stretch; }
+#projekte .galerie__flaeche--dunkel { background: #0d1830; }
+#projekte .galerie__flaeche--hell { background: var(--zettel); }
+#projekte .galerie__flaeche > a.abzug__bild { display: block; min-width: 0; min-height: 0; background: transparent; }
+#projekte .galerie__flaeche > a.abzug__bild > img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; }
+#projekte .galerie__flaeche > .clip { width: 100%; height: 100%; aspect-ratio: auto; background: transparent; }
+#projekte .galerie__flaeche > .clip > .clip__poster { aspect-ratio: auto; object-fit: contain; }
+#projekte .galerie__flaeche--frei > * { min-width: 0; min-height: 0; }
+#projekte .galerie__flaeche .karte__duo, #projekte .galerie__flaeche .karte__paar { height: 100%; aspect-ratio: auto; }
+html.js #projekte .galerie__bild:not(:first-child):not(.galerie__bild--da) .galerie__flaeche > * { display: none; }
+#projekte .galerie__leiste {
+  display: flex; align-items: center; justify-content: flex-end; gap: 6px 12px; margin-top: 8px;
+  font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett-gross); line-height: 1;
+}
+#projekte .galerie__leiste[hidden] { display: none; }
+#projekte .galerie__zahl { min-width: 3.2em; text-align: center; font-variant-numeric: tabular-nums; }
+#projekte .galerie__knopf {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  min-width: 44px; min-height: 44px; padding: 0 14px;
+  background: var(--zettel); color: var(--tinte); border: 2px solid var(--tinte);
+  font: inherit; cursor: pointer;
+}
+#projekte .galerie__knopf:disabled { opacity: .35; cursor: default; }
+#projekte .galerie__knopf:focus-visible { outline: 3px solid var(--tinte); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) {
+  #projekte .galerie__knopf:not(:disabled):hover { background: var(--gruen); }
+}
 #projekte .karte__text { container-type: inline-size; min-width: 0; }
 #projekte .karte__nr {
   font-family: var(--f-plakat); font-weight: 900; color: var(--gruen);
@@ -284,13 +323,25 @@ if (location.protocol !== "file:") {
   #projekte .karten--drei > .karte:nth-child(1) { grid-column: 2 / 6; }
   #projekte .karten--drei > .karte:nth-child(2) { grid-column: 6 / 10; }
   #projekte .karten--drei > .karte:nth-child(3),
-  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) { grid-column: 10 / -2; display: flex; flex-direction: column; align-items: stretch; }
-  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) > .karte__text { margin-top: 14px; }
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) { grid-column: 10 / -2; }
   #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) .karte__knoepfe { margin-top: auto; }
   #projekte .karten--drei .karte--klein .karte__titel { font-size: min(2.3rem, 11.5cqi); }
   #projekte .karten--drei .karte--klein .karte__kurz { font-size: 1.05rem; }
-  #projekte .karten--drei .karte__bild .abzug__kopf { flex-direction: column; align-items: flex-start; row-gap: 1px; }
-  #projekte .karten--drei .karte__bild .abzug__kopf > span + span { margin-left: 0; }
+  #projekte .karten--drei .karte__bild:not(.galerie) .abzug__kopf { flex-direction: column; align-items: flex-start; justify-content: center; row-gap: 1px; min-height: 46px; }
+  #projekte .karten--drei .karte__bild:not(.galerie) .abzug__kopf > span + span { margin-left: 0; }
+  #projekte .karten--drei { grid-template-rows: auto auto; }
+  #projekte .karten--drei > .karte--klein,
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: subgrid; grid-row: span 2; row-gap: 0; align-items: stretch; }
+  #projekte .karten--drei > .karte--klein > .karte__bild, #projekte .karten--drei > .karte--klein > .karte__text,
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) > .karte__bild,
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) > .karte__text { grid-column: 1; }
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) > .karte__text { margin-top: 14px; }
+  #projekte .karten--drei > .karte--klein > .karte__bild,
+  #projekte .karten--drei > .karte--klein > .karte__bild .abzug__flaeche,
+  #projekte .karten--drei > .karte--klein > .karte__bild .abzug__rahmen { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; min-width: 0; }
+  #projekte .karten--drei > .karte--klein > .karte__bild .galerie__band { flex: 1 1 auto; }
+  #projekte .karten--drei > .karte--klein > .karte__bild:not(.galerie) a.abzug__bild { display: block; flex: 1 1 auto; min-height: 0; position: relative; aspect-ratio: 16 / 10; }
+  #projekte .karten--drei > .karte--klein > .karte__bild:not(.galerie) a.abzug__bild > img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: left top; }
 }
 @media (min-width: 1024px) and (max-width: 1279.98px) {
   #projekte .karten--drei .karte--klein .karte__knoepfe { min-height: 112px; align-content: flex-start; }
@@ -547,26 +598,73 @@ if (location.protocol !== "file:") {
   </div>
 
   <article class="karte karte--gross blatt" id="zodiacally" aria-labelledby="zodiacally-karte">
-    <figure class="abzug karte__bild">
+    <figure class="abzug karte__bild galerie" data-galerie>
       <div class="abzug__flaeche">
         <div class="abzug__rahmen">
-          <p class="abzug__kopf"><span>zodiacally.com, Beispiel-Horoskop</span><span>App, Vorschau aus dem Testlauf</span></p>
-          <div class="karte__duo">
-            <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/zodiacally-900.webp"
-                   srcset="assets/projekte/zodiacally-900.webp 842w, assets/projekte/zodiacally.webp 1029w"
-                   sizes="(min-width: 1024px) 36vw, (min-width: 700px) 30vw, 60vw"
-                   width="1029" height="1100" loading="lazy" decoding="async"
-                   alt="Kreisförmiges Geburtshoroskop mit den zwölf Tierkreiszeichen, Planetensymbolen mit Gradangaben und farbigen Aspektlinien. Unten steht der Hinweis auf die Zodiacally-Ephemeride.">
-            </a>
-            <div class="clip" style="--ar: 432 / 934">
-              <img class="clip__poster" src="assets/zodiacally/tageskarte-poster.webp" width="540" height="1168" loading="lazy" decoding="async" alt="">
-              <video muted playsinline loop preload="none" width="432" height="934" aria-label="Video aus der App: Eine Kugel in den Händen einer gezeichneten Figur wird zu einem violetten Wirbel mit goldenen Strahlen. Daraus dreht sich eine Karte mit dem Namen Die Herrscherin hervor, darunter steht Venus wird direktläufig.">
-                <source src="assets/zodiacally/tageskarte-432.mp4" type="video/mp4">
-              </video>
-              <noscript><a class="clip__knopf" href="assets/zodiacally/tageskarte-432.mp4">Video öffnen</a></noscript>
+          <div class="galerie__band" tabindex="0" role="group" aria-label="4 Bilder zu Zodiacally, seitlich blättern">
+            <div class="galerie__bild" data-name="Zodiacally, Tageskarte">
+              <p class="abzug__kopf"><span>zodiacally.com, Beispiel-Horoskop</span><span>App, Vorschau aus dem Testlauf</span></p>
+              <div class="galerie__flaeche galerie__flaeche--frei">
+                <div class="karte__duo">
+                  <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/projekte/zodiacally-900.webp"
+                         srcset="assets/projekte/zodiacally-900.webp 842w, assets/projekte/zodiacally.webp 1029w"
+                         sizes="(min-width: 1024px) 36vw, (min-width: 700px) 30vw, 60vw"
+                         width="1029" height="1100" loading="lazy" decoding="async"
+                         alt="Kreisförmiges Geburtshoroskop mit den zwölf Tierkreiszeichen, Planetensymbolen mit Gradangaben und farbigen Aspektlinien. Unten steht der Hinweis auf die Zodiacally-Ephemeride.">
+                  </a>
+                  <div class="clip" style="--ar: 432 / 934">
+                    <img class="clip__poster" src="assets/zodiacally/tageskarte-poster.webp" width="540" height="1168" loading="lazy" decoding="async" alt="">
+                    <video muted playsinline loop preload="none" width="432" height="934" aria-label="Video aus der App: Eine Kugel in den Händen einer gezeichneten Figur wird zu einem violetten Wirbel mit goldenen Strahlen. Daraus dreht sich eine Karte mit dem Namen Die Herrscherin hervor, darunter steht Venus wird direktläufig.">
+                      <source src="assets/zodiacally/tageskarte-432.mp4" type="video/mp4">
+                    </video>
+                    <noscript><a class="clip__knopf" href="assets/zodiacally/tageskarte-432.mp4">Video öffnen</a></noscript>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Zodiacally, Startseite">
+              <p class="abzug__kopf"><span>zodiacally.com</span><span>Live-Seite, 12.11.2026</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <div class="clip" style="--ar: 1280 / 800">
+                  <img class="clip__poster" src="assets/zodiacally/startseite-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="">
+                  <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video der Zodiacally-Startseite. Die Seite wird langsam nach unten gescrollt, vom Titelbild zum Kasten mit den aktuellen Mondterminen und weiter zu den Reading-Karten.">
+                    <source src="assets/zodiacally/startseite-720.mp4" type="video/mp4">
+                  </video>
+                  <noscript><a class="clip__knopf" href="assets/zodiacally/startseite-720.mp4">Video öffnen</a></noscript>
+                </div>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Zodiacally, Beispiel-Reading">
+              <p class="abzug__kopf"><span>zodiacally.com</span><span>Beispiel-Reading, erfundenes Profil</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/zodiacally/belege-900.webp"
+                       srcset="assets/zodiacally/belege-900.webp 900w, assets/zodiacally/belege.webp 1800w"
+                       sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                       width="1800" height="708" loading="lazy" decoding="async"
+                       alt="Abschnitt „Astrologische Belege“ mit einer Liste von Konstellationen wie Sonne Konjunktion Saturn samt Gradangaben. Rechts daneben steht jeweils ein kurzer Deutungstext.">
+                </a>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Zodiacally, Himmelsansicht">
+              <p class="abzug__kopf"><span>Android-App</span><span>Testlauf</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/zodiacally/app-himmel-900.webp"
+                       srcset="assets/zodiacally/app-himmel-900.webp 506w, assets/zodiacally/app-himmel.webp 1012w"
+                       sizes="(min-width: 700px) 20vw, 40vw"
+                       width="1012" height="1800" loading="lazy" decoding="async"
+                       alt="App-Bildschirm „Der Himmel heute“ mit einem halb beleuchteten Mond, der Angabe Letztes Viertel und den Terminen für den nächsten Neumond und Vollmond.">
+                </a>
+              </div>
             </div>
           </div>
+          <p class="galerie__leiste" hidden>
+            <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu Zodiacally"><span aria-hidden="true">←</span> Zurück</button>
+            <span class="galerie__zahl" aria-live="polite">1 / 4</span>
+            <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu Zodiacally">Weiter <span aria-hidden="true">→</span></button>
+          </p>
         </div>
       </div>
     </figure>
@@ -589,20 +687,55 @@ if (location.protocol !== "file:") {
   </article>
 
   <article class="karte karte--gross karte--bild-rechts blatt" id="outava" aria-labelledby="outava-karte">
-    <figure class="abzug karte__bild">
+    <figure class="abzug karte__bild galerie" data-galerie>
       <div class="abzug__flaeche">
         <div class="abzug__rahmen">
-          <p class="abzug__kopf"><span>App, Bilder aus dem Testlauf</span><span>KI-Symbolbilder</span></p>
-          <a class="abzug__bild" href="outava.html" tabindex="-1" aria-hidden="true">
-            <span class="karte__paar">
-              <img src="assets/outava/stapel-900.webp"
-                   width="416" height="900" loading="lazy" decoding="async"
-                   alt="Eine große Veranstaltungskarte mit dem Foto eines gedeckten Restauranttischs, darunter Titel, Stadtteil, Uhrzeit und Preis.">
-              <img src="assets/outava/start-900.webp"
-                   width="416" height="900" loading="lazy" decoding="async"
-                   alt="App-Startseite „Heute in Hamburg“ mit einem Kasten „Stapel starten“, einem Suchfeld, Schnellfiltern wie Heute und Wochenende und einer großen Veranstaltungskarte.">
-            </span>
-          </a>
+          <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu Outava, seitlich blättern">
+            <div class="galerie__bild" data-name="Outava, Kartenstapel">
+              <p class="abzug__kopf"><span>App, Bilder aus dem Testlauf</span><span>KI-Symbolbilder</span></p>
+              <div class="galerie__flaeche galerie__flaeche--frei">
+                <a class="abzug__bild" href="outava.html" tabindex="-1" aria-hidden="true">
+                  <span class="karte__paar">
+                    <img src="assets/outava/stapel-900.webp"
+                         width="416" height="900" loading="lazy" decoding="async"
+                         alt="Eine große Veranstaltungskarte mit dem Foto eines gedeckten Restauranttischs, darunter Titel, Stadtteil, Uhrzeit und Preis.">
+                    <img src="assets/outava/start-900.webp"
+                         width="416" height="900" loading="lazy" decoding="async"
+                         alt="App-Startseite „Heute in Hamburg“ mit einem Kasten „Stapel starten“, einem Suchfeld, Schnellfiltern wie Heute und Wochenende und einer großen Veranstaltungskarte.">
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Outava, Wischgesten">
+              <p class="abzug__kopf"><span>Erklärvideo, Entwurf</span><span>KI-Symbolbilder</span></p>
+              <div class="galerie__flaeche galerie__flaeche--hell">
+                <div class="clip" style="--ar: 1280 / 720">
+                  <img class="clip__poster" src="assets/outava/wischen-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                  <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video mit einem Handy-Rahmen, in dem Karten mit Veranstaltungen nacheinander nach links, nach rechts und nach oben gewischt werden. Daneben stehen kurze Erklärtexte.">
+                    <source src="assets/outava/wischen-720.mp4" type="video/mp4">
+                  </video>
+                  <noscript><a class="clip__knopf" href="assets/outava/wischen-720.mp4">Video öffnen</a></noscript>
+                </div>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Outava, erster Start">
+              <p class="abzug__kopf"><span>Android-Emulator</span><span>Testlauf, 22.10.2026</span></p>
+              <div class="galerie__flaeche galerie__flaeche--hell">
+                <a class="abzug__bild" href="outava.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/outava/einwilligung-wahl-900.webp"
+                       srcset="assets/outava/einwilligung-wahl-900.webp 900w, assets/outava/einwilligung-wahl.webp 1080w"
+                       sizes="(min-width: 700px) 30vw, 60vw"
+                       width="1080" height="1006" loading="lazy" decoding="async"
+                       alt="Einwilligungsseite mit zwei Optionen. Die Option „Ohne Produktanalyse fortfahren“ ist markiert, darunter liegen der Link zu den Datenschutzhinweisen und der Knopf „Outava starten“.">
+                </a>
+              </div>
+            </div>
+          </div>
+          <p class="galerie__leiste" hidden>
+            <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu Outava"><span aria-hidden="true">←</span> Zurück</button>
+            <span class="galerie__zahl" aria-live="polite">1 / 3</span>
+            <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu Outava">Weiter <span aria-hidden="true">→</span></button>
+          </p>
         </div>
       </div>
     </figure>
@@ -624,17 +757,64 @@ if (location.protocol !== "file:") {
   </article>
 
   <article class="karte karte--gross blatt" id="afuku" aria-labelledby="afuku-karte">
-    <figure class="abzug karte__bild">
+    <figure class="abzug karte__bild galerie" data-galerie>
       <div class="abzug__flaeche">
         <div class="abzug__rahmen">
-          <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Kräuterhain, Testlauf</span></p>
-          <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/projekte/afuku-900.webp"
-                 srcset="assets/projekte/afuku-900.webp 900w, assets/projekte/afuku.webp 1400w"
-                 sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
-                 width="1400" height="875" loading="lazy" decoding="async"
-                 alt="Blick von schräg oben auf einen kleinen Brunnen mit Wasserrinne zwischen blühenden Büschen, einem Beet mit Lavendel und Steinplatten auf einem Sandweg. Kael mit rotem Schal steht neben dem Brunnen.">
-          </a>
+          <div class="galerie__band" tabindex="0" role="group" aria-label="4 Bilder zu Afuku, seitlich blättern">
+            <div class="galerie__bild" data-name="Afuku, Kräuterhain">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Kräuterhain, Testlauf</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/projekte/afuku-900.webp"
+                       srcset="assets/projekte/afuku-900.webp 900w, assets/projekte/afuku.webp 1400w"
+                       sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                       width="1400" height="875" loading="lazy" decoding="async"
+                       alt="Blick von schräg oben auf einen kleinen Brunnen mit Wasserrinne zwischen blühenden Büschen, einem Beet mit Lavendel und Steinplatten auf einem Sandweg. Kael mit rotem Schal steht neben dem Brunnen.">
+                </a>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Afuku, Brunnenplatz">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Brunnenplatz, Testlauf</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/afuku/hof-brunnenplatz-900.webp"
+                       srcset="assets/afuku/hof-brunnenplatz-900.webp 900w, assets/afuku/hof-brunnenplatz.webp 1800w"
+                       sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                       width="1800" height="1013" loading="lazy" decoding="async"
+                       alt="Ein runder Brunnen mit Holzgestell auf einem Platz aus Pflastersteinen, daneben Fässer, Sonnenblumen, ein Gemüsebeet und ein Steinweg. Kael steht am Rand des Platzes.">
+                </a>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Afuku, Thronhof">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Thronhof, Testlauf</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/afuku/hof-thronhof-900.webp"
+                       srcset="assets/afuku/hof-thronhof-900.webp 900w, assets/afuku/hof-thronhof.webp 1800w"
+                       sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                       width="1800" height="1013" loading="lazy" decoding="async"
+                       alt="Ein Steinthron auf drei Stufen vor einer Mauer, die Lehne mit rostigem Schrott gekrönt, daneben roter Mohn und zwei Feuerschalen. Kael steht auf dem überwachsenen Pflaster davor.">
+                </a>
+              </div>
+            </div>
+            <div class="galerie__bild" data-name="Afuku, Titelbild">
+              <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Titelbild</span></p>
+              <div class="galerie__flaeche galerie__flaeche--dunkel">
+                <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
+                  <img src="assets/afuku/hauptmenue-900.webp"
+                       srcset="assets/afuku/hauptmenue-900.webp 900w, assets/afuku/hauptmenue.webp 1600w"
+                       sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                       width="1600" height="900" loading="lazy" decoding="async"
+                       alt="Titelbild mit dem Schriftzug Afuku und den Menüpunkten Fortsetzen, Neues Spiel, Spielstand laden, Optionen und Beenden. Rechts ein gepflasterter Platz mit Lagerfeuer, gesehen von schräg oben.">
+                </a>
+              </div>
+            </div>
+          </div>
+          <p class="galerie__leiste" hidden>
+            <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu Afuku"><span aria-hidden="true">←</span> Zurück</button>
+            <span class="galerie__zahl" aria-live="polite">1 / 4</span>
+            <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu Afuku">Weiter <span aria-hidden="true">→</span></button>
+          </p>
         </div>
       </div>
     </figure>
@@ -662,17 +842,52 @@ if (location.protocol !== "file:") {
   <div class="karten karten--zwei blatt">
 
     <article class="karte karte--klein" id="hoerbuch" aria-labelledby="hoerbuch-karte">
-      <figure class="abzug karte__bild">
+      <figure class="abzug karte__bild galerie" data-galerie>
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Hörbuch-Trailer, Standbild</span><span>KI-Bild (Google Veo)</span></p>
-            <a class="abzug__bild" href="hoerbuch.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/hoerbuch-900.webp"
-                   srcset="assets/projekte/hoerbuch-900.webp 900w, assets/projekte/hoerbuch.webp 1152w"
-                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
-                   width="1152" height="720" loading="lazy" decoding="async"
-                   alt="Tuschzeichnung eines Waldes bei Vollmond. Links und rechts stehen Gestalten in dunklen Umhängen mit roten Spuren, dazwischen zieht Nebel.">
-            </a>
+            <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu Hörbuch-Shop, seitlich blättern">
+              <div class="galerie__bild" data-name="Hörbuch-Shop, Standbild">
+                <p class="abzug__kopf"><span>Hörbuch-Trailer, Standbild</span><span>KI-Bild (Google Veo)</span></p>
+                <div class="galerie__flaeche galerie__flaeche--dunkel">
+                  <a class="abzug__bild" href="hoerbuch.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/projekte/hoerbuch-900.webp"
+                         srcset="assets/projekte/hoerbuch-900.webp 900w, assets/projekte/hoerbuch.webp 1152w"
+                         sizes="(min-width: 700px) 44vw, 92vw"
+                         width="1152" height="720" loading="lazy" decoding="async"
+                         alt="Tuschzeichnung eines Waldes bei Vollmond. Links und rechts stehen Gestalten in dunklen Umhängen mit roten Spuren, dazwischen zieht Nebel.">
+                  </a>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Hörbuch-Shop, Trailer">
+                <p class="abzug__kopf"><span>Hörbuch-Trailer, ohne Ton</span><span>KI-Bilder (Google Veo)</span></p>
+                <div class="galerie__flaeche galerie__flaeche--dunkel">
+                  <div class="clip" style="--ar: 1280 / 720">
+                    <img class="clip__poster" src="assets/hoerbuch/trailer-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                    <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video im Stil einer Tuschzeichnung: eine Gestalt mit Kapuze und Messer, danach ein Wald bei Vollmond mit vielen Gestalten in Umhängen. Eingeblendet stehen die Zeilen „Holt, Mara.“ und „Jede Figur mit eigener Stimme“.">
+                      <source src="assets/hoerbuch/trailer-720.mp4" type="video/mp4">
+                    </video>
+                    <noscript><a class="clip__knopf" href="assets/hoerbuch/trailer-720.mp4">Video öffnen</a></noscript>
+                  </div>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Hörbuch-Shop, Download-Seite">
+                <p class="abzug__kopf"><span>Download-Seite, Ausschnitt</span><span>Testkauf</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <a class="abzug__bild" href="hoerbuch.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/projekte/hoerbuch-download.webp"
+                         srcset="assets/projekte/hoerbuch-download.webp 752w, assets/projekte/hoerbuch-download.webp 752w"
+                         sizes="(min-width: 700px) 44vw, 92vw"
+                         width="752" height="470" loading="lazy" decoding="async"
+                         alt="Ausschnitt der Download-Seite mit zwei Kästen zum Herunterladen: alles in einer Datei als M4B und einzelne Kapitel als MP3.">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p class="galerie__leiste" hidden>
+              <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu Hörbuch-Shop"><span aria-hidden="true">←</span> Zurück</button>
+              <span class="galerie__zahl" aria-live="polite">1 / 3</span>
+              <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu Hörbuch-Shop">Weiter <span aria-hidden="true">→</span></button>
+            </p>
           </div>
         </div>
       </figure>
@@ -689,17 +904,52 @@ if (location.protocol !== "file:") {
     </article>
 
     <article class="karte karte--klein" id="youtube" aria-labelledby="youtube-karte">
-      <figure class="abzug karte__bild">
+      <figure class="abzug karte__bild galerie" data-galerie>
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Standbild</span></p>
-            <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/youtube-900.webp"
-                   srcset="assets/projekte/youtube-900.webp 900w, assets/projekte/youtube.webp 1440w"
-                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
-                   width="1440" height="900" loading="lazy" decoding="async"
-                   alt="Titelbild eines Erklärvideos auf dunkelblauem Sternenhimmel: links drei Planeten, daneben die Schrift „Uranus, Neptun, Pluto, die Generationsplaneten“. Unten steht ein Untertitel.">
-            </a>
+            <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu YouTube-Kanäle, seitlich blättern">
+              <div class="galerie__bild" data-name="YouTube, Zodiacally Folge 26">
+                <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Standbild</span></p>
+                <div class="galerie__flaeche galerie__flaeche--dunkel">
+                  <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/projekte/youtube-900.webp"
+                         srcset="assets/projekte/youtube-900.webp 900w, assets/projekte/youtube.webp 1440w"
+                         sizes="(min-width: 700px) 44vw, 92vw"
+                         width="1440" height="900" loading="lazy" decoding="async"
+                         alt="Titelbild eines Erklärvideos auf dunkelblauem Sternenhimmel: links drei Planeten, daneben die Schrift „Uranus, Neptun, Pluto, die Generationsplaneten“. Unten steht ein Untertitel.">
+                  </a>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="YouTube, Hörgeschichte">
+                <p class="abzug__kopf"><span>YouTube, Hörgeschichte, ohne Ton</span><span>KI-Bild</span></p>
+                <div class="galerie__flaeche galerie__flaeche--dunkel">
+                  <div class="clip" style="--ar: 1280 / 720">
+                    <img class="clip__poster" src="assets/youtube/hoergeschichte-poster.webp" width="1280" height="720" loading="lazy" decoding="async" alt="">
+                    <video muted playsinline loop preload="none" width="1280" height="720" aria-label="Video: zwei Zelte nachts im Wald, dazwischen weiße Balken, die sich zur Stimme bewegen. Oben rechts steht Horror-Hörbuch.">
+                      <source src="assets/youtube/hoergeschichte-720.mp4" type="video/mp4">
+                    </video>
+                    <noscript><a class="clip__knopf" href="assets/youtube/hoergeschichte-720.mp4">Video öffnen</a></noscript>
+                  </div>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="YouTube, Prüfbogen">
+                <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Prüfbogen</span></p>
+                <div class="galerie__flaeche galerie__flaeche--dunkel">
+                  <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/youtube/pruefbogen-900.webp"
+                         srcset="assets/youtube/pruefbogen-900.webp 900w, assets/youtube/pruefbogen.webp 960w"
+                         sizes="(min-width: 700px) 44vw, 92vw"
+                         width="960" height="584" loading="lazy" decoding="async"
+                         alt="Vier Bilder aus einem Video auf dunkelblauem Sternenhimmel: ein Tierkreis mit dem Jahr 1995, ein Raster aus Punkten, der Titel „Uranus, Neptun, Pluto, die Generationsplaneten“ und Umlaufbahnen um die Sonne. Unten stehen Untertitel.">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p class="galerie__leiste" hidden>
+              <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu YouTube-Kanäle"><span aria-hidden="true">←</span> Zurück</button>
+              <span class="galerie__zahl" aria-live="polite">1 / 3</span>
+              <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu YouTube-Kanäle">Weiter <span aria-hidden="true">→</span></button>
+            </p>
           </div>
         </div>
       </figure>
@@ -745,17 +995,52 @@ if (location.protocol !== "file:") {
     </article>
 
     <article class="karte karte--klein" id="proteinvergleich" aria-labelledby="proteinvergleich-karte">
-      <figure class="abzug karte__bild">
+      <figure class="abzug karte__bild galerie" data-galerie>
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>proteinvergleich.com</span><span>Vergleichstabelle, gefiltert, 12.11.2026</span></p>
-            <a class="abzug__bild" href="proteinvergleich.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/proteinvergleich-900.webp"
-                   srcset="assets/projekte/proteinvergleich-900.webp 900w, assets/projekte/proteinvergleich.webp 1800w"
-                   sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
-                   width="1800" height="1125" loading="lazy" decoding="async"
-                   alt="Tabelle mit 51 Proteinpulvern, gefiltert auf vegan, ohne künstliche Süßstoffe und eine Packungsgröße. Jede Zeile zeigt Marke, Produkt, ein gelbes Preisschild, den Proteingehalt und die Nährwerte.">
-            </a>
+            <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu Proteinvergleich, seitlich blättern">
+              <div class="galerie__bild" data-name="Proteinvergleich, Tabelle">
+                <p class="abzug__kopf"><span>proteinvergleich.com, Vergleichstabelle, gefiltert, 12.11.2026</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <a class="abzug__bild" href="proteinvergleich.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/projekte/proteinvergleich-900.webp"
+                         srcset="assets/projekte/proteinvergleich-900.webp 900w, assets/projekte/proteinvergleich.webp 1800w"
+                         sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                         width="1800" height="1125" loading="lazy" decoding="async"
+                         alt="Tabelle mit 51 Proteinpulvern, gefiltert auf vegan, ohne künstliche Süßstoffe und eine Packungsgröße. Jede Zeile zeigt Marke, Produkt, ein gelbes Preisschild, den Proteingehalt und die Nährwerte.">
+                  </a>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Proteinvergleich, Produktseite">
+                <p class="abzug__kopf"><span>proteinvergleich.com, Produktseite, 12.11.2026</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <div class="clip" style="--ar: 1280 / 800">
+                    <img class="clip__poster" src="assets/proteinvergleich/produktseite-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="">
+                    <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video einer Produktseite von Proteinvergleich. Die Seite läuft nach unten zum Preisverlauf und zu einer Punktreihe der Kilopreise. Am Ende klappt die Liste der Kilopreise auf.">
+                      <source src="assets/proteinvergleich/produktseite-720.mp4" type="video/mp4">
+                    </video>
+                    <noscript><a class="clip__knopf" href="assets/proteinvergleich/produktseite-720.mp4">Video öffnen</a></noscript>
+                  </div>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Proteinvergleich, Regal">
+                <p class="abzug__kopf"><span>proteinvergleich.com, Einordnung im Regal, 12.11.2026</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <a class="abzug__bild" href="proteinvergleich.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/proteinvergleich/regal-900.webp"
+                         srcset="assets/proteinvergleich/regal-900.webp 900w, assets/proteinvergleich/regal.webp 1800w"
+                         sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                         width="1800" height="1125" loading="lazy" decoding="async"
+                         alt="Abschnitt „Wo steht das Produkt im Regal?“ mit einer Punktreihe von 76 Whey-Produkten nach Kilopreis. Das gewählte Produkt ist gelb markiert, darüber steht der Satz, dass es günstiger ist als 44 von 75 anderen.">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p class="galerie__leiste" hidden>
+              <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu Proteinvergleich"><span aria-hidden="true">←</span> Zurück</button>
+              <span class="galerie__zahl" aria-live="polite">1 / 3</span>
+              <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu Proteinvergleich">Weiter <span aria-hidden="true">→</span></button>
+            </p>
           </div>
         </div>
       </figure>
@@ -772,17 +1057,52 @@ if (location.protocol !== "file:") {
     </article>
 
     <article class="karte karte--klein" id="geschenkideen" aria-labelledby="geschenkideen-karte">
-      <figure class="abzug karte__bild">
+      <figure class="abzug karte__bild galerie" data-galerie>
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span><span>KI-Suche, 12.11.2026</span></p>
-            <a class="abzug__bild" href="geschenkideen.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/geschenkideen-900.webp"
-                   srcset="assets/projekte/geschenkideen-900.webp 900w, assets/projekte/geschenkideen.webp 1280w"
-                   sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
-                   width="1280" height="800" loading="lazy" decoding="async"
-                   alt="Drei Produktkarten mit den Spielen Qwixx, memory und Carcassonne. Jede Karte zeigt Bild, Begründung, Preis, Altersangabe und den Hinweis Werbung.">
-            </a>
+            <div class="galerie__band" tabindex="0" role="group" aria-label="3 Bilder zu Geschenkideengenerator, seitlich blättern">
+              <div class="galerie__bild" data-name="Geschenkideengenerator, Vorschläge">
+                <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com, KI-Suche, 12.11.2026</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <a class="abzug__bild" href="geschenkideen.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/projekte/geschenkideen-900.webp"
+                         srcset="assets/projekte/geschenkideen-900.webp 900w, assets/projekte/geschenkideen.webp 1280w"
+                         sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                         width="1280" height="800" loading="lazy" decoding="async"
+                         alt="Drei Produktkarten mit den Spielen Qwixx, memory und Carcassonne. Jede Karte zeigt Bild, Begründung, Preis, Altersangabe und den Hinweis Werbung.">
+                  </a>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Geschenkideengenerator, KI-Suche">
+                <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com, KI-Suche als Video, 12.11.2026</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <div class="clip" style="--ar: 1280 / 800">
+                    <img class="clip__poster" src="assets/geschenkideen/ki-suche-poster.webp" width="1280" height="800" loading="lazy" decoding="async" alt="">
+                    <video muted playsinline loop preload="none" width="1280" height="800" aria-label="Video der KI-Suche. In das Suchfeld wird ein Geschenkwunsch für einen achtjährigen Neffen getippt. Nach wenigen Sekunden erscheinen drei Spiele als Vorschläge.">
+                      <source src="assets/geschenkideen/ki-suche-720.mp4" type="video/mp4">
+                    </video>
+                    <noscript><a class="clip__knopf" href="assets/geschenkideen/ki-suche-720.mp4">Video öffnen</a></noscript>
+                  </div>
+                </div>
+              </div>
+              <div class="galerie__bild" data-name="Geschenkideengenerator, Geschenkfinder">
+                <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com, Geschenkfinder ohne KI</span></p>
+                <div class="galerie__flaeche galerie__flaeche--hell">
+                  <a class="abzug__bild" href="geschenkideen.html" tabindex="-1" aria-hidden="true">
+                    <img src="assets/geschenkideen/finder-ausschnitt-900.webp"
+                         srcset="assets/geschenkideen/finder-ausschnitt-900.webp 900w, assets/geschenkideen/finder-ausschnitt-900.webp 900w"
+                         sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                         width="900" height="450" loading="lazy" decoding="async"
+                         alt="Auswahlseite mit acht Kacheln für Vorlieben. Die Kachel „Essen &amp; Genießen“ ist ausgewählt, oben steht die Leiste mit den vier Schritten.">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p class="galerie__leiste" hidden>
+              <button class="galerie__knopf" type="button" data-richtung="-1" aria-label="Zurück, voriges Bild zu Geschenkideengenerator"><span aria-hidden="true">←</span> Zurück</button>
+              <span class="galerie__zahl" aria-live="polite">1 / 3</span>
+              <button class="galerie__knopf" type="button" data-richtung="1" aria-label="Weiter, nächstes Bild zu Geschenkideengenerator">Weiter <span aria-hidden="true">→</span></button>
+            </p>
           </div>
         </div>
       </figure>

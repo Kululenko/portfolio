@@ -17,6 +17,9 @@
               nur mit Zwischenablage
    7 weich    weiches Scrollen fuer Sprunglinks erst nach dem Laden, nie bei "weniger Bewegung"
               (der Sprung auf index.html#<key> beim Laden bleibt sofort)
+   8 galerie  Bildfolgen auf den Projektkarten (figure[data-galerie]): ein Band, das man seitlich
+              wischt oder scrollt (CSS scroll-snap), dazu Pfeile und ein Zaehler "1 / 4".
+              Nichts blaettert von selbst. Ohne JavaScript bleibt das Band von Hand scrollbar.
    Ohne JavaScript bleibt alles lesbar: Videos als Posterbild mit Link "Video oeffnen",
    Bilder als Links auf die grosse Datei, Notizen als Text unter dem Bild,
    "Fuer Entwickler: Aufbau" als details. */
@@ -213,9 +216,11 @@
     clips.forEach(function (v) {
       var fig = v.closest("figure");
       // Platz des Knopfs: rechts in der Zeile am Rahmen. Ohne diese Zeile (alte Bausteine) unten im Bild.
-      var zeile = fig ? fig.querySelector(".abzug__kopf") : null;
+      // In einer Bildfolge (8 galerie) hat jedes Bild seine eigene Zeile.
+      var blatt = v.closest(".galerie__bild");
+      var zeile = blatt ? blatt.querySelector(".abzug__kopf") : (fig ? fig.querySelector(".abzug__kopf") : null);
       var ort = zeile || v.parentNode;
-      var knopf = (fig || v.parentNode).querySelector("button.clip__knopf");
+      var knopf = (blatt || fig || v.parentNode).querySelector("button.clip__knopf");
       if (!knopf) {
         knopf = document.createElement("button");
         knopf.type = "button";
@@ -230,7 +235,8 @@
       // Der Name beginnt mit dem sichtbaren Wort (WCAG 2.5.3, Sprachsteuerung).
       var marke = fig ? fig.querySelector("figcaption b") : null;
       var nummer = marke ? marke.textContent.replace(/^[^\d]+/, "").trim() : "";
-      var zusatz = nummer ? ", Video " + nummer : ", Video";
+      var name = blatt ? blatt.getAttribute("data-name") : "";
+      var zusatz = nummer ? ", Video " + nummer : (name ? ", Video " + name : ", Video");
 
       function beschriften() {
         knopf.textContent = v.paused ? "Abspielen" : "Anhalten";
@@ -569,7 +575,64 @@
     else { window.addEventListener("load", nachLaden, { once: true }); }
   }
 
-  function los() { leiste(); videos(); stift(); lupe(); falten(); kopieren(); weich(); }
+  /* ---------- 8 Bildfolgen auf den Projektkarten ---------- */
+  function galerien() {
+    alle("figure[data-galerie]").forEach(function (g) {
+      var band = g.querySelector(".galerie__band");
+      var leiste = g.querySelector(".galerie__leiste");
+      if (!band || !leiste) { return; }
+      var bilder = alle(".galerie__bild", band);
+      var zahl = leiste.querySelector(".galerie__zahl");
+      var zurueck = leiste.querySelector("[data-richtung='-1']");
+      var vor = leiste.querySelector("[data-richtung='1']");
+      if (bilder.length < 2 || !zahl || !zurueck || !vor) { return; }
+      var stelle = 0;
+      var wartet = false;
+
+      // Die Medien ab dem zweiten Blatt laden erst, wenn man die Bildfolge anfasst (CSS blendet sie bis dahin aus).
+      // So bleibt der erste Aufruf der Seite leicht.
+      function wecken(i) { if (bilder[i]) { bilder[i].classList.add("galerie__bild--da"); } }
+      function zeigen() {
+        zahl.textContent = (stelle + 1) + " / " + bilder.length;
+        zurueck.disabled = stelle === 0;
+        vor.disabled = stelle === bilder.length - 1;
+        wecken(stelle); wecken(stelle + 1);
+      }
+      function messen() {
+        wartet = false;
+        var breite = band.clientWidth || 1;
+        wecken(Math.ceil(band.scrollLeft / breite));
+        var neu = Math.max(0, Math.min(bilder.length - 1, Math.round(band.scrollLeft / breite)));
+        if (neu !== stelle) { stelle = neu; zeigen(); }
+      }
+      function absicht() { wecken(1); }
+      ["pointerenter", "touchstart", "focusin"].forEach(function (art) {
+        g.addEventListener(art, absicht, { once: true, passive: true });
+      });
+      function gehe(schritt) {
+        var ziel = Math.max(0, Math.min(bilder.length - 1, stelle + schritt));
+        wecken(ziel);
+        band.scrollTo({ left: ziel * band.clientWidth, behavior: ruhig.matches ? "auto" : "smooth" });
+      }
+      band.addEventListener("scroll", function () {
+        if (!wartet) { wartet = true; window.requestAnimationFrame(messen); }
+      }, { passive: true });
+      zurueck.addEventListener("click", function () { gehe(-1); });
+      vor.addEventListener("click", function () { gehe(1); });
+      // Pfeiltasten, wenn das Band den Fokus hat (ein Schritt je Tastendruck statt freiem Scrollen)
+      band.addEventListener("keydown", function (e) {
+        if (e.target !== band) { return; }
+        if (e.key === "ArrowRight") { e.preventDefault(); gehe(1); }
+        else if (e.key === "ArrowLeft") { e.preventDefault(); gehe(-1); }
+      });
+      g.classList.add("galerie--an");
+      leiste.hidden = false;
+      zahl.textContent = "1 / " + bilder.length;
+      zurueck.disabled = true;
+    });
+  }
+
+  function los() { leiste(); videos(); stift(); lupe(); falten(); kopieren(); weich(); galerien(); }
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", los);
