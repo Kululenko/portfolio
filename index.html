@@ -163,6 +163,15 @@ if (location.protocol !== "file:") {
   width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: top;
   outline: 1px solid var(--linie); outline-offset: 0;
 }
+#projekte .karte__duo {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 4%;
+  aspect-ratio: 16 / 10; padding: 3.5% 5%; background: #0d1830; overflow: hidden;
+}
+#projekte .karte__duo > a.abzug__bild { display: block; min-width: 0; min-height: 0; }
+#projekte .karte__duo img:not(.clip__poster) { width: 100%; height: 100%; aspect-ratio: auto; object-fit: contain; }
+#projekte .karte__duo > .clip { height: 100%; width: auto; aspect-ratio: var(--ar); border-radius: 14px; outline: 1px solid rgb(255 255 255 / .28); background: #070511; }
+#projekte .karte__duo .clip__poster { aspect-ratio: auto; height: 100%; object-fit: cover; }
+@media (max-width: 699.98px) { #projekte .karte__duo { aspect-ratio: 5 / 4; padding: 4%; column-gap: 3%; } }
 #projekte .karte__text { container-type: inline-size; min-width: 0; }
 #projekte .karte__nr {
   font-family: var(--f-plakat); font-weight: 900; color: var(--gruen);
@@ -177,6 +186,13 @@ if (location.protocol !== "file:") {
 #projekte .karte__stand { margin-top: 12px; font-family: var(--f-etikett); font-weight: 700; font-size: var(--t-etikett); line-height: 1.35; letter-spacing: .01em; }
 #projekte .karte__stand .stand { display: inline-flex; vertical-align: baseline; }
 #projekte .karte__anteil { font-size: 1rem; line-height: 1.4; margin-top: 6px; }
+#projekte .karte--gross .karte__anteil { margin-top: 12px; color: var(--tinte-2); max-width: 36em; text-wrap: pretty; }
+#projekte .projekte__weitere { margin-top: 72px; }
+#projekte .projekte__weitere-titel {
+  border-top: 3px solid var(--tinte); padding-top: 12px;
+  font-family: var(--f-plakat); font-weight: 900; letter-spacing: -.01em; word-spacing: .12em;
+  font-size: 2.1rem; line-height: 1;
+}
 #projekte .karte__punkte { margin-top: 16px; border-top: 2px solid var(--tinte); }
 #projekte .karte__punkte li {
   display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); align-items: baseline;
@@ -203,7 +219,8 @@ if (location.protocol !== "file:") {
 #projekte .karte--gross { margin-top: 56px; row-gap: 18px; scroll-margin-top: 8px; }
 #projekte .projekte__kopf + .karte--gross { margin-top: 24px; }
 #projekte .karte--rund .karte__bild img { aspect-ratio: 1029 / 1100; object-fit: contain; }
-#projekte .karten { margin-top: 64px; row-gap: 52px; }
+#projekte .karten { margin-top: 28px; row-gap: 44px; }
+#projekte .karten--drei { margin-top: 44px; }
 #projekte .karte--klein { min-width: 0; scroll-margin-top: 8px; display: flex; flex-direction: column; }
 #projekte .karte--klein .karte__text { margin-top: 14px; flex: 1 0 auto; display: flex; flex-direction: column; align-items: flex-start; }
 #projekte .karte--klein .karte__text > * { max-width: 100%; }
@@ -232,7 +249,10 @@ if (location.protocol !== "file:") {
   #projekte .karte--bild-rechts > .karte__bild { grid-column: 5 / -1; }
   #projekte .karte--bild-rechts > .karte__text { grid-column: 1 / 5; }
   #projekte .karte--rund .karte__bild img { aspect-ratio: 16 / 10; }
-  #projekte .karten { margin-top: 88px; row-gap: 64px; align-items: stretch; }
+  #projekte .projekte__weitere { margin-top: 96px; }
+  #projekte .projekte__weitere-titel { font-size: 2.6rem; padding-top: 14px; }
+  #projekte .karten { margin-top: 32px; row-gap: 56px; align-items: stretch; }
+  #projekte .karten--drei { margin-top: 56px; }
   #projekte .karten > .karte:nth-child(odd) { grid-column: 1 / 5; }
   #projekte .karten > .karte:nth-child(even) { grid-column: 5 / -1; }
   #projekte .karten > .karte--klein:last-child:nth-child(odd) {
@@ -254,13 +274,26 @@ if (location.protocol !== "file:") {
   #projekte .karte--bild-rechts > .karte__bild { grid-column: 7 / -2; }
   #projekte .karte--bild-rechts > .karte__text { grid-column: 2 / 7; }
   #projekte .karte__nr { font-size: 6.4rem; }
-  #projekte .karten { margin-top: 80px; column-gap: 24px; row-gap: 64px; }
+  #projekte .projekte__weitere { margin-top: 112px; }
+  #projekte .projekte__weitere-titel { grid-column: 2 / -2; }
+  #projekte .karten { margin-top: 36px; column-gap: 24px; row-gap: 64px; }
+  #projekte .karten--drei { margin-top: 64px; }
   #projekte .karten > .karte:nth-child(odd) { grid-column: 2 / 8; }
   #projekte .karten > .karte:nth-child(even) { grid-column: 8 / -2; }
   #projekte .karte--klein .karte__titel { font-size: min(3rem, 10.4cqi); }
-  #projekte .karten > .karte--klein:last-child:nth-child(odd) { grid-column: 2 / -2; }
-  #projekte .karten > .karte--klein:last-child:nth-child(odd) > .karte__bild { grid-column: 1 / 7; }
-  #projekte .karten > .karte--klein:last-child:nth-child(odd) > .karte__text { grid-column: 7 / -1; }
+  #projekte .karten--drei > .karte:nth-child(1) { grid-column: 2 / 6; }
+  #projekte .karten--drei > .karte:nth-child(2) { grid-column: 6 / 10; }
+  #projekte .karten--drei > .karte:nth-child(3),
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) { grid-column: 10 / -2; display: flex; flex-direction: column; align-items: stretch; }
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) > .karte__text { margin-top: 14px; }
+  #projekte .karten--drei > .karte--klein:last-child:nth-child(odd) .karte__knoepfe { margin-top: auto; }
+  #projekte .karten--drei .karte--klein .karte__titel { font-size: min(2.3rem, 11.5cqi); }
+  #projekte .karten--drei .karte--klein .karte__kurz { font-size: 1.05rem; }
+  #projekte .karten--drei .karte__bild .abzug__kopf { flex-direction: column; align-items: flex-start; row-gap: 1px; }
+  #projekte .karten--drei .karte__bild .abzug__kopf > span + span { margin-left: 0; }
+}
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #projekte .karten--drei .karte--klein .karte__knoepfe { min-height: 112px; align-content: flex-start; }
 }
 </style>
 <style>
@@ -489,7 +522,7 @@ if (location.protocol !== "file:") {
     <img src="assets/kopf/portrait.webp" width="435" height="580" alt="Porträt von Aleks Paramonov: dunkles Sakko, weißes Hemd, im Hintergrund ein Regal und eine Schreibtischlampe" fetchpriority="high">
   </figure>
 
-  <p class="kopf__satz">Ich baue Web-Anwendungen, Apps und KI-Funktionen und betreue sie auch nach dem Start. Zwei meiner Projekte nehmen Zahlungen über Stripe an. Den Proteinvergleich habe ich an einem Tag gebaut und online gestellt.</p>
+  <p class="kopf__satz">Ich baue Web-Anwendungen, Apps und KI-Funktionen und betreue sie auch nach dem Start. Dazu gehören eine Rechenengine für Planetenpositionen, ein Empfehlungssystem für eine Event-App und ein Actionspiel in Unreal Engine&nbsp;5.</p>
 
   <p class="kopf__knoepfe">
     <a class="knopf knopf--haupt" href="#projekte">Projekte ansehen</a>
@@ -505,28 +538,6 @@ if (location.protocol !== "file:") {
     <div><dt>Arbeits&shy;erlaubnis</dt><dd>unbefristet</dd></div>
     <div><dt>Sprachen</dt><dd>Deutsch, Russisch, Ukrainisch (Muttersprachen), Englisch B2</dd></div>
   </dl>
-
-  <div class="kopf__werdegang">
-    <p class="kopf__etikett" id="kopf-werdegang">Werdegang</p>
-    <ol aria-labelledby="kopf-werdegang">
-      <li><b>06/2018 bis 02/2022</b> Servicekraft im Restaurant</li>
-      <li><b>09/2022 bis 10/2023</b> Weiterbildung zum Python-Programmierer, DCI, Vollzeit</li>
-      <li><b>11/2023 bis 05/2025</b> Lernprojekte in Python, ab 12/2024 erste App</li>
-      <li><b>seit 06/2025</b> selbstständig mit eigenen Produkten</li>
-    </ol>
-    <a class="kopf__link" href="#werdegang">Ganzer Werdegang</a>
-  </div>
-
-  <ol class="lage" aria-label="Acht Projekte und ihr Stand">
-    <li><a href="geschenkideen.html"><b class="lage__nr">1</b><span class="lage__name">Geschenkideen&shy;generator</span><span class="stand stand--live">live</span></a></li>
-    <li><a href="proteinvergleich.html"><b class="lage__nr">2</b><span class="lage__name">Protein&shy;vergleich</span><span class="stand stand--live">live</span></a></li>
-    <li><a href="zodiacally.html"><b class="lage__nr">3</b><span class="lage__name">Zodiacally</span><span class="stand stand--live">live</span></a></li>
-    <li><a href="outava.html"><b class="lage__nr">4</b><span class="lage__name">Outava</span><span class="stand stand--test">Testversion</span></a></li>
-    <li><a href="youtube.html"><b class="lage__nr">5</b><span class="lage__name">YouTube-Kanäle</span><span class="stand stand--live">öffentlich</span></a></li>
-    <li><a href="agenten.html"><b class="lage__nr">6</b><span class="lage__name">Agenten-Orchestrierung</span><span class="stand stand--bau">in Arbeit</span></a></li>
-    <li><a href="hoerbuch.html"><b class="lage__nr">7</b><span class="lage__name">Hörbuch-Shop</span><span class="stand stand--live">live</span></a></li>
-    <li><a href="afuku.html"><b class="lage__nr">8</b><span class="lage__name">Afuku</span><span class="stand stand--bau">in Entwicklung</span></a></li>
-  </ol>
 </section>
 
 <section class="projekte" id="projekte" aria-labelledby="projekte-titel">
@@ -535,95 +546,40 @@ if (location.protocol !== "file:") {
     <p class="projekte__vorspann">Acht Projekte aus den Jahren 2025 und 2026, alle mit Coding-Agenten gebaut, sechs davon allein.</p>
   </div>
 
-  <article class="karte karte--gross blatt" id="geschenkideen" aria-labelledby="geschenkideen-karte">
+  <article class="karte karte--gross blatt" id="zodiacally" aria-labelledby="zodiacally-karte">
     <figure class="abzug karte__bild">
       <div class="abzug__flaeche">
         <div class="abzug__rahmen">
-          <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span><span>KI-Suche, 12.11.2026</span></p>
-          <a class="abzug__bild" href="geschenkideen.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/projekte/geschenkideen-900.webp"
-                 srcset="assets/projekte/geschenkideen-900.webp 900w, assets/projekte/geschenkideen.webp 1280w"
-                 sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
-                 width="1280" height="800" loading="lazy" decoding="async"
-                 alt="Drei Produktkarten mit den Spielen Qwixx, memory und Carcassonne. Jede Karte zeigt Bild, Begründung, Preis, Altersangabe und den Hinweis Werbung.">
-          </a>
+          <p class="abzug__kopf"><span>zodiacally.com, Beispiel-Horoskop</span><span>App, Vorschau aus dem Testlauf</span></p>
+          <div class="karte__duo">
+            <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/zodiacally-900.webp"
+                   srcset="assets/projekte/zodiacally-900.webp 842w, assets/projekte/zodiacally.webp 1029w"
+                   sizes="(min-width: 1024px) 36vw, (min-width: 700px) 30vw, 60vw"
+                   width="1029" height="1100" loading="lazy" decoding="async"
+                   alt="Kreisförmiges Geburtshoroskop mit den zwölf Tierkreiszeichen, Planetensymbolen mit Gradangaben und farbigen Aspektlinien. Unten steht der Hinweis auf die Zodiacally-Ephemeride.">
+            </a>
+            <div class="clip" style="--ar: 432 / 934">
+              <img class="clip__poster" src="assets/zodiacally/tageskarte-poster.webp" width="540" height="1168" loading="lazy" decoding="async" alt="">
+              <video muted playsinline loop preload="none" width="432" height="934" aria-label="Video aus der App: Eine Kugel in den Händen einer gezeichneten Figur wird zu einem violetten Wirbel mit goldenen Strahlen. Daraus dreht sich eine Karte mit dem Namen Die Herrscherin hervor, darunter steht Venus wird direktläufig.">
+                <source src="assets/zodiacally/tageskarte-432.mp4" type="video/mp4">
+              </video>
+              <noscript><a class="clip__knopf" href="assets/zodiacally/tageskarte-432.mp4">Video öffnen</a></noscript>
+            </div>
+          </div>
         </div>
       </div>
     </figure>
     <div class="karte__text">
       <p class="karte__nr" aria-hidden="true">1</p>
-      <h3 class="karte__titel" id="geschenkideen-karte"><a href="geschenkideen.html">Geschenkideen&shy;generator</a></h3>
-      <p class="karte__kurz">Geschenkideen-Website mit KI-Suche</p>
-      <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 06/2025</span></p>
-      <ul class="karte__punkte">
-        <li>Ein bis zwei Sätze zur Person, bis zu drei Geschenke aus einem Katalog mit rund 1.300&nbsp;Einträgen</li>
-        <li>Kostenbremse: höchstens 1&nbsp;US-Dollar am Tag für die KI-Aufrufe, danach läuft die Suche ohne KI</li>
-      </ul>
-      <p class="karte__kennzeile">Im Test vom 04.11.2026 lag kein Vorschlag über dem Budget oder außerhalb der Altersgrenze, gemessen an den gespeicherten Katalogdaten.</p>
-      <p class="karte__knoepfe">
-        <a class="knopf knopf--klein" href="geschenkideen.html">Fallstudie lesen<span class="unsichtbar">: Geschenkideengenerator</span></a>
-        <a class="karte__link" href="https://geschenkideengenerator.com/" rel="noopener">geschenkideengenerator.com öffnen</a>
-      </p>
-    </div>
-  </article>
-
-  <article class="karte karte--gross karte--bild-rechts blatt" id="proteinvergleich" aria-labelledby="proteinvergleich-karte">
-    <figure class="abzug karte__bild">
-      <div class="abzug__flaeche">
-        <div class="abzug__rahmen">
-          <p class="abzug__kopf"><span>proteinvergleich.com</span><span>Vergleichstabelle, gefiltert, 12.11.2026</span></p>
-          <a class="abzug__bild" href="proteinvergleich.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/projekte/proteinvergleich-900.webp"
-                 srcset="assets/projekte/proteinvergleich-900.webp 900w, assets/projekte/proteinvergleich.webp 1800w"
-                 sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
-                 width="1800" height="1125" loading="lazy" decoding="async"
-                 alt="Tabelle mit 51 Proteinpulvern, gefiltert auf vegan, ohne künstliche Süßstoffe und eine Packungsgröße. Jede Zeile zeigt Marke, Produkt, ein gelbes Preisschild, den Proteingehalt und die Nährwerte.">
-          </a>
-        </div>
-      </div>
-    </figure>
-    <div class="karte__text">
-      <p class="karte__nr" aria-hidden="true">2</p>
-      <h3 class="karte__titel" id="proteinvergleich-karte"><a href="proteinvergleich.html">Protein&shy;vergleich</a></h3>
-      <p class="karte__kurz">Preisvergleich für 439&nbsp;Proteinpulver von 79&nbsp;Marken</p>
-      <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 11/2026</span></p>
-      <ul class="karte__punkte">
-        <li>Am 01.11.2026 um 11:26&nbsp;Uhr angelegt, um 13:50&nbsp;Uhr online, 1.000&nbsp;Besucher am ersten Tag</li>
-        <li>Jede Produktseite ordnet den Preis in einem Satz ein, zum Beispiel: günstiger als bei 44&nbsp;von 75&nbsp;anderen Produkten</li>
-      </ul>
-      <p class="karte__kennzeile">Ein automatischer Lauf prüft jeden Morgen die Preise in den Shops, die das zulassen.</p>
-      <p class="karte__knoepfe">
-        <a class="knopf knopf--klein" href="proteinvergleich.html">Fallstudie lesen<span class="unsichtbar">: Proteinvergleich</span></a>
-        <a class="karte__link" href="https://www.proteinvergleich.com/" rel="noopener">proteinvergleich.com öffnen</a>
-      </p>
-    </div>
-  </article>
-
-  <article class="karte karte--gross karte--rund blatt" id="zodiacally" aria-labelledby="zodiacally-karte">
-    <figure class="abzug karte__bild">
-      <div class="abzug__flaeche">
-        <div class="abzug__rahmen">
-          <p class="abzug__kopf"><span>zodiacally.com</span><span>Beispiel-Horoskop</span></p>
-          <a class="abzug__bild" href="zodiacally.html" tabindex="-1" aria-hidden="true">
-            <img src="assets/projekte/zodiacally-900.webp"
-                 srcset="assets/projekte/zodiacally-900.webp 842w, assets/projekte/zodiacally.webp 1029w"
-                 sizes="(min-width: 1024px) 36vw, (min-width: 700px) 40vw, 92vw"
-                 width="1029" height="1100" loading="lazy" decoding="async"
-                 alt="Kreisförmiges Geburtshoroskop mit den zwölf Tierkreiszeichen, Planetensymbolen mit Gradangaben und farbigen Aspektlinien. Unten steht der Hinweis auf die Zodiacally-Ephemeride.">
-          </a>
-        </div>
-      </div>
-    </figure>
-    <div class="karte__text">
-      <p class="karte__nr" aria-hidden="true">3</p>
       <h3 class="karte__titel" id="zodiacally-karte"><a href="zodiacally.html">Zodiacally</a></h3>
       <p class="karte__kurz">Astrologie-Plattform als Website und Android-App, mit eigener Rechenengine und KI-Texten</p>
       <p class="karte__stand"><span class="stand stand--live">Website live, App bei Google Play</span> <span>· seit 07/2025, nach einer Pause wieder seit 04/2026</span></p>
       <ul class="karte__punkte">
         <li>Eigene Rechenengine für Planetenpositionen: bei Sonne und Mond weniger als ein Hunderttausendstel Grad Abweichung von der Rechenbibliothek Swiss Ephemeris</li>
-        <li>Anmeldung mit Konto, bezahlt wird über Stripe</li>
+        <li>Messbericht und Code der Rechenengine sind öffentlich einsehbar</li>
+        <li>In der App zieht man jeden Tag eine Karte: Welche es ist, folgt aus dem berechneten Himmel, ohne Zufall</li>
       </ul>
-      <p class="karte__kennzeile">Messbericht und Code der Rechenengine sind öffentlich einsehbar.</p>
       <p class="karte__knoepfe">
         <a class="knopf knopf--klein" href="zodiacally.html">Fallstudie lesen<span class="unsichtbar">: Zodiacally</span></a>
         <a class="karte__link" href="https://www.zodiacally.com/de/ephemeris/" rel="noopener">Messseite auf zodiacally.com</a>
@@ -632,89 +588,78 @@ if (location.protocol !== "file:") {
     </div>
   </article>
 
-  <div class="karten blatt">
-
-    <article class="karte karte--klein" id="outava" aria-labelledby="outava-karte">
-      <figure class="abzug karte__bild">
-        <div class="abzug__flaeche">
-          <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>App, Bilder aus dem Testlauf</span><span>KI-Symbolbilder</span></p>
-            <a class="abzug__bild" href="outava.html" tabindex="-1" aria-hidden="true">
-              <span class="karte__paar">
-                <img src="assets/outava/stapel-900.webp"
-                     width="416" height="900" loading="lazy" decoding="async"
-                     alt="Eine große Veranstaltungskarte mit dem Foto eines gedeckten Restauranttischs, darunter Titel, Stadtteil, Uhrzeit und Preis.">
-                <img src="assets/outava/start-900.webp"
-                     width="416" height="900" loading="lazy" decoding="async"
-                     alt="App-Startseite „Heute in Hamburg“ mit einem Kasten „Stapel starten“, einem Suchfeld, Schnellfiltern wie Heute und Wochenende und einer großen Veranstaltungskarte.">
-              </span>
-            </a>
-          </div>
+  <article class="karte karte--gross karte--bild-rechts blatt" id="outava" aria-labelledby="outava-karte">
+    <figure class="abzug karte__bild">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>App, Bilder aus dem Testlauf</span><span>KI-Symbolbilder</span></p>
+          <a class="abzug__bild" href="outava.html" tabindex="-1" aria-hidden="true">
+            <span class="karte__paar">
+              <img src="assets/outava/stapel-900.webp"
+                   width="416" height="900" loading="lazy" decoding="async"
+                   alt="Eine große Veranstaltungskarte mit dem Foto eines gedeckten Restauranttischs, darunter Titel, Stadtteil, Uhrzeit und Preis.">
+              <img src="assets/outava/start-900.webp"
+                   width="416" height="900" loading="lazy" decoding="async"
+                   alt="App-Startseite „Heute in Hamburg“ mit einem Kasten „Stapel starten“, einem Suchfeld, Schnellfiltern wie Heute und Wochenende und einer großen Veranstaltungskarte.">
+            </span>
+          </a>
         </div>
-      </figure>
-      <div class="karte__text">
-        <h3 class="karte__titel" id="outava-karte"><a href="outava.html"><span class="karte__nr" aria-hidden="true">4</span> Outava</a></h3>
-        <p class="karte__kurz">Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide</p>
-        <p class="karte__stand"><span class="stand stand--test">Testversion, nicht im Store</span> <span>· seit 05/2026, letzter Stand 10/2026</span></p>
-        <p class="karte__anteil">Gemeinsames Projekt mit einem Geschäftspartner. Mein Teil: die gesamte Technik.</p>
-        <p class="karte__kennzeile">Empfehlungssystem von Grund auf gebaut: Mit Einwilligung lernt der Kartenstapel aus jedem Wisch.</p>
-        <p class="karte__knoepfe">
-          <a class="knopf knopf--klein" href="outava.html">Fallstudie lesen<span class="unsichtbar">: Outava</span></a>
-        </p>
       </div>
-    </article>
+    </figure>
+    <div class="karte__text">
+      <p class="karte__nr" aria-hidden="true">2</p>
+      <h3 class="karte__titel" id="outava-karte"><a href="outava.html">Outava</a></h3>
+      <p class="karte__kurz">Event-App für Hamburg mit Kartenstapel, Suche und KI-Guide</p>
+      <p class="karte__stand"><span class="stand stand--test">Testversion, nicht im Store</span> <span>· seit 05/2026, letzter Stand 10/2026</span></p>
+      <ul class="karte__punkte">
+        <li>Empfehlungssystem von Grund auf gebaut: Mit Einwilligung lernt der Kartenstapel aus jedem Wisch</li>
+        <li>Jede Veranstaltung bekommt 0&nbsp;bis 100&nbsp;Punkte aus Interessen, Zeitpunkt, Nachfrage, Trend und vollständigen Angaben</li>
+        <li>KI-Guide: Das Sprachmodell füllt nur ein festes Schema aus, die Vorschläge ordnet der Server</li>
+      </ul>
+      <p class="karte__anteil">Gemeinsames Projekt mit einem Geschäftspartner. Mein Teil: die gesamte Technik.</p>
+      <p class="karte__knoepfe">
+        <a class="knopf knopf--klein" href="outava.html">Fallstudie lesen<span class="unsichtbar">: Outava</span></a>
+      </p>
+    </div>
+  </article>
 
-    <article class="karte karte--klein" id="youtube" aria-labelledby="youtube-karte">
-      <figure class="abzug karte__bild">
-        <div class="abzug__flaeche">
-          <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Hörgeschichte, Standbild</span><span>KI-Bild</span></p>
-            <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/youtube-900.webp"
-                   srcset="assets/projekte/youtube-900.webp 900w, assets/projekte/youtube.webp 1152w"
-                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
-                   width="1152" height="720" loading="lazy" decoding="async"
-                   alt="Zwei Zelte nachts im Wald, eines grün, eines rot mit einer Laterne. Dazwischen weiße Balken einer Tonspur, oben rechts das Etikett Horror-Hörbuch.">
-            </a>
-          </div>
+  <article class="karte karte--gross blatt" id="afuku" aria-labelledby="afuku-karte">
+    <figure class="abzug karte__bild">
+      <div class="abzug__flaeche">
+        <div class="abzug__rahmen">
+          <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Kräuterhain, Testlauf</span></p>
+          <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/projekte/afuku-900.webp"
+                 srcset="assets/projekte/afuku-900.webp 900w, assets/projekte/afuku.webp 1400w"
+                 sizes="(min-width: 1024px) 58vw, (min-width: 700px) 48vw, 92vw"
+                 width="1400" height="875" loading="lazy" decoding="async"
+                 alt="Blick von schräg oben auf einen kleinen Brunnen mit Wasserrinne zwischen blühenden Büschen, einem Beet mit Lavendel und Steinplatten auf einem Sandweg. Kael mit rotem Schal steht neben dem Brunnen.">
+          </a>
         </div>
-      </figure>
-      <div class="karte__text">
-        <h3 class="karte__titel" id="youtube-karte"><a href="youtube.html"><span class="karte__nr" aria-hidden="true">5</span> YouTube-Kanäle</a></h3>
-        <p class="karte__kurz">Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten</p>
-        <p class="karte__stand"><span class="stand stand--live">öffentlich</span> <span>· seit 08/2026</span></p>
-        <p class="karte__kennzeile">Bei Zodiacally entsteht jede Folge in einem geplanten Lauf, von der Recherche bis zum eingeplanten Upload.</p>
-        <p class="karte__knoepfe">
-          <a class="knopf knopf--klein" href="youtube.html">Fallstudie lesen<span class="unsichtbar">: YouTube-Kanäle</span></a>
-        </p>
       </div>
-    </article>
+    </figure>
+    <div class="karte__text">
+      <p class="karte__nr" aria-hidden="true">3</p>
+      <h3 class="karte__titel" id="afuku-karte"><a href="afuku.html">Afuku</a></h3>
+      <p class="karte__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</p>
+      <p class="karte__stand"><span class="stand stand--bau">in Entwicklung</span> <span>· seit 09/2026</span></p>
+      <ul class="karte__punkte">
+        <li>Eine Stadt und vier Dungeon-Ebenen laufen als Entwicklungsfassung</li>
+        <li>Coding-Agenten arbeiten über MCP-Server direkt im Unreal-Editor und in Blender, Levels und 3D-Modelle entstehen per Skript</li>
+        <li>Neu seit November 2026: der Verwachsene Hof, ein Erkundungsgebiet</li>
+      </ul>
+      <p class="karte__anteil">Zu zweit entwickelt. Mein Teil: Projektleitung und Entscheidungen, der Dungeon und das heutige Aussehen der Hauptfigur.</p>
+      <p class="karte__knoepfe">
+        <a class="knopf knopf--klein" href="afuku.html">Fallstudie lesen<span class="unsichtbar">: Afuku</span></a>
+      </p>
+    </div>
+  </article>
 
-    <article class="karte karte--klein" id="agenten" aria-labelledby="agenten-karte">
-      <figure class="abzug karte__bild">
-        <div class="abzug__flaeche">
-          <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Aufgaben-Board, erster Versuch</span><span>Stand 29.09.2026</span></p>
-            <a class="abzug__bild" href="agenten.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/agenten-900.webp"
-                   srcset="assets/projekte/agenten-900.webp 900w, assets/projekte/agenten.webp 1400w"
-                   sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
-                   width="1400" height="875" loading="lazy" decoding="async"
-                   alt="Board mit den Spalten Wartet, Läuft, Zur Prüfung, Blockiert und Erledigt. Der Filter Afuku ist gewählt. In den Spalten liegen sieben Aufgabenkarten mit Titel und zuständiger Rolle.">
-            </a>
-          </div>
-        </div>
-      </figure>
-      <div class="karte__text">
-        <h3 class="karte__titel" id="agenten-karte"><a href="agenten.html"><span class="karte__nr" aria-hidden="true">6</span> Agenten-Orchestrierung</a></h3>
-        <p class="karte__kurz">Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht</p>
-        <p class="karte__stand"><span class="stand stand--bau">in Arbeit</span> <span>· seit 09/2026</span></p>
-        <p class="karte__kennzeile">Erst ein Versuch mit 35&nbsp;Rollen, am 05.10.2026 angehalten. Heute laufen einzelne, feste Abläufe je Projekt.</p>
-        <p class="karte__knoepfe">
-          <a class="knopf knopf--klein" href="agenten.html">Fallstudie lesen<span class="unsichtbar">: Agenten-Orchestrierung</span></a>
-        </p>
-      </div>
-    </article>
+  <div class="blatt projekte__weitere">
+    <p class="projekte__weitere-titel">Weitere Projekte</p>
+  </div>
+
+  <div class="karten karten--zwei blatt">
 
     <article class="karte karte--klein" id="hoerbuch" aria-labelledby="hoerbuch-karte">
       <figure class="abzug karte__bild">
@@ -732,7 +677,7 @@ if (location.protocol !== "file:") {
         </div>
       </figure>
       <div class="karte__text">
-        <h3 class="karte__titel" id="hoerbuch-karte"><a href="hoerbuch.html"><span class="karte__nr" aria-hidden="true">7</span> Hörbuch-Shop</a></h3>
+        <h3 class="karte__titel" id="hoerbuch-karte"><a href="hoerbuch.html"><span class="karte__nr" aria-hidden="true">4</span> Hörbuch-Shop</a></h3>
         <p class="karte__kurz">Online-Shop für mein Hörbuch mit KI-Stimmen, unter meinem Autorennamen</p>
         <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 10/2026</span></p>
         <p class="karte__kennzeile">Kaufablauf mit echter Kartenzahlung am 23.10.2026 geprüft.</p>
@@ -743,29 +688,112 @@ if (location.protocol !== "file:") {
       </div>
     </article>
 
-    <article class="karte karte--klein" id="afuku" aria-labelledby="afuku-karte">
+    <article class="karte karte--klein" id="youtube" aria-labelledby="youtube-karte">
       <figure class="abzug karte__bild">
         <div class="abzug__flaeche">
           <div class="abzug__rahmen">
-            <p class="abzug__kopf"><span>Afuku, Entwicklungsfassung</span><span>Hauptmenü</span></p>
-            <a class="abzug__bild" href="afuku.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projekte/afuku-900.webp"
-                   srcset="assets/projekte/afuku-900.webp 900w, assets/projekte/afuku.webp 1440w"
+            <p class="abzug__kopf"><span>Zodiacally, Folge 26</span><span>Standbild</span></p>
+            <a class="abzug__bild" href="youtube.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/youtube-900.webp"
+                   srcset="assets/projekte/youtube-900.webp 900w, assets/projekte/youtube.webp 1440w"
                    sizes="(min-width: 1024px) 44vw, (min-width: 700px) 44vw, 92vw"
                    width="1440" height="900" loading="lazy" decoding="async"
-                   alt="Titelbild mit dem Schriftzug Afuku und den Menüpunkten Fortsetzen, Neues Spiel, Spielstand laden, Optionen und Beenden. Rechts ein gepflasterter Platz mit Lagerfeuer, gesehen von schräg oben.">
+                   alt="Titelbild eines Erklärvideos auf dunkelblauem Sternenhimmel: links drei Planeten, daneben die Schrift „Uranus, Neptun, Pluto, die Generationsplaneten“. Unten steht ein Untertitel.">
             </a>
           </div>
         </div>
       </figure>
       <div class="karte__text">
-        <h3 class="karte__titel" id="afuku-karte"><a href="afuku.html"><span class="karte__nr" aria-hidden="true">8</span> Afuku</a></h3>
-        <p class="karte__kurz">Actionspiel für den PC in Unreal Engine&nbsp;5</p>
-        <p class="karte__stand"><span class="stand stand--bau">in Entwicklung</span> <span>· seit 09/2026</span></p>
-        <p class="karte__anteil">Zu zweit entwickelt. Mein Teil: Projektleitung und Entscheidungen, der Dungeon und das heutige Aussehen der Hauptfigur.</p>
-        <p class="karte__kennzeile">Eine Stadt und vier Dungeon-Ebenen laufen als Entwicklungsfassung.</p>
+        <h3 class="karte__titel" id="youtube-karte"><a href="youtube.html"><span class="karte__nr" aria-hidden="true">5</span> YouTube-Kanäle</a></h3>
+        <p class="karte__kurz">Hörgeschichten und Astrologie-Erklärvideos auf Deutsch, produziert von KI-Agenten</p>
+        <p class="karte__stand"><span class="stand stand--live">öffentlich</span> <span>· seit 08/2026</span></p>
+        <p class="karte__kennzeile">Bei Zodiacally entsteht jede Folge in einem geplanten Lauf, von der Recherche bis zum eingeplanten Upload.</p>
         <p class="karte__knoepfe">
-          <a class="knopf knopf--klein" href="afuku.html">Fallstudie lesen<span class="unsichtbar">: Afuku</span></a>
+          <a class="knopf knopf--klein" href="youtube.html">Fallstudie lesen<span class="unsichtbar">: YouTube-Kanäle</span></a>
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="karten karten--drei blatt">
+
+    <article class="karte karte--klein" id="agenten" aria-labelledby="agenten-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>Aufgaben-Board, erster Versuch</span><span>Stand 29.09.2026</span></p>
+            <a class="abzug__bild" href="agenten.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/agenten-900.webp"
+                   srcset="assets/projekte/agenten-900.webp 900w, assets/projekte/agenten.webp 1400w"
+                   sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                   width="1400" height="875" loading="lazy" decoding="async"
+                   alt="Board mit den Spalten Wartet, Läuft, Zur Prüfung, Blockiert und Erledigt. Der Filter Afuku ist gewählt. In den Spalten liegen sieben Aufgabenkarten mit Titel und zuständiger Rolle.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="agenten-karte"><a href="agenten.html"><span class="karte__nr" aria-hidden="true">6</span> Agenten-Orchestrierung</a></h3>
+        <p class="karte__kurz">Abläufe mit KI-Agenten für meine Projekte, zu mir kommt nur, was mich braucht</p>
+        <p class="karte__stand"><span class="stand stand--bau">in Arbeit</span> <span>· seit 09/2026</span></p>
+        <p class="karte__kennzeile">Erst ein Versuch mit 35&nbsp;Rollen, am 05.10.2026 angehalten. Heute laufen einzelne, feste Abläufe je Projekt.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="agenten.html">Fallstudie lesen<span class="unsichtbar">: Agenten-Orchestrierung</span></a>
+        </p>
+      </div>
+    </article>
+
+    <article class="karte karte--klein" id="proteinvergleich" aria-labelledby="proteinvergleich-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>proteinvergleich.com</span><span>Vergleichstabelle, gefiltert, 12.11.2026</span></p>
+            <a class="abzug__bild" href="proteinvergleich.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/proteinvergleich-900.webp"
+                   srcset="assets/projekte/proteinvergleich-900.webp 900w, assets/projekte/proteinvergleich.webp 1800w"
+                   sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                   width="1800" height="1125" loading="lazy" decoding="async"
+                   alt="Tabelle mit 51 Proteinpulvern, gefiltert auf vegan, ohne künstliche Süßstoffe und eine Packungsgröße. Jede Zeile zeigt Marke, Produkt, ein gelbes Preisschild, den Proteingehalt und die Nährwerte.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="proteinvergleich-karte"><a href="proteinvergleich.html"><span class="karte__nr" aria-hidden="true">7</span> Protein&shy;vergleich</a></h3>
+        <p class="karte__kurz">Preisvergleich für 439&nbsp;Proteinpulver von 79&nbsp;Marken</p>
+        <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 11/2026</span></p>
+        <p class="karte__kennzeile">Am 01.11.2026 um 11:26&nbsp;Uhr angelegt, um 13:50&nbsp;Uhr online, 1.000&nbsp;Besucher am ersten Tag.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="proteinvergleich.html">Fallstudie lesen<span class="unsichtbar">: Proteinvergleich</span></a>
+          <a class="karte__link" href="https://www.proteinvergleich.com/" rel="noopener">Live-Seite öffnen<span class="unsichtbar">: proteinvergleich.com</span></a>
+        </p>
+      </div>
+    </article>
+
+    <article class="karte karte--klein" id="geschenkideen" aria-labelledby="geschenkideen-karte">
+      <figure class="abzug karte__bild">
+        <div class="abzug__flaeche">
+          <div class="abzug__rahmen">
+            <p class="abzug__kopf"><span>geschenkideen<wbr>generator.com</span><span>KI-Suche, 12.11.2026</span></p>
+            <a class="abzug__bild" href="geschenkideen.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/projekte/geschenkideen-900.webp"
+                   srcset="assets/projekte/geschenkideen-900.webp 900w, assets/projekte/geschenkideen.webp 1280w"
+                   sizes="(min-width: 1024px) 30vw, (min-width: 700px) 44vw, 92vw"
+                   width="1280" height="800" loading="lazy" decoding="async"
+                   alt="Drei Produktkarten mit den Spielen Qwixx, memory und Carcassonne. Jede Karte zeigt Bild, Begründung, Preis, Altersangabe und den Hinweis Werbung.">
+            </a>
+          </div>
+        </div>
+      </figure>
+      <div class="karte__text">
+        <h3 class="karte__titel" id="geschenkideen-karte"><a href="geschenkideen.html"><span class="karte__nr" aria-hidden="true">8</span> Geschenkideen&shy;generator</a></h3>
+        <p class="karte__kurz">Geschenkideen-Website mit KI-Suche</p>
+        <p class="karte__stand"><span class="stand stand--live">live</span> <span>· seit 06/2025</span></p>
+        <p class="karte__kennzeile">Kostenbremse: höchstens 1&nbsp;US-Dollar am Tag für die KI-Aufrufe, danach läuft die Suche ohne KI.</p>
+        <p class="karte__knoepfe">
+          <a class="knopf knopf--klein" href="geschenkideen.html">Fallstudie lesen<span class="unsichtbar">: Geschenkideengenerator</span></a>
+          <a class="karte__link" href="https://geschenkideengenerator.com/" rel="noopener">Live-Seite öffnen<span class="unsichtbar">: geschenkideengenerator.com</span></a>
         </p>
       </div>
     </article>
